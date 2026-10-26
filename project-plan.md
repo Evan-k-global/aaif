@@ -90,6 +90,8 @@ A real Ethereum verification profile is a separately budgeted deployment milesto
 
 ## All-AAIF compatibility path
 
+The [ecosystem folder](ecosystem/README.md) explains the strongest project connections and their proposed workflows separately from the runnable integration and implementation backlog. It includes an individual guide for MCP, goose, agentgateway, A2A and OpenSandbox, plus the supporting map for the other hosted projects.
+
 Reuse one versioned state/action interface and add narrow adapters rather than a bespoke protocol for every pair. This can reduce integration sprawl where semantics align; it does not eliminate all N:N relationships or business-policy differences.
 
 MCP is the first executable interface. Next choose one practical client/gateway, such as goose or agentgateway, then A2A task/artifact binding. Map Agent Router, Open Responses, OpenSandbox, OpenEnv, Agent Skills and AGENTS.md to their relevant boundaries. Instruction formats, runtimes and transport protocols need different tests. See the [compatibility matrix](compatibility.md); there is no current claim of compatibility with every hosted project. Refresh the roster before filing and before adding commitments.

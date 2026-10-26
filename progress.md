@@ -2,6 +2,8 @@
 
 ## 26 October 2026
 
+- Added the ecosystem folder: individual connection guides for MCP, goose, agentgateway, A2A and OpenSandbox, plus a supporting map covering the remaining hosted projects. Each separates proposed value from tested integration evidence.
+
 - User authorized publishing the full package through the fork and a PR into zeko-labs/aaif for GitHub review, superseding the earlier pre-review publication hold. Manual merge and zekoxyz-only official filing remain separate.
 
 - Recorded owner-supplied core repository, maintainers, application contact, financial support, contributing entity and signatory details in the local application.

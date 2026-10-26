@@ -44,6 +44,8 @@ Other AAIF projects remain complementary: A2A can carry task/artifact references
 
 The [compatibility matrix](compatibility.md) records tested versus planned boundaries. We propose versioned profiles and reference tests to reduce bespoke pairwise integration, without replacing existing identity, transport or task protocols. ID-JAG is an authorization-flow component, not a replacement for application authority checks or a token to send directly to an MCP resource.
 
+The [ecosystem guides](ecosystem/README.md) separately map the strongest connections to MCP, goose, agentgateway, A2A and OpenSandbox, with a supporting map for the other hosted projects. Each guide explains the proposed shared-state benefit, current evidence and the next validation required.
+
 ## Example Use Cases and Evidence of Adoption
 
 Initial users are enterprises operating agent fleets, developers of cross-organization agent services, and applications where multiple parties must coordinate resources, commitments or payments under shared rules.

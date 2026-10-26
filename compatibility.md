@@ -2,6 +2,8 @@
 
 This is the integration backlog for the AAIF application, not a compatibility claim or an outreach schedule. First: MCP enterprise-managed access into a mission-authorized Zeko state action.
 
+The [ecosystem guides](ecosystem/README.md) explain the strongest project connections, concrete benefits and what each integration needs to demonstrate. The matrix below remains the implementation-status checklist.
+
 | Surface | Work | Status |
 | --- | --- | --- |
 | MCP | Enterprise-managed authorization; `reserve_resource` tool; action/result correlation | Official SDK client/server work in local HTTPS sandbox; two client registrations tested |

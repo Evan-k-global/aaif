@@ -23,6 +23,7 @@ Read our [public-good purpose and sovereignty principles](PUBLIC_GOOD.md). Zeko 
 - [Technology compatibility kit](tck/README.md)
 - [ID-JAG integration](integrations/id-jag/README.md)
 - [Compatibility backlog](compatibility.md)
+- [How AAIF projects connect to Zeko](ecosystem/README.md)
 - [Local validation evidence](evidence/2026-10-26-local-validation.md)
 - [Current sandbox evidence](evidence/README.md)
 - [Current core candidate and passing CI](evidence/core-candidate-2026-10-26.md)
