@@ -1,0 +1,21 @@
+{
+  "checked_on": "2026-10-26",
+  "ietf": {
+    "document": "draft-ietf-oauth-identity-assertion-authz-grant",
+    "revision": "04",
+    "status": "Internet-Draft",
+    "url": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-identity-assertion-authz-grant-04"
+  },
+  "mcp": {
+    "extension": "io.modelcontextprotocol/enterprise-managed-authorization",
+    "revision": "2026-07-28",
+    "repository": "modelcontextprotocol/ext-auth",
+    "commit": "15ca394e00a66434520b9ade26294999295a43ae",
+    "blob": "5f5f4e5c25d0ff16d1df29dd58c867aa8fce512f"
+  },
+  "implemented_scope": "Client-side OIDC-assertion to ID-JAG to resource access-token helper; controlled-double tests only.",
+  "live_provider": null,
+  "resource_authorization_server": null,
+  "mcp_server": null,
+  "full_profile_conformance": false
+}

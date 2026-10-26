@@ -1,0 +1,15 @@
+# Contributor instructions
+
+Use the Evan-k-global fork and open a PR to zeko-labs/aaif. Leave merging to the maintainer.
+
+The user has authorized publishing the full package for review on GitHub, superseding the earlier pre-review push hold. Push to Evan-k-global/aaif and open a PR into zeko-labs/aaif; leave merging to the maintainer. This does not authorize filing the official AAIF issue.
+
+Preserve the repository's public-good purpose: free open-source work for AI freedom, sovereignty and privacy, with dated reproducible evidence and open participation. Let that commitment stand on its own; do not qualify it with language about AAIF acceptance or rejection. Distinguish the commitment to neutral stewardship from independent governance not yet established. Never backdate a GitHub publication or present local-only work as already published.
+
+Do not create the official AAIF submission. The user requires its issue author to be zekoxyz, not Evan-k-global. Prepare reviewable documents and manual form instructions only. No credentials or SSH control for zekoxyz are available. Repository PR authorship and official AAIF submission authorship are separate.
+
+Use Node.js 24 and `npm ci --ignore-scripts`. Run `npm run test:sandbox` and the applicable TCK profile after changing its implementation. `npm run sandbox:evidence` generates a redacted local evidence report for both profiles. Real application proofs are local and use no funded wallet or deployed contract.
+
+Keep generated TLS keys, caches, environment credentials and node_modules untracked. The local IdP automatically authorizes a synthetic user for protocol testing and is not a production identity provider. Keep sandbox, commercial-provider, core-rollup and Ethereum-settlement evidence labels explicit.
+
+Reuse the pinned AMBA dependency. Preserve the core protocol/application code in its canonical repository. Update the version pins and evidence record when changing the integration boundary.

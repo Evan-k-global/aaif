@@ -1,0 +1,416 @@
+{
+  "format": "zeko-aaif-cases-v1",
+  "profile": "id-jag-mcp-v0.1",
+  "cases": [
+    {
+      "id": "IJ-AUTHORIZED",
+      "requirements": [
+        "IJ-01",
+        "IJ-05",
+        "IJ-06"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "none"
+        }
+      ],
+      "expected": {
+        "authorized": true,
+        "effectAttempts": 1
+      }
+    },
+    {
+      "id": "IJ-IDP-DENIED",
+      "requirements": [
+        "IJ-02"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "idp-policy-denied"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "idp"
+      }
+    },
+    {
+      "id": "IJ-WRONG-ISSUER",
+      "requirements": [
+        "IJ-03"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "grant-from-untrusted-issuer"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource-as"
+      }
+    },
+    {
+      "id": "IJ-WRONG-AUDIENCE",
+      "requirements": [
+        "IJ-03"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "grant-for-other-authorization-server"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource-as"
+      }
+    },
+    {
+      "id": "IJ-WRONG-CLIENT",
+      "requirements": [
+        "IJ-03",
+        "IJ-04"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "grant-bound-to-different-client"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource-as"
+      }
+    },
+    {
+      "id": "IJ-WRONG-RESOURCE",
+      "requirements": [
+        "IJ-04",
+        "IJ-05"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "access-token-for-other-resource"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource"
+      }
+    },
+    {
+      "id": "IJ-EXPIRED",
+      "requirements": [
+        "IJ-03"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "expired-grant"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource-as"
+      }
+    },
+    {
+      "id": "IJ-WRONG-TENANT",
+      "requirements": [
+        "IJ-04"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "cross-tenant-subject-collision"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0
+      }
+    },
+    {
+      "id": "IJ-ID-TOKEN-CONFUSION",
+      "requirements": [
+        "IJ-05"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "identity-token-as-resource-bearer"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource"
+      }
+    },
+    {
+      "id": "IJ-GRANT-CONFUSION",
+      "requirements": [
+        "IJ-05"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "id-jag-as-resource-bearer"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource"
+      }
+    },
+    {
+      "id": "IJ-MISSION-DENIED",
+      "requirements": [
+        "IJ-06"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "valid-access-token-mission-out-of-scope"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "mission-gate"
+      }
+    },
+    {
+      "id": "IJ-DOWNSCOPED",
+      "requirements": [
+        "IJ-04"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "access-granted-without-reserve-scope"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource"
+      }
+    },
+    {
+      "id": "IJ-NO-SECRET-EXPORT",
+      "requirements": [
+        "IJ-07"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "none"
+        }
+      ],
+      "expected": {
+        "authorized": true,
+        "exportContainsCredentials": false,
+        "publicStateContainsIdentity": false
+      }
+    },
+    {
+      "id": "IJ-RESOURCE-AS-DENIED",
+      "requirements": [
+        "IJ-03"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "resource-as-policy-denied"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource-as"
+      }
+    },
+    {
+      "id": "IJ-BAD-SIGNATURE",
+      "requirements": [
+        "IJ-03"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "grant-bad-signature"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource-as"
+      }
+    },
+    {
+      "id": "IJ-NONE-ALGORITHM",
+      "requirements": [
+        "IJ-03"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "grant-none-algorithm"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource-as"
+      }
+    },
+    {
+      "id": "IJ-FUTURE-GRANT",
+      "requirements": [
+        "IJ-03"
+      ],
+      "setup": {
+        "mcpProfile": "2026-07-28",
+        "idJagDraft": "04",
+        "resource": "https://resource.tck.example/mcp",
+        "resourceAuthorizationServer": "https://auth.tck.example/",
+        "quantity": 70
+      },
+      "steps": [
+        {
+          "op": "enterprise-access-and-reserve",
+          "mutation": "grant-future-nbf"
+        }
+      ],
+      "expected": {
+        "authorized": false,
+        "effectAttempts": 0,
+        "rejectedAt": "resource-as"
+      }
+    }
+  ]
+}

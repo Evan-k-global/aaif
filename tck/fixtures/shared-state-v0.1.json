@@ -1,0 +1,403 @@
+{
+  "format": "zeko-aaif-cases-v1",
+  "profile": "zeko-shared-state-v0.1",
+  "cases": [
+    {
+      "id": "SS-AUTHORIZED",
+      "requirements": [
+        "SS-01",
+        "SS-07"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid"
+        }
+      ],
+      "expected": {
+        "accepted": 1,
+        "effects": 1,
+        "remaining": 30
+      }
+    },
+    {
+      "id": "SS-CHANGED-INPUT",
+      "requirements": [
+        "SS-01"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid-for-different-amount"
+        }
+      ],
+      "expected": {
+        "accepted": 0,
+        "effects": 0,
+        "remaining": 100
+      }
+    },
+    {
+      "id": "SS-REPLAY",
+      "requirements": [
+        "SS-03"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid"
+        },
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid"
+        }
+      ],
+      "expected": {
+        "accepted": 1,
+        "effects": 1,
+        "remaining": 30
+      }
+    },
+    {
+      "id": "SS-CONCURRENT",
+      "requirements": [
+        "SS-02"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "concurrent",
+          "requests": [
+            {
+              "op": "reserve",
+              "units": 70,
+              "actionId": "action-1",
+              "evidence": "valid"
+            },
+            {
+              "op": "reserve",
+              "units": 70,
+              "actionId": "action-2",
+              "evidence": "valid",
+              "caller": "client-b"
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "accepted": 1,
+        "rejected": 1,
+        "effects": 1,
+        "remaining": 30
+      }
+    },
+    {
+      "id": "SS-STALE-STATE",
+      "requirements": [
+        "SS-02"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 30,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 20,
+          "actionId": "action-1",
+          "evidence": "valid-for-prior-state"
+        }
+      ],
+      "expected": {
+        "accepted": 0,
+        "effects": 0,
+        "remaining": 30
+      }
+    },
+    {
+      "id": "SS-WRONG-DOMAIN",
+      "requirements": [
+        "SS-04"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid-for-different-domain"
+        }
+      ],
+      "expected": {
+        "accepted": 0,
+        "effects": 0,
+        "remaining": 100
+      }
+    },
+    {
+      "id": "SS-TAMPERED-PROOF",
+      "requirements": [
+        "SS-04"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "tampered-proof"
+        }
+      ],
+      "expected": {
+        "accepted": 0,
+        "effects": 0,
+        "remaining": 100
+      }
+    },
+    {
+      "id": "SS-WRONG-KEY",
+      "requirements": [
+        "SS-04"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid-under-untrusted-key"
+        }
+      ],
+      "expected": {
+        "accepted": 0,
+        "effects": 0,
+        "remaining": 100
+      }
+    },
+    {
+      "id": "SS-EXPIRED",
+      "requirements": [
+        "SS-05"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 999,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid"
+        }
+      ],
+      "expected": {
+        "accepted": 0,
+        "effects": 0,
+        "remaining": 100
+      }
+    },
+    {
+      "id": "SS-REVOKED",
+      "requirements": [
+        "SS-05"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "revoke-mission"
+        },
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid"
+        }
+      ],
+      "expected": {
+        "accepted": 0,
+        "effects": 0,
+        "remaining": 100
+      }
+    },
+    {
+      "id": "SS-NO-DOWNGRADE",
+      "requirements": [
+        "SS-06"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "disable-required-verifier"
+        },
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid"
+        }
+      ],
+      "expected": {
+        "accepted": 0,
+        "effects": 0,
+        "remaining": 100
+      }
+    },
+    {
+      "id": "SS-UNKNOWN-EFFECT",
+      "requirements": [
+        "SS-07"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid",
+          "effectResponse": "disconnect-after-dispatch"
+        },
+        {
+          "op": "reconcile-before-retry"
+        }
+      ],
+      "expected": {
+        "outcome": "unknown",
+        "effectAttempts": 1,
+        "retryAuthorized": false
+      }
+    },
+    {
+      "id": "SS-INDEPENDENT-VERIFY",
+      "requirements": [
+        "SS-08"
+      ],
+      "setup": {
+        "domain": "tck-domain-a",
+        "initialQuota": 100,
+        "now": 1000,
+        "missionExpiresAt": 1200,
+        "requiredAcceptance": "proof-verified-state",
+        "holder": "holder-a",
+        "verificationKey": "pinned-application-key"
+      },
+      "steps": [
+        {
+          "op": "reserve",
+          "units": 70,
+          "actionId": "action-1",
+          "evidence": "valid"
+        },
+        {
+          "op": "verify-receipt-in-independent-process",
+          "originatingSession": false
+        }
+      ],
+      "expected": {
+        "accepted": 1,
+        "independentVerification": true
+      }
+    }
+  ]
+}
