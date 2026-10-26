@@ -10,6 +10,8 @@ Do not create the official AAIF submission. The user requires its issue author t
 
 Use Node.js 24 and `npm ci --ignore-scripts`. Run `npm run test:sandbox` and the applicable TCK profile after changing its implementation. `npm run sandbox:evidence` generates a redacted local evidence report for both profiles. Real application proofs are local and use no funded wallet or deployed contract.
 
+Ecosystem demos live in one subfolder per AAIF project. For implementation changes, run the affected project demo and refresh relevant evidence. The full native suite is tested on macOS arm64 with Python 3.12+; `npm run ecosystem:setup` prepares pinned dependencies and `npm run ecosystem:proofs` runs all ten examples. Runtime uses synthetic credentials and local fixtures only. Preserve the distinction between native components, SDK/schema fixtures, instruction-format companions and deployed rollup acceptance.
+
 Keep generated TLS keys, caches, environment credentials and node_modules untracked. The local IdP automatically authorizes a synthetic user for protocol testing and is not a production identity provider. Keep sandbox, commercial-provider, core-rollup and Ethereum-settlement evidence labels explicit.
 
 Reuse the pinned AMBA dependency. Preserve the core protocol/application code in its canonical repository. Update the version pins and evidence record when changing the integration boundary.

@@ -45,7 +45,7 @@ Use one coherent story: a person approves a bounded task; an agent obtains resou
 | State authority | Explicit local single-writer sandbox | Sequencer/DA acceptance and conflicting-request recovery in a deployed rollup |
 | Ethereum | Public sovereign-rollup deployment and settlement documentation | A separately recorded deployment with the exact verifier configuration |
 
-Current local results: **19 unit/integration tests, 17 ID-JAG/MCP profile cases and 13 shared-state profile cases pass**. See [evidence](evidence/README.md) and [scope](sandbox/README.md). These results establish selected local behavior, not commercial-provider certification, a deployed Zeko core integration or Ethereum settlement.
+Current local results: **21 unit/integration tests, 17 ID-JAG/MCP profile cases and 13 shared-state profile cases pass**. See [evidence](evidence/README.md) and [scope](sandbox/README.md). These results establish selected local behavior, not commercial-provider certification, a deployed Zeko core integration or Ethereum settlement.
 
 The compatibility suite is our proposed profile and reference test kit. AAIF has not adopted or certified it. The TC's TCK/ID-JAG priorities reported by the user guide our engineering; they should not be presented as published universal admission requirements.
 
@@ -77,7 +77,7 @@ The sequence below is a proposed work plan, not a promised AAIF review schedule.
 
 | Phase | Deliverables | Completion condition |
 | --- | --- | --- |
-| Complete locally | HTTPS ID-JAG/MCP/AMBA integration, real proof example, versioned fixtures and evidence | Current 19 tests plus 30 profile cases pass; boundaries recorded |
+| Complete locally | HTTPS ID-JAG/MCP/AMBA integration, real proof example, versioned fixtures and evidence | Current 21 tests plus 30 profile cases pass; boundaries recorded |
 | Before filing | Publish the reviewed hub through the fork/PR workflow; finalize application and short thesis | Public links resolve, candidate revision pinned, maintainer review complete |
 | Before filing | Confirm contribution/assets, named maintainer, governance, licenses, releases and contacts | Required form fields contain verified facts; authorized owner decides the agreement checkbox |
 | Filing | zekoxyz manually submits the official issue | Correct author, complete form, actual issue URL recorded; no issue created by this agent |
@@ -90,11 +90,11 @@ A real Ethereum verification profile is a separately budgeted deployment milesto
 
 ## All-AAIF compatibility path
 
-The [ecosystem folder](ecosystem/README.md) explains the strongest project connections and their proposed workflows separately from the runnable integration and implementation backlog. It includes an individual guide for MCP, goose, agentgateway, A2A and OpenSandbox, plus the supporting map for the other hosted projects.
+The [ecosystem folder](ecosystem/README.md) explains the strongest project connections and their proposed workflows separately from the runnable integration and implementation backlog. It now includes a dedicated folder and appropriate executable example for all ten hosted projects. All ten pass in real-proof mode; native binaries, SDK/types, schema fixtures and instruction-format companions are separately labeled.
 
 Reuse one versioned state/action interface and add narrow adapters rather than a bespoke protocol for every pair. This can reduce integration sprawl where semantics align; it does not eliminate all N:N relationships or business-policy differences.
 
-MCP is the first executable interface. Next choose one practical client/gateway, such as goose or agentgateway, then A2A task/artifact binding. Map Agent Router, Open Responses, OpenSandbox, OpenEnv, Agent Skills and AGENTS.md to their relevant boundaries. Instruction formats, runtimes and transport protocols need different tests. See the [compatibility matrix](compatibility.md); there is no current claim of compatibility with every hosted project. Refresh the roster before filing and before adding commitments.
+MCP is the common executable interface. Local examples now exercise goose, agentgateway, A2A and Agent Router, plus the relevant SDK/schema or instruction boundaries for the other projects. The next step is independent reproduction and a pinned core acceptance adapter, followed by broader deployment profiles. Instruction formats, runtimes and transport protocols need different tests. See the [compatibility matrix](compatibility.md); there is no current claim of compatibility with every hosted project. Refresh the roster before filing and before adding commitments.
 
 ## What strengthens the acceptance case
 

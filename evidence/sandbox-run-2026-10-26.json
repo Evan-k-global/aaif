@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-26T21:43:12.911Z",
-  "sourceSha256": "a1afc4f580650017db0983cfb4d51366ffa92ca5bcb995af2aada86eb64e9f4e",
+  "generatedAt": "2026-10-26T23:04:25.306Z",
+  "sourceSha256": "9680ac8469e8bd3265a79161e4e516ba688a13f13995fa3b70a7f9add90544d8",
   "sourceFiles": [
     "integrations/id-jag/client.mjs",
     "integrations/id-jag/client.test.mjs",
@@ -46,7 +46,7 @@
       "profile": "id-jag-mcp-v0.1",
       "adapter": {
         "name": "AMBA + signed-JWT HTTPS sandbox + official MCP SDK",
-        "revision": "source-sha256:a1afc4f580650017db0983cfb4d51366ffa92ca5bcb995af2aada86eb64e9f4e",
+        "revision": "source-sha256:9680ac8469e8bd3265a79161e4e516ba688a13f13995fa3b70a7f9add90544d8",
         "declaredEvidence": "live-local-protocol-sandbox; no commercial IdP"
       },
       "passed": true,
@@ -126,7 +126,7 @@
       "profile": "zeko-shared-state-v0.1",
       "adapter": {
         "name": "MCP + AMBA + real o1js reservation proofs",
-        "revision": "source-sha256:a1afc4f580650017db0983cfb4d51366ffa92ca5bcb995af2aada86eb64e9f4e",
+        "revision": "source-sha256:9680ac8469e8bd3265a79161e4e516ba688a13f13995fa3b70a7f9add90544d8",
         "declaredEvidence": "local-o1js-application-proof; local single-writer authority; no core sequencer or Ethereum"
       },
       "passed": true,

@@ -2,6 +2,10 @@
 
 ## 26 October 2026
 
+- Expanded ecosystem/ to one folder for each of the ten hosted projects, with executable demos or instruction-format companions, pinned setup, local-only model/service fixtures and a technical runbook.
+- Passed all ten examples in real-proof mode (48 scenario checks), plus the refreshed 30 compatibility cases and 21 unit/integration tests. Native goose, agentgateway and Agent Router/Envoy, the A2A SDK, Open Responses schema, OpenSandbox/OpenEnv SDK boundaries and Agent Skills validation are individually labeled in the evidence.
+- Runtime traffic is restricted to loopback; no production credentials, real model service, container deployment, core rollup or Ethereum settlement was used.
+
 - Added the ecosystem folder: individual connection guides for MCP, goose, agentgateway, A2A and OpenSandbox, plus a supporting map covering the remaining hosted projects. Each separates proposed value from tested integration evidence.
 
 - User authorized publishing the full package through the fork and a PR into zeko-labs/aaif for GitHub review, superseding the earlier pre-review publication hold. Manual merge and zekoxyz-only official filing remain separate.

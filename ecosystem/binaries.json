@@ -1,0 +1,50 @@
+{
+  "goose": {
+    "version": "1.56.0",
+    "repository": "aaif-goose/goose",
+    "assets": [
+      {
+        "name": "goose-aarch64-apple-darwin.tar.bz2",
+        "url": "https://github.com/aaif-goose/goose/releases/download/v1.56.0/goose-aarch64-apple-darwin.tar.bz2",
+        "sha256": "62d806417b19be167474297eaaec7783ff9917f4fa772e781e977f2bdc155163"
+      },
+      {
+        "name": "goose-x86_64-unknown-linux-gnu.tar.bz2",
+        "url": "https://github.com/aaif-goose/goose/releases/download/v1.56.0/goose-x86_64-unknown-linux-gnu.tar.bz2",
+        "sha256": "e29544421a6e698aab0fe4becda96096218ff36abe85b83785519d41c555c714"
+      }
+    ]
+  },
+  "agentgateway": {
+    "version": "1.6.0",
+    "repository": "agentgateway/agentgateway",
+    "assets": [
+      {
+        "name": "agentgateway-darwin-arm64",
+        "url": "https://github.com/agentgateway/agentgateway/releases/download/v1.6.0/agentgateway-darwin-arm64",
+        "sha256": "6cebe8bd57262edce23a65a376d2f5a27b97cdfef609740642edbe75e1e9c685"
+      },
+      {
+        "name": "agentgateway-linux-amd64",
+        "url": "https://github.com/agentgateway/agentgateway/releases/download/v1.6.0/agentgateway-linux-amd64",
+        "sha256": "496ed27e6a96b55a9ad7cabe5c2be7172511f44a3cb113e533d22bf93a7f079d"
+      }
+    ]
+  },
+  "agent-router": {
+    "version": "1.2.0",
+    "repository": "theagentrouter/agent-router",
+    "assets": [
+      {
+        "name": "aigw-darwin-arm64",
+        "url": "https://github.com/theagentrouter/agent-router/releases/download/v1.2.0/aigw-darwin-arm64",
+        "sha256": "4be4a8fdfee58acc52aba1a9e71e598df00a17ad05477cb3f4e706604636df3e"
+      },
+      {
+        "name": "aigw-linux-amd64",
+        "url": "https://github.com/theagentrouter/agent-router/releases/download/v1.2.0/aigw-linux-amd64",
+        "sha256": "8c0b375261be88c4547eeb9afbf4cb3ca0bcfebbc29c8e97cc9f427f8d6bd6cd"
+      }
+    ]
+  }
+}

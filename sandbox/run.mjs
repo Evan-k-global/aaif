@@ -16,8 +16,9 @@ if (!usable) {
 const [mode = 'demo', ...args] = process.argv.slice(2);
 const commands = {
   demo: ['sandbox/demo.mjs', ...args],
+  ecosystem: ['ecosystem/run.mjs', ...args],
   tck: ['tck/run.mjs', ...args],
-  test: ['--test', 'integrations/id-jag/client.test.mjs', 'tck/runner.test.mjs', 'sandbox/sandbox.test.mjs'],
+  test: ['--test', 'integrations/id-jag/client.test.mjs', 'tck/runner.test.mjs', 'sandbox/sandbox.test.mjs', 'ecosystem/_shared/network.test.mjs'],
   evidence: ['sandbox/evidence.mjs', ...args]
 };
 if (!commands[mode]) throw new Error('Unknown sandbox command');

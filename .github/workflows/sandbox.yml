@@ -25,6 +25,8 @@ jobs:
       - run: npm run tck:validate
       - run: npm run test:sandbox
       - run: npm run tck:idjag
+      - run: npm run ecosystem:demo -- --project mcp
+      - run: npm run ecosystem:demo -- --project a2a
   application-proofs:
     if: github.event_name == 'workflow_dispatch' && inputs.real_proofs
     runs-on: ubuntu-latest

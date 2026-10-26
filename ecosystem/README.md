@@ -1,51 +1,60 @@
-# How AAIF projects connect to Zeko
+# AAIF ecosystem: local demos with verifiable shared state
 
-Zeko's proposed role is **verifiable shared state across agent applications**. Existing agent interfaces, clients, gateways and execution environments supply complementary parts of a workflow. This folder shows the strongest connections and the practical work needed to demonstrate each one.
+Ten project folders show how the [current AAIF suite](https://aaif.io/projects) can participate in workflows using Zeko's application-state model. The common benefit is bounded authority and a shared, checkable record of resource consumption and accepted commitments across different clients and services.
 
-Project roles were checked against the [AAIF project roster](https://aaif.io/projects) and the upstream sources linked in each guide on 26 October 2026. The integration designs below are Zeko proposals based on those interfaces. They are not claims of adoption by the upstream projects.
+The suite runs locally without a hosted model, commercial identity provider, wallet, funded transaction, deployed rollup or container cluster. Setup downloads pinned open-source dependencies. Runtime requests stay on loopback. The full native reference run is supported on **macOS arm64, Node.js 24 and Python 3.12+**.
 
-## Strongest connections
+## Run the suite
 
-| Project | Where it connects | What Zeko could add | Evidence today |
-| --- | --- | --- | --- |
-| [MCP](mcp.md) | Tool calls that create or consume application state | Proof-backed resource reservations and checkable state receipts | Official SDK client/server runs in the local sandbox |
-| [goose](goose.md) | A person delegates work to an agent using MCP tools | A shared budget or commitment that multiple services can verify | Proposed; goose has not been run against this service |
-| [agentgateway](agentgateway.md) | Routing and authenticated access to the stateful tool service | Common action/state acceptance across routed requests | Proposed; gateway route and identity propagation need testing |
-| [A2A](a2a.md) | Work delegated between independently operated agents | Shared commitments and accepted outcomes bound to task/artifact references | Proposed; task-to-state binding needs implementation |
-| [OpenSandbox](opensandbox.md) | Agent work executed in operator-controlled environments | Verifiable commitments linking approved work, artifacts and accepted application state | Proposed; no OpenSandbox integration run yet |
+```sh
+npm ci --ignore-scripts
+npm run ecosystem:setup
+npm run ecosystem:demo
+npm run ecosystem:proofs -- --report evidence/ecosystem-run-local.json
+```
 
-The current runnable path is **MCP → AMBA checks → real application proof → local state acceptance**. It uses ID-JAG/resource access tokens, a synthetic identity provider and a local single-writer authority. It does not currently submit application state to a deployed core rollup or settle it on Ethereum. See [sandbox scope](../sandbox/README.md) and [reproducible evidence](../evidence/README.md).
+For one project, add `-- --project mcp` to the demo or proof command. See the [runbook](RUNBOOK.md) for setup, isolation, evidence and limitations.
 
-## How the pieces fit
+## Project-by-project coverage
 
-The diagram shows the proposed deployed path. Dashed connections require additional integration work; it is not a diagram of an already demonstrated deployment.
+| Project | What actually executes | Benefit exercised |
+| --- | --- | --- |
+| [MCP](mcp/README.md) | Official SDK clients and server; concurrent resource calls | Two clients cannot spend the same remaining quota; replay cannot dispatch again |
+| [A2A](a2a/README.md) | Official SDK v1 JSON-RPC client/server | An agent exchange can carry an action backed by one accepted commitment |
+| [goose](goose/README.md) | Native goose CLI and real MCP extension; deterministic local model fixture | An agent client uses a bounded task and receives state evidence without a hosted model |
+| [agentgateway](agentgateway/README.md) | Native gateway routing MCP traffic to the local broker | Routing preserves the common action gate; changed requests and replay are rejected |
+| [Agent Router](agent-router/README.md) | Native `aigw` plus Envoy, routing local model and MCP requests | The control plane can expose the same stateful tool while sharing authoritative quota |
+| [Open Responses](open-responses/README.md) | Official schema validation and local non-streaming function-call exchange | Tool call IDs and accepted receipts remain correlated; changed call IDs fail |
+| [OpenSandbox](opensandbox/README.md) | Official Python SDK with an in-memory control-plane/execd transport fixture | Lifecycle/command result handling connects to one accepted action; no container isolation is claimed |
+| [OpenEnv](openenv/README.md) | Official typed Environment implemented in process | An episode reset cannot replenish an independently held shared budget |
+| [Agent Skills](agent-skills/README.md) | Official reference validator and an executable packaged skill script | Reusable instructions and tooling consume existing authority rather than granting it |
+| [AGENTS.md](agents-md/README.md) | Workspace instructions with an executable companion scenario | Coding-agent instructions describe the same bounded action and receipt workflow |
+
+These are selected integration examples, not certification of every feature or production configuration. OpenSandbox's service is a fixture; OpenEnv is an in-process environment. Agent Skills and AGENTS.md are instruction formats, not settlement engines. The evidence records these distinctions rather than treating all ten as equivalent runtime tests.
+
+## One shared application boundary
+
+Each scenario uses the same backend and state profile. Canonical AMBA OAuth and ID-JAG run against a synthetic local provider. A trusted test approver creates a mission and exact action before a client runs. The loopback broker accepts only those preapproved action IDs and units, then invokes the authenticated MCP/AMBA backend. It is test orchestration, not an enterprise identity broker implementation.
 
 ```mermaid
 flowchart LR
-  G[goose client] -. tool request .-> W[agentgateway]
-  W -. routed request .-> M[MCP tool service]
-  A[A2A agent service] -. task commitment .-> B[AMBA and action gate]
-  O[OpenSandbox worker] -. artifact commitment .-> B
-  M --> B
-  B -. proposed state adapter .-> Z[Zeko rollup]
-  Z -. optional external settlement .-> E[Ethereum]
+  C[Clients and agent exchanges] --> T[Tools and routing]
+  I[Instructions and skill scripts] --> B[Preapproved local action broker]
+  T --> B
+  X[Execution and evaluation fixtures] --> B
+  B --> A[AMBA action gate]
+  A --> P[Real application proof and verification]
+  P --> L[Local shared-state authority]
+  L -. deployment adapter still required .-> Z[Zeko rollup]
+  Z -. separate acceptance profile .-> E[Ethereum]
 ```
 
-These components can also be used separately. A direct MCP client need not adopt the gateway, A2A or OpenSandbox to use a stateful tool.
+A successful action returns a receipt containing its domain/action commitment, state version and remaining quota. Proof mode adds a real o1js reservation proof. The circuit proves quota arithmetic and version advancement with public domain/action commitments; AMBA authorization is checked separately by the service. Proofs and sandbox receipts do not establish canonical Zeko core state or Ethereum finality.
 
-## Sovereignty and benefit
+## Technical Committee question
 
-An enterprise or agent operator can aim to choose its client, model, identity provider, execution environment and rollup operator while retaining a common application-state interface. Zeko could make budgets, resource reservations and commitments independently checkable across those choices. Privacy depends on the selected data flow and proof statement; the existing reservation example has public proof fields.
+The examples demonstrate a practical integration seam: different agent interfaces can use the same bounded state action while preserving their own client, transport, routing, execution or instruction role. Observable benefits are rejected duplicate/changed actions, consistent resource accounting and correlated result evidence. These results do not establish improved model quality, lower cost or production adoption for every upstream implementation.
 
-Applications select when acceptance is sufficient: a valid proof, authoritative rollup acceptance and Ethereum finality are distinct conditions. Project software itself does not automatically “settle to Zeko.” Each guide identifies the application state that would be recorded and the service that enforces it.
+The next deployment milestone is a pinned adapter that replaces local state acceptance with a core Zeko application/sequencer/DA path. Ethereum verification/settlement is a separately tested profile. The local suite makes that boundary explicit while giving implementers useful code and fixtures now.
 
-## Work sequence
-
-1. Replace the sandbox's local state adapter with a pinned Zeko application/core deployment and independently check its accepted receipts.
-2. Exercise goose as a real client, then agentgateway as a routing path, against the same profile. Document the authentication each actually supports.
-3. Add an A2A task/artifact scenario and an OpenSandbox execution example as separate integration profiles.
-4. Record an Ethereum verification/settlement profile separately, using the actual verifier configuration deployed.
-
-For each integration, record component versions, configuration without secrets, the authorized action, accepted state/receipt and rejection/recovery behavior. Passing the existing local fixtures does not replace running the added component.
-
-The remaining five hosted projects have [supporting connections](other-projects.md). The [compatibility matrix](../compatibility.md) is the implementation-status checklist. This folder is a technical map, not an expanded working-group outreach schedule.
+Sources and pins: [component versions](versions.json), [binary checksums](binaries.json), [Python lock](requirements.lock), [current evidence](../evidence/README.md), [compatibility matrix](../compatibility.md). This folder does not expand the focused working-group outreach campaign.

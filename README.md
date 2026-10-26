@@ -23,7 +23,8 @@ Read our [public-good purpose and sovereignty principles](PUBLIC_GOOD.md). Zeko 
 - [Technology compatibility kit](tck/README.md)
 - [ID-JAG integration](integrations/id-jag/README.md)
 - [Compatibility backlog](compatibility.md)
-- [How AAIF projects connect to Zeko](ecosystem/README.md)
+- [All ten AAIF project demos and integration guides](ecosystem/README.md)
+- [Local ecosystem suite runbook](ecosystem/RUNBOOK.md)
 - [Local validation evidence](evidence/2026-10-26-local-validation.md)
 - [Current sandbox evidence](evidence/README.md)
 - [Current core candidate and passing CI](evidence/core-candidate-2026-10-26.md)
@@ -52,7 +53,7 @@ The independent deployment guide provides a container-based reference stack, ope
 
 The prediction market demonstrates the zkTLS feature; extraction of a reusable adapter is a development target. Reference applications have their own trust boundaries, deployment profiles and security-review status. Their inclusion illustrates uses of the core and does not extend the core audit to their code.
 
-The local sandbox reuses AMBA's OAuth implementation, performs ID-JAG exchanges over HTTPS, and serves an actual MCP tool using the official SDK. It includes 17 identity-profile cases and 13 shared-state cases with real o1js application proofs. Core-rollup acceptance, commercial-provider validation and Ethereum settlement remain distinct deployment work. This is reproducible application-support evidence, not an AAIF certification.
+The local sandbox reuses AMBA's OAuth implementation, performs ID-JAG exchanges over HTTPS, and serves an actual MCP tool using the official SDK. It includes 17 identity-profile cases and 13 shared-state cases with real o1js application proofs. The ecosystem suite adds ten project-specific examples, all passing in real-proof mode, with native clients/gateways, official SDKs and explicit fixture or instruction-format boundaries. Core-rollup acceptance, commercial-provider validation and Ethereum settlement remain distinct deployment work. This is reproducible application-support evidence, not an AAIF certification.
 
 The official AAIF submission must be filed manually by **zekoxyz** after owner review. **Evan-k-global** is the engineering fork/PR identity only. This agent has been instructed not to create the submission.
 
@@ -61,4 +62,6 @@ npm ci --ignore-scripts
 npm run demo
 npm run demo:proofs
 npm run sandbox:evidence
+npm run ecosystem:setup
+npm run ecosystem:proofs
 ```

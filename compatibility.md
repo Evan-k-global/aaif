@@ -1,21 +1,21 @@
 # Compatibility work matrix
 
-This is the integration backlog for the AAIF application, not a compatibility claim or an outreach schedule. First: MCP enterprise-managed access into a mission-authorized Zeko state action.
+All ten currently listed AAIF projects have a dedicated [ecosystem folder](ecosystem/README.md), executable examples or appropriate instruction artifacts, and explicit evidence levels. These results apply to selected local profiles.
 
-The [ecosystem guides](ecosystem/README.md) explain the strongest project connections, concrete benefits and what each integration needs to demonstrate. The matrix below remains the implementation-status checklist.
-
-| Surface | Work | Status |
+| Surface | Implemented local path | Remaining boundary |
 | --- | --- | --- |
-| MCP | Enterprise-managed authorization; `reserve_resource` tool; action/result correlation | Official SDK client/server work in local HTTPS sandbox; two client registrations tested |
-| ID-JAG | Two-hop OIDC flow; issuer/client/tenant/resource binding | 17 profile cases pass against signed-JWT sandbox roles; commercial-provider validation remains |
-| A2A | Bind task/artifact identity to a mission/state receipt | Planned after MCP |
-| goose | Exercise the MCP tool with unchanged shared fixtures | Planned |
-| agentgateway | Route authenticated context and required acceptance profile | Planned |
-| Agent Router | Test its supported routing boundary independently | Planned |
-| Open Responses | Preserve tool/result correlation and authority boundaries | Mapping required |
-| OpenSandbox | Run the adapter in its execution environment | Mapping required |
-| OpenEnv | Reproducible scenario with observable effects/failures | Mapping required |
-| Agent Skills | Instructions and prerequisites for the completed tool | Planned packaging |
-| AGENTS.md | Build/test contributor instructions | Present in this repo; instructions do not establish protocol conformance |
+| MCP | Official SDK client/server, discovery, competing reservations and replay rejection | Deployed core acceptance and other client profiles |
+| ID-JAG | HTTPS synthetic IdP/resource-AS; 17 profile cases pass | Commercial provider and broader profile conformance |
+| A2A | Official v1 SDK JSON-RPC client/server; action/reply exchange and replay rejection | Broader task/cancellation/authentication lifecycle |
+| goose | Native CLI plus real MCP extension, using a scripted loopback model | Real model/provider behavior and native enterprise authorization |
+| agentgateway | Native HTTP routing to MCP; changed-action/replay rejection | Deployment-specific identity policies and additional route modes |
+| Agent Router | Native aigw/Envoy model and MCP routing to local fixtures | Kubernetes and deployment-specific identity profiles |
+| Open Responses | Official archived schema; local non-streaming tool/result exchange and receipt binding | Full API/streaming compliance and independent provider reproduction |
+| OpenSandbox | Official SDK lifecycle and command SSE over an in-memory transport fixture | Actual isolated runtime and deployed worker evidence |
+| OpenEnv | Official typed in-process Environment; shared quota survives reset | Hosted/server client profiles and actual training/evaluation workloads |
+| Agent Skills | Reference validator plus executable packaged action script | Independent consuming-agent reproduction |
+| AGENTS.md | Workspace instructions plus executable companion | Behavior of specific coding agents consuming the instructions |
 
-Refresh the hosted-project roster before filing. Test each project's relevant boundary; instruction formats are not network authorization protocols. Version pins and run evidence replace planned status only as integrations are completed.
+The proof-backed suite passes all ten examples. State acceptance remains a local single-writer model, with no deployed core rollup/DA or Ethereum settlement. [Evidence](evidence/README.md) records versions and source digests; [the runbook](ecosystem/RUNBOOK.md) describes isolation and reproduction.
+
+These are proposed compatibility profiles and reference examples, not an AAIF certification. Refresh the hosted-project roster before filing and test each additional deployment boundary explicitly.
