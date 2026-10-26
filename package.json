@@ -1,0 +1,27 @@
+{
+  "name": "zeko-aaif-integration-work",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test integrations/id-jag/client.test.mjs tck/runner.test.mjs",
+    "tck:validate": "node tck/run.mjs --validate",
+    "tck:run": "node tck/run.mjs",
+    "test:sandbox": "node sandbox/run.mjs test",
+    "demo": "node sandbox/run.mjs demo",
+    "demo:proofs": "node sandbox/run.mjs demo --proofs",
+    "tck:idjag": "node sandbox/run.mjs tck --profile id-jag-mcp-v0.1 --adapter tck/adapters/id-jag-sandbox.mjs",
+    "tck:proofs": "node sandbox/run.mjs tck --profile zeko-shared-state-v0.1 --adapter tck/adapters/shared-state-sandbox.mjs --timeout-ms 120000",
+    "sandbox:evidence": "node sandbox/run.mjs evidence"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.26.0",
+    "jose": "6.1.3",
+    "zod": "3.25.76",
+    "o1js": "2.13.0",
+    "@zeko/amba": "https://codeload.github.com/zeko-labs/agent-mission-bound-auth/tar.gz/4b5bb5c6915c7ee17e716ab2320e50d985dfc0d5"
+  },
+  "license": "Apache-2.0"
+}

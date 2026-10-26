@@ -1,0 +1,190 @@
+{
+  "generatedAt": "2026-10-26T21:43:12.911Z",
+  "sourceSha256": "a1afc4f580650017db0983cfb4d51366ffa92ca5bcb995af2aada86eb64e9f4e",
+  "sourceFiles": [
+    "integrations/id-jag/client.mjs",
+    "integrations/id-jag/client.test.mjs",
+    "integrations/id-jag/discovery.mjs",
+    "integrations/id-jag/versions.json",
+    "package-lock.json",
+    "package.json",
+    "sandbox/amba-gate.mjs",
+    "sandbox/compile-proof.mjs",
+    "sandbox/demo.mjs",
+    "sandbox/evidence.mjs",
+    "sandbox/proof.mjs",
+    "sandbox/run.mjs",
+    "sandbox/sandbox.test.mjs",
+    "sandbox/server.mjs",
+    "sandbox/verify-receipt.mjs",
+    "tck/adapters/id-jag-sandbox.mjs",
+    "tck/adapters/shared-state-sandbox.mjs",
+    "tck/fixtures/id-jag-mcp-v0.1.json",
+    "tck/fixtures/shared-state-v0.1.json",
+    "tck/run.mjs",
+    "tck/runner.test.mjs"
+  ],
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "scope": {
+    "identityProvider": "local HTTPS protocol sandbox with real RSA-signed JWTs",
+    "oauthImplementation": "canonical AMBA 4b5bb5c6915c7ee17e716ab2320e50d985dfc0d5",
+    "mcp": "official TypeScript SDK 1.26.0; distinct client registrations",
+    "proof": "real o1js 2.13.0 reservation proof",
+    "stateAuthority": "local serialized state, not the Zeko core sequencer",
+    "externalEffect": "sandbox effect counter with unknown-outcome fault injection",
+    "ethereumSettlementTested": false,
+    "commercialIdpTested": false,
+    "coreRollupDeploymentTested": false
+  },
+  "passed": true,
+  "reports": [
+    {
+      "profile": "id-jag-mcp-v0.1",
+      "adapter": {
+        "name": "AMBA + signed-JWT HTTPS sandbox + official MCP SDK",
+        "revision": "source-sha256:a1afc4f580650017db0983cfb4d51366ffa92ca5bcb995af2aada86eb64e9f4e",
+        "declaredEvidence": "live-local-protocol-sandbox; no commercial IdP"
+      },
+      "passed": true,
+      "results": [
+        {
+          "id": "IJ-AUTHORIZED",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-IDP-DENIED",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-WRONG-ISSUER",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-WRONG-AUDIENCE",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-WRONG-CLIENT",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-WRONG-RESOURCE",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-EXPIRED",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-WRONG-TENANT",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-ID-TOKEN-CONFUSION",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-GRANT-CONFUSION",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-MISSION-DENIED",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-DOWNSCOPED",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-NO-SECRET-EXPORT",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-RESOURCE-AS-DENIED",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-BAD-SIGNATURE",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-NONE-ALGORITHM",
+          "status": "pass"
+        },
+        {
+          "id": "IJ-FUTURE-GRANT",
+          "status": "pass"
+        }
+      ],
+      "fixtureSha256": "16cb7fe89478237e12ec23d1e5c86967328822077583997f9c5dda7b7ada9d6d"
+    },
+    {
+      "profile": "zeko-shared-state-v0.1",
+      "adapter": {
+        "name": "MCP + AMBA + real o1js reservation proofs",
+        "revision": "source-sha256:a1afc4f580650017db0983cfb4d51366ffa92ca5bcb995af2aada86eb64e9f4e",
+        "declaredEvidence": "local-o1js-application-proof; local single-writer authority; no core sequencer or Ethereum"
+      },
+      "passed": true,
+      "results": [
+        {
+          "id": "SS-AUTHORIZED",
+          "status": "pass"
+        },
+        {
+          "id": "SS-CHANGED-INPUT",
+          "status": "pass"
+        },
+        {
+          "id": "SS-REPLAY",
+          "status": "pass"
+        },
+        {
+          "id": "SS-CONCURRENT",
+          "status": "pass"
+        },
+        {
+          "id": "SS-STALE-STATE",
+          "status": "pass"
+        },
+        {
+          "id": "SS-WRONG-DOMAIN",
+          "status": "pass"
+        },
+        {
+          "id": "SS-TAMPERED-PROOF",
+          "status": "pass"
+        },
+        {
+          "id": "SS-WRONG-KEY",
+          "status": "pass"
+        },
+        {
+          "id": "SS-EXPIRED",
+          "status": "pass"
+        },
+        {
+          "id": "SS-REVOKED",
+          "status": "pass"
+        },
+        {
+          "id": "SS-NO-DOWNGRADE",
+          "status": "pass"
+        },
+        {
+          "id": "SS-UNKNOWN-EFFECT",
+          "status": "pass"
+        },
+        {
+          "id": "SS-INDEPENDENT-VERIFY",
+          "status": "pass"
+        }
+      ],
+      "fixtureSha256": "64d7df8a1e0cfee4f949fe4799a32cb365e74d0a1f15787a3c2ac68ab72c3e6a"
+    }
+  ]
+}
