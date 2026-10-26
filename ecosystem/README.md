@@ -2,13 +2,13 @@
 
 Ten project folders show how the [current AAIF suite](https://aaif.io/projects) can participate in workflows using Zeko's application-state model. The common benefit is bounded authority and a shared, checkable record of resource consumption and accepted commitments across different clients and services.
 
-The suite runs locally without a hosted model, commercial identity provider, wallet, funded transaction, deployed rollup or container cluster. Setup downloads pinned open-source dependencies. Runtime requests stay on loopback. The full native reference run is supported on **macOS arm64, Node.js 24 and Python 3.12+**.
+The suite runs locally without a hosted model, commercial identity provider, wallet, funded transaction, deployed rollup or remote container cluster. Setup downloads pinned open-source dependencies. Host APIs bind to loopback; OpenSandbox uses a local Docker worker with deny-by-default egress and a synthetic local canary. The full native reference run is supported on **macOS arm64, Node.js 24, Python 3.12+ and a running local Docker daemon** (tested with OrbStack).
 
 ## Run the suite
 
 ```sh
 npm ci --ignore-scripts
-npm run ecosystem:setup
+npm run ecosystem:setup -- --docker
 npm run ecosystem:demo
 npm run ecosystem:proofs -- --report evidence/ecosystem-run-local.json
 ```
@@ -25,16 +25,16 @@ For one project, add `-- --project mcp` to the demo or proof command. See the [r
 | [agentgateway](agentgateway/README.md) | Native gateway routing MCP traffic to the local broker | Routing preserves the common action gate; changed requests and replay are rejected |
 | [Agent Router](agent-router/README.md) | Native `aigw` plus Envoy, routing local model and MCP requests | The control plane can expose the same stateful tool while sharing authoritative quota |
 | [Open Responses](open-responses/README.md) | Official schema validation and local non-streaming function-call exchange | Tool call IDs and accepted receipts remain correlated; changed call IDs fail |
-| [OpenSandbox](opensandbox/README.md) | Official Python SDK with an in-memory control-plane/execd transport fixture | Lifecycle/command result handling connects to one accepted action; no container isolation is claimed |
+| [OpenSandbox](opensandbox/README.md) | Official SDK, lifecycle server, execd Docker worker and egress sidecar | A real job's input/image/result commitment is accepted once; modified results and replay fail; outbound traffic to a local canary is denied |
 | [OpenEnv](openenv/README.md) | Official typed Environment implemented in process | An episode reset cannot replenish an independently held shared budget |
 | [Agent Skills](agent-skills/README.md) | Official reference validator and an executable packaged skill script | Reusable instructions and tooling consume existing authority rather than granting it |
 | [AGENTS.md](agents-md/README.md) | Workspace instructions with an executable companion scenario | Coding-agent instructions describe the same bounded action and receipt workflow |
 
-These are selected integration examples, not certification of every feature or production configuration. OpenSandbox's service is a fixture; OpenEnv is an in-process environment. Agent Skills and AGENTS.md are instruction formats, not settlement engines. The evidence records these distinctions rather than treating all ten as equivalent runtime tests.
+These are selected integration examples, not certification of every feature or production configuration. OpenSandbox executes a real container; OpenEnv is an in-process environment. Agent Skills and AGENTS.md are instruction formats, not settlement engines. The evidence records these distinctions rather than treating all ten as equivalent runtime tests.
 
 ## One shared application boundary
 
-Each scenario uses the same backend and state profile. Canonical AMBA OAuth and ID-JAG run against a synthetic local provider. A trusted test approver creates a mission and exact action before a client runs. The loopback broker accepts only those preapproved action IDs and units, then invokes the authenticated MCP/AMBA backend. It is test orchestration, not an enterprise identity broker implementation.
+Each scenario uses the same backend and state profile. Canonical AMBA OAuth and ID-JAG run against a synthetic local provider. A trusted test approver binds a mission to an exact action before its state write. In OpenSandbox, the host verifies a completed job's deterministic result before approving its commitment; this is result recording, not pre-execution compute-budget enforcement. The loopback broker accepts only preapproved action IDs and units, then invokes the authenticated MCP/AMBA backend. It is test orchestration, not an enterprise identity broker implementation.
 
 ```mermaid
 flowchart LR

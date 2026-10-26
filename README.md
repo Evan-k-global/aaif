@@ -62,6 +62,6 @@ npm ci --ignore-scripts
 npm run demo
 npm run demo:proofs
 npm run sandbox:evidence
-npm run ecosystem:setup
+npm run ecosystem:setup -- --docker
 npm run ecosystem:proofs
 ```

@@ -44,7 +44,7 @@ Other AAIF projects remain complementary: A2A can carry task/artifact references
 
 The [compatibility matrix](compatibility.md) records tested versus planned boundaries. We propose versioned profiles and reference tests to reduce bespoke pairwise integration, without replacing existing identity, transport or task protocols. ID-JAG is an authorization-flow component, not a replacement for application authority checks or a token to send directly to an MCP resource.
 
-The [ecosystem suite](ecosystem/README.md) has a dedicated folder for each of the ten hosted projects. All ten local examples pass in real-proof mode, with 48 scenario checks. Each guide explains the application benefit, what actually executes and the next validation required.
+The [ecosystem suite](ecosystem/README.md) has a dedicated folder for each of the ten hosted projects. All ten local examples pass in real-proof mode, with 62 scenario checks. OpenSandbox uses its actual SDK/server/execd Docker lifecycle and deny-by-default egress; a host-verified input/image/result commitment is accepted once, with replay and changed results rejected. Each guide explains the application benefit, what actually executes and the next validation required.
 
 ## Example Use Cases and Evidence of Adoption
 

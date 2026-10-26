@@ -46,4 +46,14 @@ const python = `${root}/python/bin/python`;
 if (!await exists(python)) execFileSync(bootstrapPython, ['-m', 'venv', `${root}/python`], { stdio: 'inherit' });
 execFileSync(python, ['-m', 'pip', '--isolated', 'install', '--disable-pip-version-check', '--only-binary=:all:', '--cache-dir', `${root}/pip`,
   '--index-url', 'https://pypi.org/simple', '-r', 'ecosystem/requirements.lock'], { stdio: 'inherit' });
-console.log('Setup complete. Runtime demos use only loopback fixtures; no real provider, wallet or deployment.');
+if (process.argv.includes('--docker')) {
+  // Explicit online preparation only. Runtime requires these images locally.
+  const images = JSON.parse(await readFile('ecosystem/opensandbox/images.json'));
+  const env = { ...process.env };
+  if (env.AAIF_DOCKER_HOST) env.DOCKER_HOST = env.AAIF_DOCKER_HOST;
+  for (const image of Object.values(images)) {
+    if (!/^[a-z0-9/-]+@sha256:[a-f0-9]{64}$/.test(image)) throw new Error('Expected an immutable image digest');
+    execFileSync('docker', ['pull', image], { stdio: 'inherit', env });
+  }
+}
+console.log('Setup complete. OpenSandbox needs a running local Docker daemon and image preparation with --docker. No real provider, wallet or blockchain deployment.');

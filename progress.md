@@ -3,8 +3,9 @@
 ## 26 October 2026
 
 - Expanded ecosystem/ to one folder for each of the ten hosted projects, with executable demos or instruction-format companions, pinned setup, local-only model/service fixtures and a technical runbook.
-- Passed all ten examples in real-proof mode (48 scenario checks), plus the refreshed 30 compatibility cases and 21 unit/integration tests. Native goose, agentgateway and Agent Router/Envoy, the A2A SDK, Open Responses schema, OpenSandbox/OpenEnv SDK boundaries and Agent Skills validation are individually labeled in the evidence.
-- Runtime traffic is restricted to loopback; no production credentials, real model service, container deployment, core rollup or Ethereum settlement was used.
+- Passed all ten examples in real-proof mode (62 scenario checks), plus the 30 compatibility cases and 21 unit/integration tests. Native goose, agentgateway and Agent Router/Envoy, the A2A SDK, Open Responses schema, actual OpenSandbox Docker execution, OpenEnv types and Agent Skills validation are individually labeled in the evidence.
+- Upgraded OpenSandbox from an SDK transport fixture to the real SDK/server/execd lifecycle on local OrbStack. Pinned all three images by digest, checked worker limits and isolation settings, demonstrated a blocked outbound connection to a synthetic local canary, and verified worker/sidecar cleanup. A host-verified input/image/result commitment is accepted once; replay and changed results are rejected.
+- Host APIs bind to loopback; local Docker components use a deny-by-default egress policy. No production credentials, real model service, remote container deployment, core rollup or Ethereum settlement was used.
 
 - Added the ecosystem folder: individual connection guides for MCP, goose, agentgateway, A2A and OpenSandbox, plus a supporting map covering the remaining hosted projects. Each separates proposed value from tested integration evidence.
 

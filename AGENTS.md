@@ -12,6 +12,8 @@ Use Node.js 24 and `npm ci --ignore-scripts`. Run `npm run test:sandbox` and the
 
 Ecosystem demos live in one subfolder per AAIF project. For implementation changes, run the affected project demo and refresh relevant evidence. The full native suite is tested on macOS arm64 with Python 3.12+; `npm run ecosystem:setup` prepares pinned dependencies and `npm run ecosystem:proofs` runs all ten examples. Runtime uses synthetic credentials and local fixtures only. Preserve the distinction between native components, SDK/schema fixtures, instruction-format companions and deployed rollup acceptance.
 
+OpenSandbox uses real local Docker containers (OrbStack tested). Prepare immutable images with `npm run ecosystem:setup -- --docker`. Only the host coordinator/lifecycle server may use the local Docker socket; never mount it or host credentials into the job worker. Keep SDK ports on loopback, preserve deny-by-default egress and the synthetic local canary check, and clean up only this run's owned containers. Its proof records a host-verified result commitment; it does not attest arbitrary container execution or pre-execution compute admission.
+
 Keep generated TLS keys, caches, environment credentials and node_modules untracked. The local IdP automatically authorizes a synthetic user for protocol testing and is not a production identity provider. Keep sandbox, commercial-provider, core-rollup and Ethereum-settlement evidence labels explicit.
 
 Reuse the pinned AMBA dependency. Preserve the core protocol/application code in its canonical repository. Update the version pins and evidence record when changing the integration boundary.

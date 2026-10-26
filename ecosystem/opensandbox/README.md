@@ -1,26 +1,36 @@
-# OpenSandbox: SDK lifecycle and command evidence
+# OpenSandbox: real local worker and accepted result commitment
 
-Upstream: [project source](https://github.com/opensandbox-group/OpenSandbox). Pins: [versions](../versions.json).
+Upstream: [project source](https://github.com/opensandbox-group/OpenSandbox), [server configuration](https://github.com/opensandbox-group/OpenSandbox/blob/main/server/configuration.md). Pins: [versions](../versions.json), [immutable image references](images.json), [Python lock](../requirements.lock).
 
 ## What runs
 
-The official Python SDK creates, inspects, executes a command in and terminates a synthetic sandbox through an in-memory httpx transport fixture. The simulated execd endpoint submits the preapproved action to the loopback authority and returns its result through the SDK’s SSE parser.
+The official Python SDK talks to the actual local OpenSandbox lifecycle server. The server uses Docker to provision an execd worker and the upstream egress sidecar. The SDK runs a deterministic synthetic job inside the worker and decodes its real SSE command output. The host verifies the expected result, then approves and records a commitment to the job input, worker image and result through the common AMBA/shared-state boundary.
 
 ```sh
+# Start the local Docker runtime first (OrbStack was tested).
+npm run ecosystem:setup -- --docker
 npm run ecosystem:demo -- --project opensandbox
 npm run ecosystem:proofs -- --project opensandbox
 ```
 
+Runtime uses locally cached images and a local Unix Docker socket. `AAIF_DOCKER_HOST` can select another local socket. Missing images or an unavailable daemon produce a failure; the demo does not silently fall back to a simulated runtime.
+
 ## How this can use and benefit from Zeko
 
-An operator-controlled worker can bind job/input/output context to approved commitments and shared resources. A repeated command result can be distinguished from a second accepted action.
+Execution isolation and shared-state acceptance solve different parts of a cross-party job. OpenSandbox runs the job. The host-side adapter binds its input/image/output commitment to a bounded state action that another participant can inspect. Replaying a completed result cannot consume the shared quota twice, and changing the result produces an unapproved commitment.
 
-The local example uses the same action contract intended for a Zeko deployment adapter. Proof mode generates and checks a real o1js application proof; the state authority remains local.
+This example records a result after execution; it does not reserve compute capacity before admitting the job. A deployment adapter could extend the workflow to reserve capacity before dispatch and release payment or quota only under explicit result-acceptance rules.
+
+Proof mode generates and verifies a real o1js reservation proof, whose action commitment includes the approved job commitment. The state authority remains local. The proof establishes the reservation statement, not correct execution of arbitrary container code. Here the host verifies correctness by recomputing the tiny deterministic job.
 
 ## Checks and scope
 
-Official SDK create/info/endpoint/command/delete paths execute; SSE output is decoded; the action is accepted once and replay rejected; fixture lifecycle cleanup occurs.
+The demo checks the actual SDK/server create/info/command/kill lifecycle; pinned worker image; CPU, memory and PID limits; no privilege escalation; no host bind mounts or worker Docker socket; loopback-only SDK ports; and absence of authority/provider credentials in the worker.
 
-No Docker daemon, image, actual container or isolated worker is created. This demonstrates the official client lifecycle and command/result boundary; it does not demonstrate OpenSandbox process isolation, TEE confidentiality or proof of arbitrary execution. The common proof covers the reservation statement.
+The upstream `dns+nft` egress component uses a deny-by-default policy with no allow rules. A separate synthetic Docker service is confirmed listening, then a worker connection to it must fail. This exercises a real denied outbound connection without contacting an external service. The egress sidecar has the networking capability required by upstream; the job worker is unprivileged. Container isolation is provided by Docker, not by TEE hardware or a nested bubblewrap profile.
+
+The SDK must delete the actual worker and egress sidecar. The coordinator cleans up its canary and temporary server files, with failure cleanup restricted to this run's owned containers. Downloaded images remain cached for reproduction. The host coordinator/lifecycle server have local Docker operator access; no such access is passed into the job.
+
+No funded transaction, deployed Zeko core, Ethereum settlement, TEE confidentiality or production sandbox-hardening certification is claimed.
 
 See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).

@@ -40,7 +40,7 @@ const hash = createHash('sha256');
 for (const file of files) hash.update(file + '\n').update(await readFile(file));
 const report = { generatedAt: new Date().toISOString(), sourceSha256: hash.digest('hex'), sourceFiles: files,
   environment: { node: process.version, platform: process.platform, architecture: process.arch },
-  scope: { services: 'loopback only; synthetic model, identity and service fixtures', stateAuthority: 'local single-writer model',
+  scope: { services: 'loopback host APIs; local Docker worker/egress and synthetic canary; synthetic model and identity', stateAuthority: 'local single-writer model',
     realApplicationProofs: !!backend, coreRollupDeployed: false, ethereumSettlementTested: false, productionCredentialsUsed: false },
   passed: results.every(x => x.passed), results };
 const out = args.indexOf('--report');

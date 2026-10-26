@@ -4,24 +4,24 @@ Current results, 26 October 2026:
 
 - **21 unit/integration tests passed**, 0 failed/skipped: `npm run test:sandbox`. This includes two network-isolation checks.
 - **17 ID-JAG/MCP profile cases and 13 shared-state profile cases passed**, with real proofs in the shared-state profile: [report](sandbox-run-2026-10-26.json).
-- **All 10 ecosystem examples passed with real application proofs**, covering 48 scenario checks: [ecosystem report](ecosystem-run-2026-10-26.json).
+- **All 10 ecosystem examples passed with real application proofs**, covering 62 scenario checks: [ecosystem report](ecosystem-run-2026-10-26.json). OpenSandbox includes an actual local Docker worker, deny-by-default egress, a blocked connection to a synthetic local canary, result-commitment replay checks and SDK container cleanup.
 
 The ecosystem results distinguish native components, official SDK clients/types, protocol/schema fixtures and instruction-format companions. They are not ten identical claims of full runtime conformance. Start with the [suite overview](../ecosystem/README.md) and [runbook](../ecosystem/RUNBOOK.md).
 
 Source digests recorded in the reports:
 
 - Compatibility profiles: `9680ac8469e8bd3265a79161e4e516ba688a13f13995fa3b70a7f9add90544d8`.
-- Ecosystem examples: `ddcb16fe25695d62f8caf0798f4880f23f1f532f160f1d75d80a4ae433a9456c`.
+- Ecosystem examples: `04860d95281d1096ba0251327789696cc398aec51d2e088bc7b4b8ceabdbb31b`.
 
 The reports include exact source-file lists, environment, case results and scope. They do not export temporary credentials. The core candidate and its independent upstream build are recorded [separately](core-candidate-2026-10-26.md).
 
-Reproduce with Node.js 24, Python 3.12+ and the native suite's documented macOS arm64 prerequisites:
+Reproduce with Node.js 24, Python 3.12+, a running local Docker daemon and the native suite's documented macOS arm64 prerequisites:
 
 ```sh
 npm ci --ignore-scripts
 npm run test:sandbox
 npm run sandbox:evidence
-npm run ecosystem:setup
+npm run ecosystem:setup -- --docker
 npm run ecosystem:proofs -- --report evidence/ecosystem-run-local.json
 ```
 

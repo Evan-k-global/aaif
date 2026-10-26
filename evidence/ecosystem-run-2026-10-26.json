@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-26T23:04:29.191Z",
-  "sourceSha256": "ddcb16fe25695d62f8caf0798f4880f23f1f532f160f1d75d80a4ae433a9456c",
+  "generatedAt": "2026-10-26T23:26:00.508Z",
+  "sourceSha256": "04860d95281d1096ba0251327789696cc398aec51d2e088bc7b4b8ceabdbb31b",
   "sourceFiles": [
     "ecosystem/_shared/model-fixture.mjs",
     "ecosystem/_shared/network.mjs",
@@ -24,6 +24,7 @@
     "ecosystem/openenv/demo.py",
     "ecosystem/opensandbox/demo.mjs",
     "ecosystem/opensandbox/demo.py",
+    "ecosystem/opensandbox/images.json",
     "ecosystem/requirements.lock",
     "ecosystem/run.mjs",
     "ecosystem/setup.mjs",
@@ -50,7 +51,7 @@
     "architecture": "arm64"
   },
   "scope": {
-    "services": "loopback only; synthetic model, identity and service fixtures",
+    "services": "loopback host APIs; local Docker worker/egress and synthetic canary; synthetic model and identity",
     "stateAuthority": "local single-writer model",
     "realApplicationProofs": true,
     "coreRollupDeployed": false,
@@ -186,15 +187,34 @@
     {
       "project": "opensandbox",
       "passed": true,
-      "level": "official OpenSandbox SDK with in-memory control-plane/execd transport fixture; no container isolation",
+      "level": "official OpenSandbox SDK + lifecycle server + Docker execd worker and deny-by-default egress sidecar; host-side result commitment",
+      "images": {
+        "execd": "opensandbox/execd@sha256:6cf7dba2f21f0b536e100563d841ac58a9f31c2b0a081b7ac76796a24d6f47e2",
+        "worker": "python@sha256:5b8b1421ccb6a525860a77863c049eab5847076cda34e030c75a80c58faf3f3c",
+        "egress": "opensandbox/egress@sha256:db7345d567b0970f384b8e3fa7a93a71b7f43d4b16bb2009de34096e9a87b3b5"
+      },
       "checks": {
-        "officialSdkLifecycle": true,
-        "sdkCommandSseDecoded": true,
-        "acceptedOnce": true,
-        "fixtureLifecycleClosed": true
+        "localCanaryIsListening": true,
+        "lifecycleApiRequiresSyntheticKey": true,
+        "officialSdkServerLifecycle": true,
+        "workerImageDigestPinned": true,
+        "denyByDefaultEgressPolicy": true,
+        "portsPublishedOnlyOnLoopback": true,
+        "noHostBindsOrDockerSocket": true,
+        "workerResourceLimits": true,
+        "noPrivilegeEscalation": true,
+        "realExecdCommandAndSseOutput": true,
+        "workerOutboundToLocalCanaryBlocked": true,
+        "workerHasNoAuthorityOrProviderCredentials": true,
+        "sdkKilledWorkerAndEgressSidecar": true,
+        "temporaryDemoContainersRemoved": true,
+        "deterministicJobResultVerified": true,
+        "jobAndImageAndResultBoundToApprovedAction": true,
+        "resultAcceptedOnce": true,
+        "changedResultCommitmentRejected": true
       },
       "accepted": 1,
-      "rejected": 1,
+      "rejected": 2,
       "remaining": 30,
       "effects": 1,
       "proofVerified": true,

@@ -11,7 +11,7 @@ All ten currently listed AAIF projects have a dedicated [ecosystem folder](ecosy
 | agentgateway | Native HTTP routing to MCP; changed-action/replay rejection | Deployment-specific identity policies and additional route modes |
 | Agent Router | Native aigw/Envoy model and MCP routing to local fixtures | Kubernetes and deployment-specific identity profiles |
 | Open Responses | Official archived schema; local non-streaming tool/result exchange and receipt binding | Full API/streaming compliance and independent provider reproduction |
-| OpenSandbox | Official SDK lifecycle and command SSE over an in-memory transport fixture | Actual isolated runtime and deployed worker evidence |
+| OpenSandbox | Official SDK/server, Docker execd worker, deny-by-default egress, result commitment and replay rejection | Core-rollup acceptance, pre-execution admission and production recovery |
 | OpenEnv | Official typed in-process Environment; shared quota survives reset | Hosted/server client profiles and actual training/evaluation workloads |
 | Agent Skills | Reference validator plus executable packaged action script | Independent consuming-agent reproduction |
 | AGENTS.md | Workspace instructions plus executable companion | Behavior of specific coding agents consuming the instructions |
