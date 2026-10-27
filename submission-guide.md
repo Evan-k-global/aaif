@@ -20,4 +20,4 @@ AAIF's [proposal process](https://github.com/aaif/technical-committee/blob/main/
 
 The application is a review draft and includes the maintainers, contact, sponsorship and signatory information. Formal contribution terms are agreed through the AAIF process.
 
-We welcome technical feedback on the proposal and examples through [public issues](https://github.com/zeko-labs/aaif/issues). The canonical core implementation and application repositories are linked from the [project overview](README.md).
+We welcome technical feedback on the proposal and examples through [pull requests](https://github.com/zeko-labs/aaif/pulls). The canonical core implementation and application repositories are linked from the [project overview](README.md).

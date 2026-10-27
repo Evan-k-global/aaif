@@ -94,8 +94,6 @@ For the AAIF examples, contributors propose interface and compatibility changes 
 
 https://github.com/zeko-labs/zeko/issues
 
-AAIF-specific compatibility work: https://github.com/zeko-labs/aaif/issues
-
 ## External Project Dependencies
 
 Core Zeko uses Mina-derived ledger, cryptographic and transaction components, with upstream license notices preserved as described in the [core licensing statement](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md). The Ethereum integration uses settlement contracts, a gateway and SP1 proof verification; its [licensing documentation](https://github.com/zeko-labs/ethereum-settlement#licensing) covers Apache and third-party components.
