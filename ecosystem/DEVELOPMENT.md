@@ -1,5 +1,7 @@
 # Integration architecture
 
+Human control is the governing rule of this architecture. Approved authority gates consequential actions; verifiable receipts record accepted state. We built the shared interface to preserve open interoperability and independent operation across agent systems.
+
 We built the [AAIF ecosystem examples](README.md) around one shared application boundary: an approved action changes a resource state, and the caller receives evidence of the accepted transition. Each project keeps its own role in discovery, transport, execution, routing or instructions. Zeko provides the proposed verifiable shared-state layer behind those interfaces.
 
 ## Components

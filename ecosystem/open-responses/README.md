@@ -1,5 +1,7 @@
 # Open Responses: tool/result correlation with accepted state
 
+Open response formats preserve provider choice. Our integration binds tool outputs to accepted state, giving people and applications checkable evidence of consequential actions.
+
 Upstream: [project source](https://github.com/openresponses/openresponses). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,11 +13,11 @@ npm run ecosystem:demo -- --project open-responses
 npm run ecosystem:proofs -- --project open-responses
 ```
 
-## How Open Responses can benefit from Zeko as an agentic internet protocol
+## How Open Responses benefits from Zeko’s agentic internet protocol
 
-Open Responses gives implementations a common response format, including function-call and function-output exchanges. Zeko can make consequential tool outputs refer to accepted application state rather than relying only on model-generated claims. This is useful when a workflow crosses response providers or when another participant needs to verify what a reported result actually represents.
+Open Responses defines common function-call and function-output payloads. Zeko supplies the accepted-state evidence carried by those outputs. The integration checks both call correlation and application receipts across the workflow.
 
-Consider an agent that reports a reservation as complete. The response format can preserve the function `call_id`, while the tool output includes a receipt for the corresponding accepted action. A consumer should validate both the API-level correlation and the application evidence. The local example checks its chosen schema subset, submits the real action through MCP and accepts a follow-up output only when its receipt matches the local accepted record. A changed call ID is rejected.
+The function `call_id` correlates the request and output. The receipt identifies the accepted application action. Our example validates the schema, submits the action through MCP and accepts the follow-up output only when its receipt matches the accepted record. A changed call ID fails.
 
 | Integration point | Open Responses responsibility | Zeko application responsibility |
 | --- | --- | --- |
@@ -34,6 +36,6 @@ Open Responses is an API specification. This is a schema-validated local impleme
 
 ## Development roadmap
 
-We plan to extend the example to multiple function calls with explicit response/call/action bindings and independent receipt verification. Tests will cover swapped outputs, changed evidence, unaccepted receipts and repeated call IDs. Streaming and broader API coverage will have separate profiles so the evidence identifies the exact supported subset.
+Our next milestone is to extend the example to multiple function calls with explicit response/call/action bindings and independent receipt verification. Tests will cover swapped outputs, changed evidence, unaccepted receipts and repeated call IDs. Streaming and broader API coverage will have separate profiles so the evidence identifies the exact supported subset.
 
 The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

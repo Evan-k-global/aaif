@@ -1,5 +1,7 @@
 # Engineering progress
 
+We deliver open infrastructure for AI freedom, sovereignty and privacy. This record documents completed engineering work and measured results.
+
 ## 26 October 2026
 
 We published a review package for Zeko's proposed AAIF Sandbox contribution: core rollup infrastructure for verifiable shared state across agent applications.

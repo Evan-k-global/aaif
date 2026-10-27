@@ -1,6 +1,8 @@
 # AAIF Project Proposal — Zeko
 
-**Review draft, 26 October 2026. Not submitted.** Prepared against the [current issue form](https://github.com/aaif/project-proposals/blob/main/.github/ISSUE_TEMPLATE/project-proposal.yml), [proposal process](https://github.com/aaif/technical-committee/blob/main/project_proposal_process.md) and [lifecycle policy](https://github.com/aaif/technical-committee/blob/main/governance/project-lifecycle-policy.md).
+**Zeko is a public good for AI freedom, sovereignty and privacy.** We built open-source rollup infrastructure for verifiable shared state across agent applications. Our contribution puts human control, open interoperability and human flourishing at the center of agent coordination.
+
+Application draft, 26 October 2026. The submission follows the [current issue form](https://github.com/aaif/project-proposals/blob/main/.github/ISSUE_TEMPLATE/project-proposal.yml), [proposal process](https://github.com/aaif/technical-committee/blob/main/project_proposal_process.md) and [lifecycle policy](https://github.com/aaif/technical-committee/blob/main/governance/project-lifecycle-policy.md).
 
 Proposed issue title: **[Project Proposal] Zeko**
 
@@ -10,15 +12,13 @@ Zeko
 
 ## Project Description
 
-Zeko is open-source rollup infrastructure for verifiable shared state across agent applications. Developers define application rules and proof-authorized state transitions; sequencing and recursive proof aggregation let other participants verify accepted computation without re-executing it all or relying solely on an operator's assertion.
+Zeko is open-source rollup infrastructure for verifiable shared state across agent applications. We built it so people and organizations control their AI infrastructure, application rules and delegated authority.
 
-For agents operating across services and organizations, the shared state can represent resource reservations, authority consumed, budgets, work commitments and conditional payments. A receiving service can check the relevant evidence before taking a consequential action. External enforcement, data availability and recovery remain explicit parts of the deployment design.
+Applications define proof-authorized state transitions. Sequencing and recursive proof aggregation let participants verify computation without re-executing every operation. Shared state records resource reservations, authority consumed, budgets, work commitments and conditional payments.
 
-Enterprises and agent-swarm operators can deploy independently operated rollups with their own keys, configuration and application policy. Ethereum is the primary blockchain compatibility and settlement focus, with documented verification and bridging integrations. External settlement and bridging are distinct integration choices; each supported deployment profile documents its requirements.
+Enterprises and agent swarms run sovereign rollups with their own keys, configuration and policies. Ethereum is the primary blockchain compatibility, settlement and bridging layer. Zeko originated in Mina, deployed on Mina mainnet and expanded to Ethereum testnet. The [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) provides the operator-owned deployment stack.
 
-Zeko originated in the Mina ecosystem and has previously been deployed on Mina mainnet. It has also been deployed on Ethereum testnet. The [independent Sepolia deployment guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) provides an operator-owned reference stack; deployment records should identify the versions, contracts and verifier configuration used.
-
-The proposed contribution is core Zeko infrastructure and its agreed deployment/integration interfaces. The AAIF support repository supplies compatibility work and reference evidence. Separate application repositories illustrate uses and are not automatically included in the contribution.
+We propose core Zeko and its agreed deployment/integration interfaces for AAIF Sandbox. This repository contains working compatibility profiles and examples across the AAIF ecosystem. Supporting applications remain separately maintained.
 
 ## Preferred Lifecycle Stage (if known)
 
@@ -26,19 +26,17 @@ Sandbox
 
 ## Alignment with AAIF Mission
 
-Zeko is being built as a public good for AI freedom, sovereignty and privacy. We offer open-source infrastructure, reference integrations and compatibility work for others to inspect, use, modify and build upon under their published licenses. Our ambition is to democratize the future of AI so that people and organizations can operate their own systems and participate in its benefits.
+Zeko advances AI freedom, sovereignty, privacy and human flourishing through open infrastructure. People retain control of their systems and delegated authority. Developers share verifiable application state across independent agents, services and organizations.
 
-Agents need interoperable interfaces and a reliable way to coordinate consequential state across independent systems. Zeko contributes a reusable state and verification layer that complements existing agent protocols and permits independent operation, inspection and implementation.
+We publish the code, reference integrations and compatibility work under open-source licenses. Operators choose their models and agent runtimes, run their own infrastructure and define the rules for consequential actions. Common interfaces reduce bespoke integration while preserving independent operation.
 
-The intended benefit is practical human control: people and organizations can delegate bounded work, choose their agent/model providers, inspect acceptance rules and operate their own infrastructure. A rollup is useful where participants need independently verifiable common state; the integration should explain its additional assurance and cost.
-
-Neutral governance would let implementers beyond the originating team contribute shared semantics, compatibility fixtures and deployment profiles. The initial proposal includes working integration evidence and a defined contributor-growth path rather than claiming broad production adoption prematurely.
+Our AAIF contribution brings working rollup technology, a ten-project interoperability suite and reproducible evidence. The stewardship roadmap opens shared semantics, test profiles and deployment interfaces to contributors beyond Zeko Labs.
 
 ## Relation to Existing AAIF Projects
 
 MCP retains its tool interface and authorization roles. Our local reference integration uses the official MCP SDK, enterprise-managed ID-JAG exchanges and AMBA's existing OAuth and mission checks to expose a bounded reservation tool. Real application proofs and portable receipts illustrate the state-verification boundary.
 
-Other AAIF projects remain complementary: A2A can carry task/artifact references; clients such as goose and infrastructure such as agentgateway can exercise the same tool and acceptance profile; execution environments and response APIs can preserve authority and result correlation. Selected local examples now exercise the official A2A SDK and native goose, agentgateway and Agent Router/Envoy, alongside schema/SDK or instruction-format examples for the other hosted projects. These are local integration results with explicit fixture boundaries, not full conformance or deployed settlement claims.
+The ecosystem examples connect A2A messages, goose tool dispatch, agentgateway routing, execution environments and response APIs to the same bounded state-action interface. Selected local examples now exercise the official A2A SDK and native goose, agentgateway and Agent Router/Envoy, alongside schema/SDK or instruction-format examples for the other hosted projects. These are local integration results with explicit fixture boundaries, not full conformance or deployed settlement claims.
 
 The [compatibility matrix](compatibility.md) records tested versus planned boundaries. We propose versioned profiles and reference tests to reduce bespoke pairwise integration, without replacing existing identity, transport or task protocols. ID-JAG is an authorization-flow component, not a replacement for application authority checks or a token to send directly to an MCP resource.
 
@@ -146,15 +144,15 @@ Technical stewardship is provided by the Zeko Labs maintainers listed above. Eva
 
 ## Lifecycle Stage Evidence
 
-The [Sandbox thesis](proposal.md) covers intended users, the importance-before-adoption case, the working contribution and what would justify Growth. The [project plan](project-plan.md) sets out the roadmap and contributor goals; the [evidence record](evidence/README.md) links reproducible results and explicit limits.
+The [Sandbox thesis](proposal.md) covers users, importance before adoption, the working contribution and Growth milestones. The [project plan](project-plan.md) sets out the roadmap and contributor goals; the [evidence record](evidence/README.md) links reproducible results and explicit limits.
 
 Sandbox objectives are a maintained compatibility profile, reproducible core/integration deployment evidence, outside implementer feedback and an open contributor-to-maintainer process. Growth preparation will pursue two unaffiliated production organizations, contributions from two organizations over the preceding six months and a sponsor-accepted growth plan, under the applicable policy at that time.
 
 ## Security
 
-Core Zeko has independent zkSecurity audit history. The [audit documentation](https://github.com/zeko-labs/zeko/pull/444) indexes the two authoritative assessments, reviewed component scope and published finding responses. The audit index will have its canonical repository location after merge.
+zkSecurity audited core Zeko components. The [audit documentation](https://github.com/zeko-labs/zeko/pull/444) indexes the two authoritative assessments, reviewed component scope and published finding responses. The audit index will have its canonical repository location after merge.
 
-Application and demo assurance is separate. Application-specific code review and bug-bounty work do not extend the core audit to the full portfolio. The new AAIF integration is a reference sandbox with explicit trust boundaries and no claimed OpenSSF badge or AAIF certification.
+Application and demo assurance is separate. Application-specific code review and bug-bounty work do not extend the core audit to the full portfolio. The AAIF integration documents its local identity, state and proof boundaries separately from the core audits.
 
 The [sandbox scope](sandbox/README.md) describes the synthetic provider, local state authority, public proof fields, gateway enforcement and instrumented external effects. Core-rollup deployment, data availability, commercial-provider interoperability and Ethereum settlement require their own evidence. Deployment records distinguish mock and real verifier profiles.
 
@@ -192,9 +190,9 @@ The infrastructure request and resource budget are under review, including CI/pr
 
 ## Additional Information
 
-The [public-good purpose](PUBLIC_GOOD.md) makes this repository a durable record of work offered to the wider ecosystem. Dated progress, versioned code, reproducible results and public technical feedback should demonstrate both the usefulness of the contribution and our responsiveness to implementers. Sovereignty includes control over infrastructure, keys, application policy and delegated agent authority. Neutral stewardship is a goal with explicit governance work, rather than an unsupported claim that independent governance already exists.
+Our [public-good commitment](PUBLIC_GOOD.md) is concrete: open-source code, operator control, bounded authority and reproducible evidence. Zeko Labs maintains the project; formal governance and outside-maintainer participation are on the stewardship roadmap.
 
-We have prepared an AAIF-specific integration repository to make technical discussion reproducible. Its initial path connects existing enterprise identity mechanisms to mission authorization and verifiable application state, with tested failure cases and separately labeled future deployment work.
+This repository connects enterprise identity, mission authorization and verifiable application state. The examples include success and failure cases, exact versions and recorded results.
 
 Our focused community contribution is core shared-state security, identity-to-authority mapping through SantaClawz/AMBA, and optionally commerce lifecycle evidence through x402-Zeko/Magic City. The broader portfolio illustrates extensibility rather than multiple simultaneous project submissions.
 

@@ -1,6 +1,6 @@
 # Technology compatibility kit: first profiles
 
-This kit tests a declared integration boundary. It is Zeko's proposed application-support work, not an AAIF-approved certification scheme.
+Our technology compatibility kit turns human control and open interoperability into reproducible checks. It tests identity, bounded authority, proof verification and shared-state acceptance against declared profiles.
 
 ## Profiles
 

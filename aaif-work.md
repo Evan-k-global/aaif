@@ -1,6 +1,6 @@
 # AAIF-specific engineering work
 
-The repository owns integration code, compatibility profiles, fixtures and reproducible evidence supporting the core Zeko proposal. The first two workstreams are a shared-state TCK and an ID-JAG/MCP integration. Core protocol and application implementations remain in their canonical repositories.
+We built this integration work to put human control, open interoperability and verifiable state into agent workflows. The repository contains working compatibility profiles, reference integrations and reproducible evidence. Core protocol and application code remain in their canonical repositories.
 
 ## First cross-system scenario
 

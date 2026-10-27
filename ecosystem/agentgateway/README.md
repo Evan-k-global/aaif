@@ -1,5 +1,7 @@
 # agentgateway: native routing to the action service
 
+Open routing must preserve human-approved authority. Our agentgateway example carries MCP requests to one enforcing state service, so route choices cannot create extra budget or permission.
+
 Upstream: [project source](https://github.com/agentgateway/agentgateway). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,11 +13,11 @@ npm run ecosystem:demo -- --project agentgateway
 npm run ecosystem:proofs -- --project agentgateway
 ```
 
-## How agentgateway can benefit from Zeko as an agentic internet protocol
+## How agentgateway benefits from Zeko’s agentic internet protocol
 
-agentgateway sits on the request path between agents, tools and services. Zeko can give the services behind those routes a common application-state boundary, so quotas and commitments remain consistent when requests arrive through different routes or gateway instances. Routing, access policy and accepted shared state can then have explicit, complementary responsibilities.
+agentgateway routes requests between agents, tools and services. Zeko supplies the shared application-state boundary behind those routes. Quota and commitment rules belong to the protected service and remain consistent across ingress paths.
 
-Imagine two departments using different gateway endpoints to access the same pool of agent services. A per-route counter could create two apparent budgets. A common Zeko-backed application can instead apply the same reservation rules regardless of the ingress route. The current native gateway example shows that routing preserves the backend's approved action: the initial request succeeds, changed units fail and replay cannot dispatch again.
+Two departments access one resource pool through different gateway endpoints. The shared application enforces one budget across routes. Our native gateway example preserves the approved action at the backend: the initial request succeeds, changed units fail and replay cannot dispatch again.
 
 | Integration point | agentgateway responsibility | Zeko application responsibility |
 | --- | --- | --- |
@@ -34,6 +36,6 @@ This tests the HTTP routing path and backend enforcement. The gateway does not g
 
 ## Development roadmap
 
-We plan to route competing requests through two independent local gateway instances backed by one state authority. The example will test shared quota, cross-route retry and explicit identity-context mapping. Success will mean that route changes preserve the same accepted action and cannot create a second copy of the budget.
+Our next milestone is to route competing requests through two independent local gateway instances backed by one state authority. The example will test shared quota, cross-route retry and explicit identity-context mapping. Success will mean that route changes preserve the same accepted action and cannot create a second copy of the budget.
 
 The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

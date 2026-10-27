@@ -1,33 +1,31 @@
 # Public infrastructure for sovereign AI
 
-Zeko is being built as a public good: open infrastructure that helps people and organizations use AI with freedom, sovereignty and privacy. Our ambition is to democratize the future of AI so that its benefits and the ability to shape it are available to all humanity.
+**Zeko is a public good for AI freedom, sovereignty and privacy.** We built it so people and organizations control their AI infrastructure, delegated authority and application rules. Our mission is to democratize AI and advance human flourishing.
 
-We offer the open-source code, reference integrations, compatibility work and documentation for others to use, inspect, modify and build upon under their published licenses.
+Our code, reference integrations, compatibility work and documentation are open source. Anyone can inspect, use, modify and build on them under their published licenses.
 
-## What sovereignty means here
+## Sovereignty
 
-People should be able to choose their models and agent runtimes, operate their own infrastructure, control deployment keys and application policy, and decide what authority an agent receives. They should be able to narrow or revoke that authority and understand which services can see their data.
+Zeko gives operators control over their rollups, keys and application policy. Applications define verifiable state-transition rules. People choose their models and agent runtimes and set the boundaries of delegated authority.
 
-For Zeko, this means independently operated rollups, inspectable state-transition rules and verifiable evidence across service boundaries. Ethereum is the principal blockchain compatibility and settlement focus. Hosting, identity, confidential computing and other integrations should have explicit interfaces and documented dependencies so operators can make informed choices.
+Ethereum is our principal blockchain compatibility, settlement and bridging layer. Modular interfaces separate hosting, identity, confidential computing and settlement. Operators select the integrations their applications need.
 
-Sovereignty is a design objective expressed through concrete controls. Each deployment must explain its state authority, data availability, recovery, key control and external dependencies. Privacy likewise belongs to a specified implementation and threat model; a proof alone does not make every application private. The current reservation sandbox uses public proof fields.
+Privacy depends on the application statement, disclosure rules and deployment. Our reservation example uses public proof fields. The core audit references, deployment documentation and example scopes identify the guarantees each component provides.
 
-## What neutrality means here
+## Neutral infrastructure
 
-The infrastructure should be useful across organizations, agent frameworks, model providers and commercial interests. Shared interfaces should be reviewable, implementation choices visible, and outside contributions welcome. Independent use of the open-source code does not depend on AAIF membership or buying a Zeko-hosted service. Software is available under its licenses; operating infrastructure has its own costs.
+Zeko serves independent developers, enterprises and agent operators across model providers and commercial interests. Its open-source licenses permit independent operation. Access to the software requires neither AAIF membership nor a Zeko-hosted service.
 
-Zeko Labs currently originates and maintains this work. Public-interest intent and permissive licensing do not themselves establish independent multi-stakeholder governance. The [plan](project-plan.md) identifies the governance and contributor-growth work needed to make neutral stewardship durable. We are formalizing current decision rights and the path to broader participation.
+Zeko Labs maintains the project. We accept outside contributions through public issues and pull requests. Formal governance and the contributor-to-maintainer process are part of our [roadmap](project-plan.md).
 
-## A record of useful work
+## Public evidence
 
-This repository serves both AAIF reviewers and anyone evaluating Zeko's public contribution. It should make the work understandable and reproducible without requiring a private conversation with the team.
+This repository documents working code, measured results and the next integration milestones. The [progress record](progress.md), pinned dependencies and [test evidence](evidence/README.md) make the work reproducible.
 
-We will maintain a dated [progress record](progress.md), versioned compatibility profiles, runnable examples, exact dependency pins and [reproducible evidence](evidence/README.md). Our public issues and PRs connect technical questions to implementations, validation and feedback.
+Core Zeko has independent zkSecurity audit history and deployments on Mina mainnet and Ethereum testnet. The AAIF examples exercise identity, mission authorization, tools, execution and verifiable application state. Each example identifies its implementation and deployment scope.
 
-We record completed work, measured results, remaining limitations and development plans separately. The record includes useful failure cases and technical responses so others can evaluate and reproduce the work.
+## Participation
 
-## Participation beyond this proposal
+Contribute code, test vectors, independent reproductions and technical feedback through our [contribution process](CONTRIBUTING.md).
 
-The [contribution guide](CONTRIBUTING.md) welcomes implementation fixes, interoperability feedback, test vectors, independent reproductions and documentation improvements. Reusable functionality belongs in its canonical project, with cross-project evidence linked here.
-
-This repository is a public reference for verifiable shared state, bounded agent authority and independently operated AI infrastructure. The aim is human flourishing: giving more people the practical ability to participate in, control and benefit from the future of AI.
+We build and share infrastructure that gives more people control over AI and access to its benefits. Freedom, sovereignty, privacy and human flourishing guide the project and our AAIF contribution.

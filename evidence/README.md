@@ -1,5 +1,7 @@
 # Reproducible local evidence
 
+Open infrastructure requires inspectable results. We publish exact versions, reproducible checks and source digests so developers can verify Zeko's integration work and retain control of their own deployments.
+
 Current results, 26 October 2026:
 
 - **21 unit/integration tests passed**, 0 failed/skipped: `npm run test:sandbox`. This includes two network-isolation checks.

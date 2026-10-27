@@ -1,6 +1,6 @@
 # Zeko AAIF proposal
 
-We propose **core Zeko rollup infrastructure for verifiable shared state across agent applications** for the AAIF Sandbox stage. This repository brings together our proposal, working examples and reproducible compatibility evidence.
+Zeko is a public good for AI freedom, sovereignty and privacy. We propose its working rollup infrastructure for AAIF Sandbox: verifiable shared state that preserves human control across agent applications.
 
 **Status: draft for review; no official proposal issue has been filed.**
 

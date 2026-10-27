@@ -1,5 +1,7 @@
 # AGENTS.md: coding-agent instructions for the same state contract
 
+Open development requires clear, reproducible project guidance. This AGENTS.md example documents bounded state actions and verifies their behavior with an executable companion.
+
 Upstream: [project source](https://github.com/agentsmd/agents.md). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,11 +13,11 @@ npm run ecosystem:demo -- --project agents-md
 npm run ecosystem:proofs -- --project agents-md
 ```
 
-## How AGENTS.md can benefit from Zeko as an agentic internet protocol
+## How AGENTS.md benefits from Zeko’s agentic internet protocol
 
-AGENTS.md gives coding agents repository-specific instructions. It can make a Zeko integration easier to maintain across contributors by naming the authority boundary, exact reproduction commands, evidence requirements and rules for handling accepted or unknown outcomes. This is valuable when many personal or organizational agents work on the same tools and applications.
+AGENTS.md supplies repository instructions for coding agents. Our example documents the authority boundary, reproduction command and receipt semantics. Zeko supplies the enforcing state behavior; the companion checks the approved, changed and repeated action paths.
 
-For example, an agent modifying a reservation tool should learn that client-side counters are not authoritative, a timeout is not permission to dispatch again and the proof key must come from trusted configuration. Putting those constraints beside the code helps the next agent preserve the application contract while adding features. Zeko supplies the enforcing state/permission behavior; AGENTS.md helps agents find and work with it correctly.
+The example documents three concrete rules: the service owns the budget, unknown outcomes require reconciliation, and proof verification uses a trusted key. The companion tests the application contract. Instructions describe the rules; the service enforces them.
 
 | Integration point | AGENTS.md responsibility | Zeko application responsibility |
 | --- | --- | --- |
@@ -34,6 +36,6 @@ AGENTS.md is Markdown guidance, not a network protocol or a settlement engine. T
 
 ## Development roadmap
 
-We plan to exercise the example with an explicitly identified coding-agent consumer performing a bounded maintenance task. Verification will assess the resulting implementation and its acceptance/rejection behavior separately from document presence. This will extend the current companion example without treating instructions themselves as an authorization or enforcement mechanism.
+Our next milestone is to exercise the example with an explicitly identified coding-agent consumer performing a bounded maintenance task. Verification will assess the resulting implementation and its acceptance/rejection behavior separately from document presence. This will extend the current companion example without treating instructions themselves as an authorization or enforcement mechanism.
 
 The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

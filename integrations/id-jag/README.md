@@ -1,5 +1,7 @@
 # ID-JAG to MCP to mission-authorized state
 
+Human control starts with explicit authority. This integration connects existing enterprise identity to mission-bounded actions and verifiable application state, preserving operator choice and limiting what agents can do.
+
 ## Purpose
 
 Use existing enterprise-managed access to reach a Zeko-backed MCP service. ID-JAG establishes a cross-application authorization-grant flow. AMBA narrows the mission's permitted actions. Zeko provides verifiable shared state for accepted consequential transitions. A grant, mission capability and state proof serve different roles.

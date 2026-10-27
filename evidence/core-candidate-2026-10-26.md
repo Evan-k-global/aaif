@@ -1,5 +1,7 @@
 # Core Zeko candidate — 26 October 2026
 
+Open-source sovereignty depends on inspectable code and build evidence. This record identifies the core Zeko commit selected for the AAIF proposal and its passing upstream CI.
+
 We selected the latest `compatible` branch head checked on this date as the core proposal candidate. The record identifies the commit and its upstream build evidence.
 
 | Item | Verified record |

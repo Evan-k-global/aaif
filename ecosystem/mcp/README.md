@@ -1,5 +1,7 @@
 # MCP: shared state through a tool interface
 
+MCP keeps agent tools open. Our Zeko integration enforces bounded resource use and returns verifiable receipts. People retain control of delegated authority across clients.
+
 Upstream: [project source](https://github.com/modelcontextprotocol/typescript-sdk). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,11 +13,11 @@ npm run ecosystem:demo -- --project mcp
 npm run ecosystem:proofs -- --project mcp
 ```
 
-## How MCP can benefit from Zeko as an agentic internet protocol
+## How MCP benefits from Zeko’s agentic internet protocol
 
-MCP makes tools discoverable and callable across agent clients. When several clients act for the same person, enterprise or swarm, a successful tool invocation also needs an answer to a state question: was this work already accepted, and how much delegated capacity remains? Zeko can provide a shared, verifiable application-state layer behind those tools. A reservation, work commitment or result-acceptance record can then outlive any particular MCP connection.
+MCP makes tools discoverable and callable across agent clients. Zeko supplies the shared application-state layer behind consequential tool actions. The service checks the approved authority, accepts a valid transition and returns a receipt. Resource reservations and work commitments persist beyond a client connection.
 
-Consider two agents trying to reserve the last available compute or review budget. Independent client counters can both approve the request. The shared authority must order the competing transitions and accept only the valid consumption. This demo exercises that outcome with two distinct client registrations: two 70-unit requests compete for 100 units, exactly one succeeds, and the remaining quota is 30. A deployed Zeko adapter is the next step toward other operators verifying the accepted state rather than trusting this local writer.
+Consider two agents trying to reserve the last available compute or review budget. Independent client counters can both approve the request. The shared authority must order the competing transitions and accept only the valid consumption. This demo exercises that outcome with two distinct client registrations: two 70-unit requests compete for 100 units, exactly one succeeds, and the remaining quota is 30. The next deployment milestone connects this interface to core Zeko acceptance and independent state reads.
 
 | Integration point | MCP responsibility | Zeko application responsibility |
 | --- | --- | --- |
@@ -34,6 +36,6 @@ The example runs real MCP transports and the common AMBA backend. Both clients u
 
 ## Development roadmap
 
-We plan to add authorized receipt/status lookup so a client can reconnect after a dropped response and recover the original accepted result. The extension will preserve action identity, reject cross-tenant/domain reads and demonstrate that reconciliation does not consume the budget twice. Persistence across authority restarts is part of our shared recovery work.
+Our next milestone is to add authorized receipt/status lookup so a client can reconnect after a dropped response and recover the original accepted result. The extension will preserve action identity, reject cross-tenant/domain reads and demonstrate that reconciliation does not consume the budget twice. Persistence across authority restarts is part of our shared recovery work.
 
 The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

@@ -1,6 +1,6 @@
 # Compatibility work matrix
 
-All ten currently listed AAIF projects have a dedicated [ecosystem folder](ecosystem/README.md), executable examples or appropriate instruction artifacts, and explicit evidence levels. These results apply to selected local profiles.
+Open interoperability protects choice and human control. Our compatibility work connects Zeko's verifiable shared-state interface to all ten hosted AAIF projects. Each project has a dedicated example and an explicit tested scope.
 
 | Surface | Implemented local path | Remaining boundary |
 | --- | --- | --- |

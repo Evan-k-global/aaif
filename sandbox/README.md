@@ -1,6 +1,6 @@
 # Runnable AAIF integration sandbox
 
-One local demonstration connects AMBA's existing OAuth implementation, ID-JAG, an MCP tool and verifiable application state. No cloud tenant, funded wallet or production credential is required.
+We built this working integration to connect human-approved authority with verifiable application state. It runs AMBA OAuth, ID-JAG, an MCP tool and real proofs locally, with synthetic credentials. Open reproduction gives developers direct access to the implementation and its evidence.
 
 ## Run
 

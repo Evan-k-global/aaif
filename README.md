@@ -1,14 +1,12 @@
 # Zeko: Open Infrastructure for Sovereign AI
 
-Open-source work toward **rollups as infrastructure for verifiable shared state across agent applications**.
+**Zeko is a public good for AI freedom, sovereignty and privacy.** We built open-source rollup infrastructure for verifiable shared state across agent applications. People and organizations control their infrastructure, application rules and delegated agent authority.
 
-We are building Zeko as a public good so people and organizations can use AI with freedom, sovereignty and privacy. We offer the code, reference integrations and compatibility work freely under their published open-source licenses. Our ambition is to democratize the future of AI: more people able to operate their own systems, control delegated authority and participate in the benefits of AI.
+Zeko lets enterprises and agent swarms operate sovereign rollups with their own keys and policies. Recursive proofs verify application computation. Ethereum integrations provide state settlement and asset bridging. Our mission is to democratize AI and advance human flourishing through open infrastructure.
 
-Zeko provides an open-source rollup framework for applications whose participants need to verify shared-state transitions under application-defined rules. Sovereign deployments let enterprises and agent-swarm operators run their own infrastructure, with modular connections to Ethereum for state settlement and asset bridging.
+We deployed Zeko on Mina mainnet and Ethereum testnet. zkSecurity audited core components. This repository connects that foundation to the AAIF ecosystem through runnable examples, compatibility profiles and reproducible evidence.
 
-This repository is a record of that engineering work and our proposed AAIF contribution: runnable examples, deployment references, compatibility profiles, dated progress and reproducible evidence. The authoritative implementation remains in the linked project repositories. The proposal is a draft; an AAIF submission issue has not yet been filed.
-
-Read our [public-good purpose and sovereignty principles](PUBLIC_GOOD.md). Zeko Labs currently maintains this work; the plan distinguishes our commitment to neutral stewardship from governance still to be formalized.
+Our contribution advances open interoperability and human control. The [AAIF application](application.md) proposes core Zeko for the Sandbox stage. The application is a review draft; the protocol and examples already exist.
 
 ## Start here
 
@@ -40,7 +38,7 @@ Read our [public-good purpose and sovereignty principles](PUBLIC_GOOD.md). Zeko 
 - [Optional Phala confidential-computing deployment example](https://docs.zeko.io/operators/guides/rollup-on-phala)
 - [Core audit documentation PR](https://github.com/zeko-labs/zeko/pull/444), linking the authoritative zkSecurity assessments
 
-The independent deployment guide provides a container-based reference stack, operator-owned keys, genesis and contracts, and bridge/explorer tooling. Its default tutorial profile uses real Zeko-side proofs and a mock Ethereum SP1 verifier; the guide separately describes real Ethereum verification configuration. Deployment evidence should identify the profile used.
+The independent deployment guide provides a container-based reference stack, operator-owned keys, genesis and contracts, and bridge/explorer tooling. The tutorial identifies its default mock Ethereum verifier and the separate real-verification configuration. Zeko-side proofs are real in both documented profiles.
 
 ## Application and primitive references
 
@@ -54,8 +52,7 @@ The independent deployment guide provides a container-based reference stack, ope
 
 The prediction market demonstrates the zkTLS feature; extraction of a reusable adapter is a development target. Reference applications have their own trust boundaries, deployment profiles and security-review status. Their inclusion illustrates uses of the core and does not extend the core audit to their code.
 
-The local sandbox reuses AMBA's OAuth implementation, performs ID-JAG exchanges over HTTPS, and serves an actual MCP tool using the official SDK. It includes 17 identity-profile cases and 13 shared-state cases with real o1js application proofs. The ecosystem suite adds ten project-specific examples, all passing in real-proof mode, with native clients/gateways, official SDKs and explicit fixture or instruction-format boundaries. Core-rollup acceptance, commercial-provider validation and Ethereum settlement remain distinct deployment work. This is reproducible application-support evidence, not an AAIF certification.
-
+The local sandbox reuses AMBA's OAuth implementation, performs ID-JAG exchanges over HTTPS, and serves an actual MCP tool using the official SDK. It includes 17 identity-profile cases and 13 shared-state cases with real o1js application proofs. The ecosystem suite adds ten project-specific examples, all passing in real-proof mode, with native clients/gateways, official SDKs and explicit fixture or instruction-format boundaries. Core-rollup acceptance, commercial-provider validation and Ethereum settlement remain distinct deployment work. The [evidence record](evidence/README.md) identifies each tested profile and deployment boundary.
 
 ```sh
 npm ci --ignore-scripts

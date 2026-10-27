@@ -1,5 +1,7 @@
 # A2A: agent exchanges tied to a commitment
 
+Independent agents need open communication and bounded authority. Our A2A example links agent requests to one accepted commitment, preserving human control across operators.
+
 Upstream: [project source](https://github.com/a2aproject/a2a-js). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,11 +13,11 @@ npm run ecosystem:demo -- --project a2a
 npm run ecosystem:proofs -- --project a2a
 ```
 
-## How A2A can benefit from Zeko as an agentic internet protocol
+## How A2A benefits from Zeko’s agentic internet protocol
 
-A2A lets separately operated agents discover capabilities and exchange work. The receiving agent may use different models, tools and internal processes from the sender. Zeko can give those parties a common application record for consequential task events: a bounded work commitment, resource reservation, accepted delivery or release condition. They can exchange messages without treating every message as a new state-changing instruction.
+A2A connects independently operated agents. Zeko supplies shared application state for work commitments, resource reservations and accepted results. Agent operators keep their own models, tools and internal processes while verifying the same application rules.
 
-A practical example is one agent commissioning another to review a change. The parties can associate the agreed scope and job reference with a shared commitment, then attach delivery evidence to that commitment. A repeated message should refer to existing work, while a changed scope should require a new approval. The local example implements the narrower reservation boundary: two real A2A wire messages reach the executor, but only one action is accepted and one protected effect occurs.
+A cross-agent review task links agreed scope, work references and delivery evidence. Repeated messages retain the original action reference; changed scope requires new approval. The working example tests the reservation boundary: two A2A messages reach the executor, one action is accepted and one protected effect occurs.
 
 | Integration point | A2A responsibility | Zeko application responsibility |
 | --- | --- | --- |
@@ -24,7 +26,7 @@ A practical example is one agent commissioning another to review a change. The p
 | Task progress | Transport and task-lifecycle semantics | Record only transitions that require shared acceptance |
 | Delivery | Return artifacts or structured results | Correlate a result commitment with accepted application state |
 
-A2A task identifiers and Zeko action identifiers should have an explicit mapping; they should not be silently treated as interchangeable. Agent discovery is also distinct from authority to spend or commit work. The current A2A route has no peer authentication, and the trusted fixture supplies the AMBA context. Authenticated peer-to-mission mapping is a concrete extension, not an implemented property of this demo.
+Task IDs identify the A2A workflow; action IDs identify state changes. The integration requires an explicit mapping between them. The current route uses a trusted local AMBA context without peer authentication. Authenticated peer-to-mission mapping is the next identity milestone.
 
 ## Checks and scope
 

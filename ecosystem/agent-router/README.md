@@ -1,5 +1,7 @@
 # Agent Router: native Envoy routes with shared action state
 
+Provider choice requires a stable authority boundary. Our Agent Router integration separates model/tool routing from approved resource consumption, preserving operator sovereignty.
+
 Upstream: [project source](https://github.com/theagentrouter/agent-router). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,9 +13,9 @@ npm run ecosystem:demo -- --project agent-router
 npm run ecosystem:proofs -- --project agent-router
 ```
 
-## How Agent Router can benefit from Zeko as an agentic internet protocol
+## How Agent Router benefits from Zeko’s agentic internet protocol
 
-Agent Router provides a control plane and routing path for agent/model/tool traffic. Zeko can supply verifiable application state behind the selected tools, so provider selection, route configuration and application acceptance do not become the same trust decision. A swarm can change which model or service handles a request while preserving the identity of the work and the remaining delegated resources.
+Agent Router supplies the control plane for model and tool traffic. Zeko supplies verifiable application state behind the tools. Routing chooses where a request goes; the protected service decides whether its exact action is authorized and accepted.
 
 For example, a model route can propose a tool action, and a separate MCP route can deliver it to a stateful service. Zeko's role is to make the consequential reservation or work commitment checkable across participants. The router's role remains routing and control. This demo uses the actual `aigw` process and Envoy, verifies local model routing, discovers the routed MCP tool and demonstrates that changed/repeated requests do not gain new authority.
 

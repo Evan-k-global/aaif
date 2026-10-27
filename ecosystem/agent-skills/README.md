@@ -1,5 +1,7 @@
 # Agent Skills: reusable instructions plus an executable action wrapper
 
+Portable skills make open tools accessible across agents. Our Zeko skill packages a bounded state-action workflow while keeping authority with the approving person and enforcing service.
+
 Upstream: [project source](https://github.com/agentskills/agentskills/tree/main/skills-ref). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,11 +13,11 @@ npm run ecosystem:demo -- --project agent-skills
 npm run ecosystem:proofs -- --project agent-skills
 ```
 
-## How Agent Skills can benefit from Zeko as an agentic internet protocol
+## How Agent Skills benefits from Zeko’s agentic internet protocol
 
-Agent Skills packages reusable instructions and supporting resources for different agent implementations. A Zeko-oriented skill can make bounded, verifiable state actions easier to discover and use: how to request work, what evidence to expect, how to interpret a rejection and when to stop or reconcile. The skill supplies a portable workflow; authority still comes from the principal's approved mission and the enforcing service.
+Agent Skills packages reusable instructions and resources. Our Zeko example includes a validated skill and an executable action script. The skill describes the workflow; the service enforces the existing mission and approved action.
 
-For example, a team can share one skill for reserving an approved review budget and checking its receipt. Installing that package should not create a wallet, grant spending authority or authorize arbitrary tool parameters. The working package demonstrates the separation: the reference validator checks the skill format, the packaged Node script consumes a synthetic action supplied through stdin, and replay is rejected by the state boundary.
+A team shares one skill for reserving an approved review budget and interpreting its receipt. The package supplies instructions and a client script. Approval and spending authority remain with the principal and service. The validator checks the format; the script submits the exact action through stdin; the state boundary rejects replay.
 
 | Integration point | Agent Skills responsibility | Zeko application responsibility |
 | --- | --- | --- |
@@ -34,6 +36,6 @@ Agent Skills is an instruction/package format with reference validation code. Th
 
 ## Development roadmap
 
-We plan to add trusted-key receipt verification and stable machine-readable accepted, rejected and unknown outcomes to the packaged script. The package will be exercised from an isolated working directory with malformed input, changed amounts and missing approval. A consuming-agent example will provide separate evidence beyond format validation and script execution.
+Our next milestone is to add trusted-key receipt verification and stable machine-readable accepted, rejected and unknown outcomes to the packaged script. The package will be exercised from an isolated working directory with malformed input, changed amounts and missing approval. A consuming-agent example will provide separate evidence beyond format validation and script execution.
 
 The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

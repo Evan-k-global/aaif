@@ -1,5 +1,7 @@
 # Adapter contract v0.1
 
+This contract makes agent authority and shared-state behavior independently testable. Adapters connect implementations to the same public checks, supporting open interoperability and accountable execution.
+
 An adapter is an explicitly selected Node ES module exporting:
 
 ```js

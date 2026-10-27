@@ -1,6 +1,6 @@
 # Working-group relevance
 
-Our proposed core contribution is verifiable shared-state infrastructure. Three working-group areas make its application to agent systems especially concrete: shared-state security, identity-to-authority mapping and commerce lifecycle coordination.
+Human control, sovereignty and privacy drive our working-group contributions. Zeko supplies verifiable shared-state infrastructure for agent coordination. Three areas make that concrete: shared-state security, identity-to-authority mapping and commerce lifecycle coordination.
 
 ## Security & Privacy
 
@@ -16,7 +16,7 @@ We are interested in reusable threat-model and design-pattern work around accept
 
 Our [ID-JAG integration](integrations/id-jag/README.md) demonstrates the two-hop resource-access flow, followed by mission and holder checks at the action boundary. Successful login, reputation or discovery alone does not establish permission for every consequential action.
 
-We welcome discussion of which identity/delegation references should survive cross-agent interactions, how authority narrows across boundaries and how revocation, domain context and accepted commitments should interact.
+Our technical questions concern identity/delegation references across agents, narrowing authority at service boundaries, and the relationship between revocation, domain context and accepted commitments.
 
 ## Agentic Commerce
 

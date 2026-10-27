@@ -1,8 +1,8 @@
 # Zeko project roadmap
 
-We are building **rollups as infrastructure for verifiable shared state across agent applications**. Our proposed AAIF Sandbox contribution is core Zeko and its agreed integration interfaces, supported by runnable interoperability examples and reproducible evidence.
+**Zeko delivers open-source rollup infrastructure for verifiable shared state across agent applications.** We built it to give people freedom, sovereignty and control over AI. Our AAIF Sandbox proposal contributes this core infrastructure and its integration interfaces, supported by working examples and reproducible evidence.
 
-Our purpose is open infrastructure for AI freedom, sovereignty and privacy. People and organizations should be able to choose their models and agents, operate their own systems and delegate bounded authority. We offer this work under its published open-source licenses and welcome outside participation.
+Our mission is to democratize AI and advance human flourishing. Operators choose their models and agents, run their own systems and define bounded authority. We publish the code and integration work under open-source licenses.
 
 ## Contribution and architecture
 
@@ -56,4 +56,4 @@ We aim to reuse common application semantics where possible while preserving eac
 
 Zeko Labs maintains this work with support from Zeko Labs and its investors. The [maintainer roster](MAINTAINERS.md) identifies the current contacts. We are developing formal governance, release and specification procedures alongside the contribution asset schedule and dependency inventories.
 
-Our long-term goal is neutral stewardship with an open path for outside contributors. Growth evidence will include independently operated production use, contributions from other organizations and a sponsor-reviewed plan under the policy applicable at that time. Our [Sandbox thesis](proposal.md) and [full application](application.md) describe the proposed contribution and current review status.
+We commit to neutral stewardship and an open path for outside contributors. Growth evidence will include independently operated production use, contributions from other organizations and a sponsor-reviewed plan under the policy applicable at that time. Our [Sandbox thesis](proposal.md) and [full application](application.md) describe the proposed contribution and current review status.

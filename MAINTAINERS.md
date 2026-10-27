@@ -1,6 +1,6 @@
 # Maintainers and project contact
 
-Zeko Labs maintains the core rollup and this integration work.
+Zeko Labs maintains Zeko as open-source infrastructure for AI freedom, sovereignty and privacy. Our maintainers deliver the core rollup and the integration work documented here.
 
 | Name/account | GitHub | Role |
 | --- | --- | --- |

@@ -1,5 +1,7 @@
 # Run the AAIF ecosystem examples locally
 
+Open participation requires reproducible software. These commands run our AAIF ecosystem examples with local fixtures and synthetic credentials, giving developers direct access to the code and verification results.
+
 ## Prerequisites and setup
 
 The full native reference suite is tested on macOS arm64 with Node.js 24, Python 3.12+, OpenSSL, tar, macOS sandbox-exec and a running local Docker daemon. OpenSandbox uses actual containers; OrbStack is the tested runtime. Other platforms have not been validated for the full native suite.
@@ -43,7 +45,7 @@ The JavaScript runner rejects non-loopback fetches and sockets and prevents auto
 
 No real provider or wallet credentials are read. The native goose client uses a scripted model response and the identity provider is synthetic. OpenSandbox runs the official SDK, lifecycle server and execd in a real Docker worker; its official egress sidecar enforces a deny-by-default `dns+nft` policy. A synthetic local canary verifies a blocked outbound connection without using an external service. The worker has CPU/memory/PID limits, no host bind mounts, no Docker socket and no authority/provider credentials. SDK-access ports publish on loopback. Owned containers and temporary server files are cleaned up; downloaded images remain cached. The OpenEnv environment uses real upstream types in process. AGENTS.md is an instruction artifact with a companion execution; Agent Skills additionally has reference validation and a runnable script.
 
-A trusted fixture approver binds an action ID and exact units to an AMBA mission before a state write. OpenSandbox first completes a synthetic job, then the host verifies its expected result and approves a commitment covering the input, image and result. Its action records a completed job; it does not enforce compute admission before execution. The local broker cannot widen an approval from arbitrary caller input. It is deliberately simpler than a production deployment and should not be exposed as an enterprise approval service.
+A trusted fixture approver binds an action ID and exact units to an AMBA mission before a state write. OpenSandbox first completes a synthetic job, then the host verifies its expected result and approves a commitment covering the input, image and result. Its action records a completed job; it does not enforce compute admission before execution. The local broker cannot widen an approval from arbitrary caller input. The broker is local test orchestration. Production approval services require their own identity and policy integration.
 
 Proof mode checks each accepted receipt against the real o1js proof backend. The circuit proves reservation arithmetic/version advance and binds public domain/action commitments. AMBA authorization and the choice of authoritative state are separate service checks. Reservation fields are public. No Zeko sequencer, DA deployment or Ethereum verifier is exercised.
 
