@@ -74,7 +74,7 @@ Apache-2.0 for Zeko-authored and repository-maintained code. See the [core licen
 
 ## Governance Model
 
-Zeko Labs maintains the project through public repositories, issues and pull requests. The core maintainers are the `zekoxyz` team account and Martin Ondejka (`MartinOndejka`); see the [maintainer roster](MAINTAINERS.md).
+Zeko Labs maintains the project. Core maintainers [zekoxyz](https://github.com/zekoxyz) and [Martin Ondejka](https://github.com/MartinOndejka) review contributions through public pull requests.
 
 ## CI/CD & Release Workflow
 
