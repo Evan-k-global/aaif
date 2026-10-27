@@ -12,7 +12,7 @@ Zeko
 
 ## Project Description
 
-Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. We built it to advance AI freedom, sovereignty, privacy and human flourishing by giving people and organizations control over their AI infrastructure, application rules and delegated authority. This shared foundation lets independent agents coordinate resource reservations, budgets, work commitments and conditional payments across applications and organizations.
+Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. We built it so people, agents and organizations can control their AI infrastructure, application rules and delegated authority while remaining interoperable with other agents and services on the open internet. This shared foundation lets independent agents coordinate resource reservations, budgets, work commitments and conditional payments across applications and organizations.
 
 Developers define the rules for application state changes, and cryptographic proofs establish that each accepted transition satisfies those rules. Sequencing and recursive proof aggregation let participants verify the specified computation without re-executing every operation. For privacy, applications define what their proofs establish, which information they disclose and who has access; zero-knowledge proofs verify statements without revealing private proof inputs. Security combines these verifiable application rules with permissions that bound agent authority. Core Zeko components have undergone two independent zkSecurity assessments, documented in the [core audit index and reports](https://github.com/zeko-labs/zeko/pull/444).
 
