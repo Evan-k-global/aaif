@@ -12,7 +12,7 @@ Zeko
 
 ## Project Description
 
-Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. We built it so people, agents and organizations can control their AI infrastructure, application rules and delegated authority while remaining interoperable with other agents and services on the open internet. This shared foundation lets independent agents coordinate resource reservations, budgets, work commitments and conditional payments across applications and organizations.
+Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. We built it so people, agents and organizations can control their AI infrastructure, application rules and delegated authority while remaining interoperable with other agents and services on the open internet. Zeko provides instant transaction confirmation at the rollup level, so concurrent agents coordinate against newly accepted state without waiting for Ethereum settlement. Applications use that state for resource reservations, budgets, work commitments and conditional payments.
 
 Developers define the rules for application state changes, and cryptographic proofs establish that each accepted transition satisfies those rules. Sequencing and recursive proof aggregation let participants verify the specified computation without re-executing every operation. For privacy, applications define what their proofs establish, which information they disclose and who has access; zero-knowledge proofs verify statements without revealing private proof inputs. Security combines these verifiable application rules with permissions that bound agent authority. Core Zeko components have undergone two independent zkSecurity assessments, documented in the [core audit index and reports](https://github.com/zeko-labs/zeko/pull/444).
 
@@ -34,13 +34,15 @@ We publish the protocol and reference integrations under open-source licenses so
 
 ## Relation to Existing AAIF Projects
 
-Zeko complements existing AAIF interfaces with verifiable shared state:
+Zeko gives applications built with AAIF projects shared, verifiable state for resource use and work commitments:
 
-- **MCP and A2A:** Applications get a shared record of resource reservations and work commitments, so agents coordinate against the same accepted state.
-- **goose, agentgateway and Agent Router:** Requests from different clients and routes use the same budget and replay checks, keeping resource accounting consistent across those entry points.
-- **Open Responses:** Tool outputs carry receipts tied to accepted state changes, letting applications correlate a reported result with the action it records.
-- **OpenSandbox and OpenEnv:** Applications get a common record for job-result commitments and resource consumption, including budgets that remain in force across environment resets.
-- **AGENTS.md and Agent Skills:** Teams document and package the same bounded state-action workflow for different agents, with permissions enforced by the application service.
+- **MCP and A2A:** Concurrent agents coordinate tool actions, reservations and work commitments against the same accepted state, with instant confirmation at the rollup level.
+- **goose:** User-approved resource limits are enforced by the application service and recorded outside the model's context, keeping delegated authority under the user's control.
+- **agentgateway and Agent Router:** Independently operated services share verifiable resource accounting, so requests arriving through different gateways compete against the same available budget.
+- **Open Responses:** Tool results carry receipts linked to accepted application-state changes, giving clients evidence of the recorded action alongside the response.
+- **OpenSandbox:** Job inputs, runtime images and submitted results are bound into shared commitments, making accepted work traceable outside temporary containers.
+- **OpenEnv:** Shared resource limits persist outside an episode, allowing evaluations to test competition and overspending across environment resets.
+- **AGENTS.md and Agent Skills:** Reusable instructions and scripts invoke actions whose permissions are enforced by application code, giving different agents consistent operational rules.
 
 Our [local reference examples](ecosystem/README.md) demonstrate these connections. The MCP example combines a local ID-JAG exchange, AMBA's OAuth and mission checks, and an application proof of the reservation calculation. The examples use a local state service rather than a deployed core rollup or Ethereum settlement; the [compatibility matrix](compatibility.md) records each example's tested scope.
 
@@ -143,9 +145,7 @@ Zeko Labs maintains the project through [zekoxyz](https://github.com/zekoxyz) an
 
 ## Trademark and accounts
 
-- [ ] If the project is accepted, I agree to transfer all project trademarks and accounts to the Linux Foundation under the contribution agreement.
-
-The project-specific asset schedule remains to be agreed with AAIF.
+Zeko Labs agrees to transfer all project trademarks and accounts to the Linux Foundation under the contribution agreement.
 
 ## Details of Existing Financial Sponsorship
 
