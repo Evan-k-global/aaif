@@ -96,24 +96,9 @@ AAIF-specific compatibility work: https://github.com/zeko-labs/aaif/issues
 
 ## External Project Dependencies
 
-The core builds on Mina-derived ledger, cryptographic and transaction components, with preserved upstream notices. Its dependency and build definitions are in the public repository. Ethereum acceptance adds the separately maintained settlement contracts, gateway and SP1 proof-verification path; deployed infrastructure adds configured storage, messaging and data-availability services.
+Core Zeko uses Mina-derived ledger, cryptographic and transaction components, with upstream license notices preserved as described in the [core licensing statement](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md). The Ethereum integration uses settlement contracts, a gateway and SP1 proof verification; its [licensing documentation](https://github.com/zeko-labs/ethereum-settlement#licensing) covers Apache and third-party components.
 
-The supporting local examples use these direct dependencies:
-
-| Dependency | Version/revision | License |
-| --- | --- | --- |
-| AMBA | `4b5bb5c6915c7ee17e716ab2320e50d985dfc0d5` | Apache-2.0 |
-| MCP TypeScript SDK | 1.26.0 | MIT |
-| jose | 6.1.3 | MIT |
-| zod | 3.25.76 | MIT |
-| o1js | 2.13.0 | Apache-2.0 |
-| A2A JavaScript SDK | 1.3.0 | Apache-2.0 |
-| Express | 5.1.0 | MIT |
-| Ajv | 8.17.1 | MIT |
-
-Native/Python component versions and checksums are recorded in the [ecosystem pins](ecosystem/versions.json), [binary manifest](ecosystem/binaries.json) and [Python lock](ecosystem/requirements.lock). Their direct license attributions are in [NOTICE](NOTICE).
-
-The Ethereum repository separately [documents Apache and third-party licensing scope](https://github.com/zeko-labs/ethereum-settlement#licensing). These records identify component licensing; a complete transitive dependency/license inventory is not included here.
+Dependencies for the supporting local examples are listed separately in the [ecosystem dependency record](ecosystem/DEPENDENCIES.md).
 
 ## Maintainers & Contributors
 
