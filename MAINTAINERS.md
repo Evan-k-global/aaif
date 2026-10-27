@@ -13,4 +13,4 @@ Martin's recent core contributions include [durable Ethereum settlement recovery
 
 **Contributing entity:** Zeko Labs Inc., 16192 Coastal Highway, Lewes, DE 19958.
 
-Our governance work includes formal release/merge procedures, technical decision processes and an open contributor-to-maintainer path. Proposed changes are described in the [roadmap](project-plan.md); the [application](application.md) records the current contribution and review status.
+Contributors propose changes through public issues and pull requests. See the [contribution guide](CONTRIBUTING.md) for this repository's review process and the [application](application.md) for the proposed contribution.

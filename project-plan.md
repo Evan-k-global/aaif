@@ -54,6 +54,6 @@ We aim to reuse common application semantics where possible while preserving eac
 
 ## Stewardship and support
 
-Zeko Labs maintains this work with support from Zeko Labs and its investors. The [maintainer roster](MAINTAINERS.md) identifies the current contacts. We are developing formal governance, release and specification procedures alongside the contribution asset schedule and dependency inventories.
+Zeko Labs maintains this work with support from Zeko Labs and its investors. The [maintainer roster](MAINTAINERS.md) identifies the current contacts, and the [contribution guide](CONTRIBUTING.md) describes how to propose changes in this repository.
 
 We commit to neutral stewardship and an open path for outside contributors. Growth evidence will include independently operated production use, contributions from other organizations and a sponsor-reviewed plan under the policy applicable at that time. Our [Sandbox thesis](proposal.md) and [full application](application.md) describe the proposed contribution and current review status.

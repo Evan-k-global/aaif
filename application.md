@@ -72,19 +72,17 @@ Apache-2.0 for Zeko-authored and repository-maintained code, subject to identifi
 
 Zeko Labs maintains the project through public repositories, issues and pull requests. The core maintainers are the `zekoxyz` team account and Martin Ondejka (`MartinOndejka`); see the [maintainer roster](MAINTAINERS.md).
 
-A consolidated Zeko-specific governance document covering merge and release authority, technical decisions and new maintainers is not yet published. The proposed AAIF governance structure will be agreed through the technical charter.
-
 ## CI/CD & Release Workflow
 
 The core's [GitHub Actions workflow](https://github.com/zeko-labs/zeko/blob/compatible/.github/workflows/ci.yaml) builds the sequencer, data-availability layer and signer, and runs sequencer tests. Container build automation is also included.
 
-The selected core candidate is [`28223900e4`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed). Its [CI run](https://github.com/zeko-labs/zeko/actions/runs/40358110682) passed the package-build and sequencer-test steps. The latest published release checked on 26 October 2026 was [v1.0.5](https://github.com/zeko-labs/zeko/releases/tag/v1.0.5); the selected commit is newer. A fixed release cadence and formal release-approval process are not documented. See the [candidate record](evidence/core-candidate-2026-10-26.md).
+The selected core candidate is [`28223900e4`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed). Its [CI run](https://github.com/zeko-labs/zeko/actions/runs/40358110682) passed the package-build and sequencer-test steps. The latest published release checked on 26 October 2026 was [v1.0.5](https://github.com/zeko-labs/zeko/releases/tag/v1.0.5); the selected commit is newer. See the [candidate record](evidence/core-candidate-2026-10-26.md).
 
 The supporting AAIF examples have pinned dependencies, reproducible commands and separately recorded [local test results](evidence/README.md).
 
 ## Public-Facing Contribution Process for Specifications
 
-The core repository contains an [inherited contribution guide](https://github.com/zeko-labs/zeko/blob/compatible/CONTRIBUTING.md) and [RFC process](https://github.com/zeko-labs/zeko/tree/compatible/rfcs). A separate Zeko-specific specification process is not yet published.
+The core repository contains an [inherited contribution guide](https://github.com/zeko-labs/zeko/blob/compatible/CONTRIBUTING.md) and [RFC process](https://github.com/zeko-labs/zeko/tree/compatible/rfcs).
 
 For the AAIF examples, contributors propose interface and compatibility changes through public issues or pull requests, including affected versions and relevant tests. See the [contribution guide](CONTRIBUTING.md).
 
@@ -111,7 +109,7 @@ The [roster](MAINTAINERS.md) lists the maintainers and application contact. Outs
 
 ## Leadership Team & Decision Process
 
-The Zeko Labs maintainers listed above provide technical leadership. Evan Kereiakes is the AAIF Liaison and application contact. Technical changes are reviewed through public pull requests; a consolidated description of approval and escalation rights is not yet published.
+The Zeko Labs maintainers listed above provide technical leadership, with technical discussions and code review conducted through public issues and pull requests. Evan Kereiakes is the AAIF Liaison and application contact.
 
 ## Lifecycle Stage Evidence
 
@@ -123,7 +121,7 @@ The proposed Sandbox work is to test the reference integration against a core de
 
 zkSecurity independently audited core Zeko components in two assessments. The [core audit documentation](https://github.com/zeko-labs/zeko/pull/444) links the reports, reviewed scope and finding responses.
 
-The applications and local AAIF examples have separate review and test scope; the core audits do not cover them. The [sandbox documentation](sandbox/README.md) describes the local examples' security assumptions.
+These audits cover core protocol components. Supporting applications and demos are outside their scope.
 
 Security contact: contact@zeko.io.
 
@@ -135,7 +133,7 @@ Documentation: https://docs.zeko.io and https://ethereum.docs.zeko.io/overview
 
 ## Documented Governance Practices (if any)
 
-A consolidated Zeko-specific governance document is not yet published. Current stewardship is described in the Governance Model and Leadership Team sections above.
+See the [maintainer roster](MAINTAINERS.md) and [contribution guide](CONTRIBUTING.md) for current maintainership and the AAIF repository's review process.
 
 ## Links to Social Media Accounts
 

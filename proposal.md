@@ -42,6 +42,6 @@ Sandbox work will extend the adapter to a pinned core deployment, exercise anoth
 
 ## Security and Growth objectives
 
-Core Zeko has independent zkSecurity audit history. The [audit documentation](https://github.com/zeko-labs/zeko/pull/444) indexes the authoritative reports, component scope and published finding responses; the audit index will have its canonical repository location after merge. Application, demo and integration assurance remains separate. Each deployment must document state authority, proof verification, data availability, permissions and recovery.
+zkSecurity independently audited core Zeko components in two assessments. The [core audit documentation](https://github.com/zeko-labs/zeko/pull/444) links the reports, reviewed scope and finding responses. Supporting applications and demos are outside the scope of these core audits.
 
 Sandbox success means reproducible deployments, a maintained compatibility profile, useful outside feedback and open governance. Growth preparation will pursue the applicable graduation criteria: production use by two unaffiliated organizations, contributions from two organizations over the preceding six months, and a sponsor-accepted growth plan. The roadmap targets the six-month checkpoint and a Growth application within twelve months when criteria are met.
