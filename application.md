@@ -145,9 +145,7 @@ Zeko Labs maintains the project through [zekoxyz](https://github.com/zekoxyz) an
 
 ## Trademark and accounts
 
-- [ ] If the project is accepted, I agree to transfer all project trademarks and accounts to the Linux Foundation under the contribution agreement.
-
-The project-specific asset schedule remains to be agreed with AAIF.
+Zeko Labs agrees to transfer all project trademarks and accounts to the Linux Foundation under the contribution agreement.
 
 ## Details of Existing Financial Sponsorship
 
