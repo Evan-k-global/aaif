@@ -4,3 +4,6 @@ node_modules/
 !.env.example
 tck/results/
 .cache/
+
+__pycache__/
+*.pyc

@@ -40,15 +40,17 @@ Neutral governance would let implementers beyond the originating team contribute
 
 MCP retains its tool interface and authorization roles. Our local reference integration uses the official MCP SDK, enterprise-managed ID-JAG exchanges and AMBA's existing OAuth and mission checks to expose a bounded reservation tool. Real application proofs and portable receipts illustrate the state-verification boundary.
 
-Other AAIF projects remain complementary: A2A can carry task/artifact references; clients such as goose and infrastructure such as agentgateway can exercise the same tool and acceptance profile; execution environments and response APIs can preserve authority and result correlation. These additional integrations are roadmap items, not current conformance claims.
+Other AAIF projects remain complementary: A2A can carry task/artifact references; clients such as goose and infrastructure such as agentgateway can exercise the same tool and acceptance profile; execution environments and response APIs can preserve authority and result correlation. Selected local examples now exercise the official A2A SDK and native goose, agentgateway and Agent Router/Envoy, alongside schema/SDK or instruction-format examples for the other hosted projects. These are local integration results with explicit fixture boundaries, not full conformance or deployed settlement claims.
 
 The [compatibility matrix](compatibility.md) records tested versus planned boundaries. We propose versioned profiles and reference tests to reduce bespoke pairwise integration, without replacing existing identity, transport or task protocols. ID-JAG is an authorization-flow component, not a replacement for application authority checks or a token to send directly to an MCP resource.
+
+The [ecosystem suite](ecosystem/README.md) has a dedicated folder for each of the ten hosted projects. All ten local examples pass in real-proof mode, with 62 scenario checks. OpenSandbox uses its actual SDK/server/execd Docker lifecycle and deny-by-default egress; a host-verified input/image/result commitment is accepted once, with replay and changed results rejected. Each guide explains the application benefit, what actually executes and the next validation required.
 
 ## Example Use Cases and Evidence of Adoption
 
 Initial users are enterprises operating agent fleets, developers of cross-organization agent services, and applications where multiple parties must coordinate resources, commitments or payments under shared rules.
 
-Our working reference scenario connects user authorization, enterprise identity, an MCP tool, AMBA mission constraints and a proof-backed reservation. It includes negative cases for replay, changed inputs, invalid context and conflicting resource consumption. The [local evidence](evidence/README.md) records 17 ID-JAG/MCP cases and 13 shared-state cases passing, plus 19 unit/integration tests. The provider and state authority are explicitly local sandbox implementations.
+Our working reference scenario connects user authorization, enterprise identity, an MCP tool, AMBA mission constraints and a proof-backed reservation. It includes negative cases for replay, changed inputs, invalid context and conflicting resource consumption. The [local evidence](evidence/README.md) records 17 ID-JAG/MCP cases and 13 shared-state cases passing, plus 21 unit/integration tests. The provider and state authority are explicitly local sandbox implementations. The additional ten-project suite demonstrates selected native client/gateway, SDK, schema and instruction-format paths against the same application boundary.
 
 Related first-party applications provide examples:
 
@@ -88,7 +90,7 @@ The proposed direction is transparent technical decisions, public specification 
 
 The core's [GitHub Actions workflow](https://github.com/zeko-labs/zeko/blob/compatible/.github/workflows/ci.yaml) sets up the OCaml/OPAM, Rust and Go build environment, builds the sequencer, DA layer and signer, and invokes sequencer tests. Container build automation is also present in the repository.
 
-The AAIF support repository pins Node dependencies and exposes reproducible sandbox, profile and real-proof commands. Local evidence includes 19 unit/integration tests and 30 profile cases. A GitHub Actions configuration is supplied; hosted results are tracked on the review PR. Passing local tests are not described as a hosted CI run.
+The AAIF support repository pins Node dependencies and exposes reproducible sandbox, profile and real-proof commands. Local evidence includes 21 unit/integration tests and 30 profile cases. A GitHub Actions configuration is supplied; hosted results are tracked on the review PR. Passing local tests are not described as a hosted CI run.
 
 The current core candidate is [`28223900e4`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed), the latest `compatible` branch head checked on 26 October 2026. Its [CI run](https://github.com/zeko-labs/zeko/actions/runs/40358110682) completed successfully, including package-build and sequencer-test steps. The most recent published release returned was [v1.0.5](https://github.com/zeko-labs/zeko/releases/tag/v1.0.5); this proposal selects the newer commit candidate. See the [candidate record](evidence/core-candidate-2026-10-26.md).
 
@@ -121,6 +123,11 @@ Direct dependencies of the reproducible AAIF integration are pinned as follows:
 | jose | 6.1.3 | MIT |
 | zod | 3.25.76 | MIT |
 | o1js | 2.13.0 | Apache-2.0 |
+| A2A JavaScript SDK | 1.3.0 | Apache-2.0 |
+| Express | 5.1.0 | MIT |
+| Ajv | 8.17.1 | MIT |
+
+Native/Python component versions and checksums are recorded in the [ecosystem pins](ecosystem/versions.json), [binary manifest](ecosystem/binaries.json) and [Python lock](ecosystem/requirements.lock). Their direct license attributions are in NOTICE.
 
 These identifiers were checked against installed package metadata. They are not a complete transitive license inventory. The Ethereum repository separately [documents Apache and third-party licensing scope](https://github.com/zeko-labs/ethereum-settlement#licensing).
 

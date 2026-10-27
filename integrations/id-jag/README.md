@@ -35,3 +35,15 @@ Raw tokens, client secrets and personal identities stay out of ledger records an
 ## Completion criteria
 
 The local sandbox now demonstrates the selected two-hop access flow and rejection cases, plus a separately verified application proof. The commercial-provider and core-rollup acceptance paths remain separate evidence targets. Run `npm run tck:idjag` to reproduce the selected identity profile.
+
+## Agent handoff and next local milestone
+
+**Next runnable milestone: two synthetic tenant/resource configurations with explicit isolation.** Extend local registrations and policy mapping before introducing a commercial account. A successful flow for one tenant must not imply permission to act for another.
+
+Read [`client.mjs`](client.mjs), [`discovery.mjs`](discovery.mjs), [`versions.json`](versions.json), the HTTPS roles in [`../../sandbox/server.mjs`](../../sandbox/server.mjs) and the identity profile's [adapter](../../tck/adapters/id-jag-sandbox.mjs). Keep token exchange/discovery support here and reusable mission behavior in canonical AMBA. Do not implement another generic OAuth library inside the fixture.
+
+1. Add a second synthetic tenant/resource registration and define the allowed issuer, resource audience, client and subject-to-mission mappings for each.
+2. Exercise successful access in each context and crossed tenant/resource/client combinations, including a validly signed assertion with the wrong context. Inspect the actual resource decision; decoded claims alone are not evidence of trust.
+3. Keep the existing pinned profile/draft semantics explicit. If the profile changes, update its pins and required cases together instead of describing generic OIDC support as ID-JAG compatibility.
+
+**Done when:** both intended local flows work, crossed contexts fail before protected effects and reports disclose no credentials or personal data. Run `npm run test:sandbox`, `npm run tck:idjag` and `npm run sandbox:evidence`. Commercial-provider support is a separately configured follow-on profile. See the [shared handoff](../../ecosystem/DEVELOPMENT.md) for authority semantics and evidence rules.

@@ -1,0 +1,7 @@
+# Every project has a demo folder
+
+The full suite now covers all ten projects listed on the [AAIF project page](https://aaif.io/projects). Start with the [ecosystem overview](README.md).
+
+The five additional guides are [Agent Router](agent-router/README.md), [Open Responses](open-responses/README.md), [OpenEnv](openenv/README.md), [Agent Skills](agent-skills/README.md) and [AGENTS.md](agents-md/README.md). They include code or executable companions appropriate to each project's role.
+
+All status and evidence levels are recorded in the overview, individual guides and [compatibility matrix](../compatibility.md).

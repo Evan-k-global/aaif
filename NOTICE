@@ -1,3 +1,5 @@
 Zeko AAIF integration work
 
 This repository uses the Apache-2.0 Agent Mission-Bound Auth implementation at revision 4b5bb5c6915c7ee17e716ab2320e50d985dfc0d5 as a pinned dependency. It also uses the official MCP SDK (MIT), jose (MIT), zod (MIT), and o1js (Apache-2.0). Dependencies retain their own license and notice files.
+
+The ecosystem suite uses the official A2A SDK (Apache-2.0), Express (MIT), Ajv (MIT), goose (Apache-2.0), agentgateway (Apache-2.0), Agent Router (Apache-2.0), Envoy (Apache-2.0), OpenSandbox SDK/server/execd/egress (Apache-2.0), OpenEnv (BSD-3-Clause), and skills-ref (Apache-2.0). The Docker worker uses the official Python image, retaining the upstream Python and distribution component licenses. The Open Responses schema is retrieved from its Apache-2.0 repository. Downloaded dependencies remain in the ignored cache or local Docker image store with their original licensing; source and artifact references are recorded in ecosystem/.

@@ -1,0 +1,17 @@
+{
+  "checked_on": "2026-10-26",
+  "roster": "https://aaif.io/projects",
+  "native_reference_platform": "darwin-arm64; sandbox-exec enforces loopback network access",
+  "mcp": { "package": "@modelcontextprotocol/sdk", "version": "1.26.0" },
+  "a2a": { "package": "@a2a-js/sdk", "version": "1.3.0", "protocol": "1.0.0" },
+  "goose": { "version": "1.56.0", "provider": "deterministic local chat fixture", "asset_pins": "binaries.json" },
+  "agentgateway": { "version": "1.6.0", "mode": "native HTTP proxy to local MCP broker", "asset_pins": "binaries.json" },
+  "agent-router": { "version": "1.2.0", "envoy": "1.39.2", "mode": "native MCP and chat routes", "asset_pins": "binaries.json" },
+  "open-responses": { "schema_release": "2026-04-24", "schema_sha256": "d598753c3a86fd8a2434828fe39dcc8786a7a694bbe46080a0d24c9fa40e72df", "subset": "non-streaming function calls and correlated outputs" },
+  "opensandbox": { "package": "opensandbox", "version": "1.1.1", "server": "1.1.1", "execd": "1.1.0", "egress": "1.1.7", "backend": "real local Docker worker; dns+nft deny-by-default egress; pinned OCI image digests in opensandbox/images.json" },
+  "openenv": { "package": "openenv", "version": "0.10.0", "mode": "typed in-process Environment with a shared loopback action service" },
+  "agent-skills": { "validator": "skills-ref", "version": "0.1.1", "artifact": "agent-skills/skills/zeko-state-actions/SKILL.md" },
+  "agents-md": { "artifact": "agents-md/workspace/AGENTS.md", "mode": "instruction document with an executable companion; no formal parser or agent-behavior certification" },
+  "amba": { "revision": "4b5bb5c6915c7ee17e716ab2320e50d985dfc0d5" },
+  "o1js": { "version": "2.13.0", "statement": "public reservation arithmetic and version advance, plus public domain/action commitments" }
+}

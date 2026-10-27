@@ -19,7 +19,7 @@ The scenario now runs locally: actual AMBA OAuth and mission checks, signed JWTs
 | 5. Demonstrate outside-client reuse | A second client consumes the same service/profile | Unchanged shared fixtures, versions and independently checkable results |
 | 6. Extend selectively | A2A handoff, an AAIF gateway/client, Ethereum settlement profile | Separate evidence for each integration; no umbrella conformance claim |
 
-Milestones 1–4 have local sandbox implementations; milestone 5 has a second separately registered SDK client and separate-process proof verification, but no independent client implementation. No cloud tenant or funded deployment is required to reproduce this work. Real operator/provider deployment evidence and broader AAIF adapters remain Sandbox work.
+Milestones 1–4 have local sandbox implementations; milestone 5 now also has a real native goose client, native gateway examples and A2A SDK exchanges, with separate-process proof verification retained. The all-ten [ecosystem suite](ecosystem/README.md) distinguishes actual components from service/schema fixtures and instruction companions. No cloud tenant or funded deployment is required to reproduce this work. Real operator/provider deployment evidence and broader AAIF adapters remain Sandbox work.
 
 ## Initial boundaries
 

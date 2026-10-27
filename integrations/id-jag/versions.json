@@ -13,7 +13,7 @@
     "commit": "15ca394e00a66434520b9ade26294999295a43ae",
     "blob": "5f5f4e5c25d0ff16d1df29dd58c867aa8fce512f"
   },
-  "implemented_scope": "Client-side OIDC-assertion to ID-JAG to resource access-token helper; controlled-double tests only.",
+  "implemented_scope": "Client helper with controlled-double unit tests, plus local HTTPS signed-JWT/MCP integration in sandbox/ and ecosystem/. Commercial IdP and full-profile certification remain untested.",
   "live_provider": null,
   "resource_authorization_server": null,
   "mcp_server": null,
