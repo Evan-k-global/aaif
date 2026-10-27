@@ -1,6 +1,6 @@
 # Public infrastructure for sovereign AI
 
-**Zeko is a public good for AI freedom, sovereignty and privacy.** We built it so people and organizations control their AI infrastructure, delegated authority and application rules. Our mission is to democratize AI and advance human flourishing.
+**Zeko is a public good for AI freedom, sovereignty and privacy.** We built it so people, agents and organizations can control their AI infrastructure, application rules and delegated authority while remaining interoperable with other agents and services on the open internet. Our mission is to democratize AI and advance human flourishing.
 
 Our code, reference integrations, compatibility work and documentation are open source. Anyone can inspect, use, modify and build on them under their published licenses.
 

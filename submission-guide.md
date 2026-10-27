@@ -1,6 +1,6 @@
 # Zeko AAIF proposal
 
-Zeko is a public good for AI freedom, sovereignty and privacy. We propose its working rollup infrastructure for AAIF Sandbox: verifiable shared state that preserves human control across agent applications.
+Zeko is a public good for AI freedom, sovereignty and privacy. We propose its open-source agentic rollup protocol for AAIF Sandbox: verifiable shared state that preserves human control across agent applications.
 
 **Status: draft for review; no official proposal issue has been filed.**
 
@@ -18,6 +18,6 @@ Zeko is a public good for AI freedom, sovereignty and privacy. We propose its wo
 
 AAIF's [proposal process](https://github.com/aaif/technical-committee/blob/main/project_proposal_process.md) uses an issue in `aaif/project-proposals` as the official submission record. The [Project Proposal form](https://github.com/aaif/project-proposals/issues/new?template=project-proposal.yml) is the intake route. Pull requests in this repository support review and development of our materials.
 
-The application remains a draft while we finalize the contribution asset schedule, governance documentation, release procedures and supporting inventories. It includes our maintainer, contact, sponsorship and signatory information. Formal contribution terms will be completed through the AAIF process.
+The application is a review draft and includes the maintainers, contact, sponsorship and signatory information. Formal contribution terms are agreed through the AAIF process.
 
-We welcome technical feedback on the proposal and examples through [public issues](https://github.com/zeko-labs/aaif/issues). The canonical core implementation and application repositories are linked from the [project overview](README.md).
+We welcome technical feedback on the proposal and examples through [pull requests](https://github.com/zeko-labs/aaif/pulls). The canonical core implementation and application repositories are linked from the [project overview](README.md).

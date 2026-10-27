@@ -28,4 +28,4 @@ An interrupted request is a useful example: work may have occurred even though t
 
 The [ten-project ecosystem suite](ecosystem/README.md) also touches workflow integration, observability, reliability and governance through explicit action/receipt contracts and reproducible failure cases. Taxonomy & Landscape is relevant to describing these roles consistently across working groups. zkTLS external-data evidence is a supporting primitive, demonstrated by the prediction-market implementation and a partner-motivated verification PoC.
 
-Our [application](application.md) and [Sandbox thesis](proposal.md) provide the common contribution context. We welcome focused technical feedback through [issues](https://github.com/zeko-labs/aaif/issues).
+Our [application](application.md) and [Sandbox thesis](proposal.md) provide the common contribution context. We welcome focused technical feedback through [pull requests](https://github.com/zeko-labs/aaif/pulls).

@@ -1,6 +1,6 @@
 # Zeko: Open Infrastructure for Sovereign AI
 
-**Zeko is a public good for AI freedom, sovereignty and privacy.** We built open-source rollup infrastructure for verifiable shared state across agent applications. People and organizations control their infrastructure, application rules and delegated authority. Our mission is to democratize AI and advance human flourishing.
+**Zeko is a public good for AI freedom, sovereignty and privacy.** Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. People and organizations control their infrastructure, application rules and delegated authority. Our mission is to democratize AI and advance human flourishing.
 
 AI agents work across applications, businesses and the open internet. Coordinating that work requires shared rules for permissions, resources, payments and accepted results. Zeko gives developers a common foundation for those rules: application state that independent participants verify with cryptographic proofs. Personal agents, enterprises and agent swarms retain their choice of models, services and infrastructure. For the AI industry, Zeko is an open coordination layer that connects independent systems and keeps control with the people who use them.
 
@@ -86,7 +86,7 @@ The [published evidence](evidence/README.md) records 21 unit/integration tests, 
 
 ## Deploy a sovereign rollup
 
-The [Ethereum Sepolia deployment guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) launches an operator-owned stack with its own keys, genesis, contracts and bridge/explorer tooling. The guide distinguishes its default mock Ethereum verifier from real-verification configuration. [Ethereum architecture](https://ethereum.docs.zeko.io/overview) covers settlement and bridging; [Phala hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) adds an optional confidential-computing deployment path.
+The [Ethereum Sepolia deployment guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) launches an operator-owned stack with its own keys, genesis, contracts and bridge/explorer tooling. The guide distinguishes its default mock Ethereum verifier from real-verification configuration. [Phala hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) adds an optional confidential-computing deployment path.
 
 The [core audit index](https://github.com/zeko-labs/zeko/pull/444) links zkSecurity's assessments and component scope. The [core candidate record](evidence/core-candidate-2026-10-26.md) identifies the selected revision and passing upstream build.
 
