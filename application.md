@@ -34,13 +34,15 @@ We publish the protocol and reference integrations under open-source licenses so
 
 ## Relation to Existing AAIF Projects
 
-Zeko complements existing AAIF interfaces with verifiable shared state:
+Zeko gives applications built with AAIF projects shared, verifiable state for resource use and work commitments:
 
-- **MCP and A2A:** Applications get a shared record of resource reservations and work commitments, so agents coordinate against the same accepted state.
-- **goose, agentgateway and Agent Router:** Requests from different clients and routes use the same budget and replay checks, keeping resource accounting consistent across those entry points.
-- **Open Responses:** Tool outputs carry receipts tied to accepted state changes, letting applications correlate a reported result with the action it records.
-- **OpenSandbox and OpenEnv:** Applications get a common record for job-result commitments and resource consumption, including budgets that remain in force across environment resets.
-- **AGENTS.md and Agent Skills:** Teams document and package the same bounded state-action workflow for different agents, with permissions enforced by the application service.
+- **MCP and A2A:** Concurrent agents coordinate tool actions, reservations and work commitments against the same accepted state, with instant confirmation at the rollup level.
+- **goose:** User-approved resource limits are enforced by the application service and recorded outside the model's context, keeping delegated authority under the user's control.
+- **agentgateway and Agent Router:** Independently operated services share verifiable resource accounting, so requests arriving through different gateways compete against the same available budget.
+- **Open Responses:** Tool results carry receipts linked to accepted application-state changes, giving clients evidence of the recorded action alongside the response.
+- **OpenSandbox:** Job inputs, runtime images and submitted results are bound into shared commitments, making accepted work traceable outside temporary containers.
+- **OpenEnv:** Shared resource limits persist outside an episode, allowing evaluations to test competition and overspending across environment resets.
+- **AGENTS.md and Agent Skills:** Reusable instructions and scripts invoke actions whose permissions are enforced by application code, giving different agents consistent operational rules.
 
 Our [local reference examples](ecosystem/README.md) demonstrate these connections. The MCP example combines a local ID-JAG exchange, AMBA's OAuth and mission checks, and an application proof of the reservation calculation. The examples use a local state service rather than a deployed core rollup or Ethereum settlement; the [compatibility matrix](compatibility.md) records each example's tested scope.
 
