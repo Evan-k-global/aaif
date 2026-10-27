@@ -34,11 +34,15 @@ We publish the protocol and reference integrations under open-source licenses so
 
 ## Relation to Existing AAIF Projects
 
-Zeko complements AAIF projects by providing verifiable shared state for the work agents perform through them. MCP connects agents to tools, A2A supports communication between agents, and runtimes and gateways execute and route their requests. Zeko gives applications a common way to verify changes to shared resources, budgets and commitments within those workflows.
+Zeko complements existing AAIF interfaces with verifiable shared state:
 
-Our [reference examples](ecosystem/README.md) explore these connections across the AAIF ecosystem. The MCP example uses the official SDK and a local ID-JAG exchange for tool access, with AMBA's OAuth and mission checks bounding the reservation request. An application proof verifies the reservation calculation. Other examples connect the same state action to A2A, goose, agentgateway and Agent Router, or illustrate its use with execution environments and instruction formats.
+- **MCP and A2A:** Applications get a shared record of resource reservations and work commitments, so agents coordinate against the same accepted state.
+- **goose, agentgateway and Agent Router:** Requests from different clients and routes use the same budget and replay checks, keeping resource accounting consistent across those entry points.
+- **Open Responses:** Tool outputs carry receipts tied to accepted state changes, letting applications correlate a reported result with the action it records.
+- **OpenSandbox and OpenEnv:** Applications get a common record for job-result commitments and resource consumption, including budgets that remain in force across environment resets.
+- **AGENTS.md and Agent Skills:** Teams document and package the same bounded state-action workflow for different agents, with permissions enforced by the application service.
 
-These examples run locally with a local state service; they do not run against a deployed core rollup or settle on Ethereum. The [compatibility matrix](compatibility.md) identifies what each example exercises and what remains to be tested.
+Our [local reference examples](ecosystem/README.md) demonstrate these connections. The MCP example combines a local ID-JAG exchange, AMBA's OAuth and mission checks, and an application proof of the reservation calculation. The examples use a local state service rather than a deployed core rollup or Ethereum settlement; the [compatibility matrix](compatibility.md) records each example's tested scope.
 
 ## Example Use Cases and Evidence of Adoption
 
