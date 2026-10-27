@@ -1,6 +1,6 @@
 # Runnable AAIF integration sandbox
 
-One local demonstration connects AMBA's existing OAuth implementation, ID-JAG, an MCP tool and verifiable application state. No cloud tenant, funded wallet or production credential is required.
+We built this working integration to connect human-approved authority with verifiable application state. It runs AMBA OAuth, ID-JAG, an MCP tool and real proofs locally, with synthetic credentials. Open reproduction gives developers direct access to the implementation and its evidence.
 
 ## Run
 
@@ -51,14 +51,6 @@ These labels let reviewers reproduce the intended integration boundary while see
 
 Local sandbox work is complete without those accounts or funded deployments. Production validation and broader compatibility remain distinct follow-on work.
 
-## Agent handoff and next local milestone
+## Development roadmap
 
-Read the [shared development contract](../ecosystem/DEVELOPMENT.md) for source ownership, approval/receipt semantics, proof trust and the core-adapter path. Start with [`demo.mjs`](demo.mjs), the writer in [`server.mjs`](server.mjs), AMBA integration in [`amba-gate.mjs`](amba-gate.mjs), the circuit in [`proof.mjs`](proof.mjs) and the independent verifier in [`verify-receipt.mjs`](verify-receipt.mjs).
-
-**Next runnable milestone: durable local acceptance and restart reconciliation.** Introduce an explicitly local persistence adapter that recovers accepted action IDs, quota, versions and pending effect outcomes. This would strengthen recovery evidence without requiring a network deployment; it must remain labeled a local authority.
-
-1. Define crash points around state acceptance and effect dispatch before changing storage. Distinguish accepted work, rejected work and an unknown external outcome.
-2. Add restart tests in [`sandbox.test.mjs`](sandbox.test.mjs) and applicable cases in the shared-state profile. Recover the original action rather than automatically submitting it under a new ID.
-3. Preserve proof/AMBA checks and separate-process verification. Update the state adapter/evidence labels before claiming persistence, recovery or deployed-core acceptance.
-
-**Done when:** restart preserves accepted state, a previously accepted action cannot consume quota again, unresolved effects require reconciliation and wrong-domain/wrong-key proofs still fail. Run `npm run test:sandbox`, `npm run tck:proofs` and `npm run sandbox:evidence`; inspect the redacted reports and update this handoff. A real core sequencer/DA integration remains the separate deployment milestone described above.
+Our next recovery milestone is durable local acceptance across restarts, with recorded action IDs, quota, versions and pending-effect outcomes. We will test crash points around acceptance and dispatch, preserving unknown outcomes for reconciliation. This remains a local authority profile; core sequencer/DA acceptance is the following deployment boundary. The [integration architecture](../ecosystem/DEVELOPMENT.md) describes the shared contract.

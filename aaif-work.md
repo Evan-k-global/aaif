@@ -1,6 +1,6 @@
 # AAIF-specific engineering work
 
-The repository owns integration code, compatibility profiles, fixtures and reproducible evidence supporting the core Zeko proposal. The first two workstreams are a shared-state TCK and an ID-JAG/MCP integration. Core protocol and application implementations remain in their canonical repositories.
+We built this integration work to put human control, open interoperability and verifiable state into agent workflows. The repository contains working compatibility profiles, reference integrations and reproducible evidence. Core protocol and application code remain in their canonical repositories.
 
 ## First cross-system scenario
 
@@ -15,7 +15,7 @@ The scenario now runs locally: actual AMBA OAuth and mission checks, signed JWTs
 | 1. Specify and exercise the harness | Versioned profiles, fixtures, runner and ID-JAG client helper | Fixture validation; meaningful helper/harness tests; explicit status labels |
 | 2. Wire enterprise access | One actual IdP, resource authorization server and MCP service | Successful two-hop exchange and negative issuer/audience/client/resource tests |
 | 3. Bind mission authority | Server-side mapping of verified access context to AMBA scope and holder | Wrong-holder, changed-action, expired/revoked-mission rejection |
-| 4. Implement proof-backed state adapter | Quota/reservation zkApp plus a real-proof adapter for the TCK | Valid transition accepted; concurrent conflict/replay/invalid proof rejected; no external action before required state acceptance |
+| 4. Implement proof-backed state adapter | Reservation proof program plus a real-proof adapter for the TCK | Valid transition accepted; concurrent conflict/replay/invalid proof rejected; no external action before required state acceptance |
 | 5. Demonstrate outside-client reuse | A second client consumes the same service/profile | Unchanged shared fixtures, versions and independently checkable results |
 | 6. Extend selectively | A2A handoff, an AAIF gateway/client, Ethereum settlement profile | Separate evidence for each integration; no umbrella conformance claim |
 

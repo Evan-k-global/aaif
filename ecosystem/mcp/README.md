@@ -1,5 +1,7 @@
 # MCP: shared state through a tool interface
 
+MCP keeps agent tools open. Our Zeko integration enforces bounded resource use and returns verifiable receipts. People retain control of delegated authority across clients.
+
 Upstream: [project source](https://github.com/modelcontextprotocol/typescript-sdk). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,11 +13,11 @@ npm run ecosystem:demo -- --project mcp
 npm run ecosystem:proofs -- --project mcp
 ```
 
-## How MCP can benefit from Zeko as an agentic internet protocol
+## How MCP benefits from Zeko’s agentic internet protocol
 
-MCP makes tools discoverable and callable across agent clients. When several clients act for the same person, enterprise or swarm, a successful tool invocation also needs an answer to a state question: was this work already accepted, and how much delegated capacity remains? Zeko can provide a shared, verifiable application-state layer behind those tools. A reservation, work commitment or result-acceptance record can then outlive any particular MCP connection.
+MCP makes tools discoverable and callable across agent clients. Zeko supplies the shared application-state layer behind consequential tool actions. The service checks the approved authority, accepts a valid transition and returns a receipt. Resource reservations and work commitments persist beyond a client connection.
 
-Consider two agents trying to reserve the last available compute or review budget. Independent client counters can both approve the request. The shared authority must order the competing transitions and accept only the valid consumption. This demo exercises that outcome with two distinct client registrations: two 70-unit requests compete for 100 units, exactly one succeeds, and the remaining quota is 30. A deployed Zeko adapter is the next step toward other operators verifying the accepted state rather than trusting this local writer.
+Consider two agents trying to reserve the last available compute or review budget. Independent client counters can both approve the request. The shared authority must order the competing transitions and accept only the valid consumption. This demo exercises that outcome with two distinct client registrations: two 70-unit requests compete for 100 units, exactly one succeeds, and the remaining quota is 30. The next deployment milestone connects this interface to core Zeko acceptance and independent state reads.
 
 | Integration point | MCP responsibility | Zeko application responsibility |
 | --- | --- | --- |
@@ -32,25 +34,8 @@ Tool discovery; one winner for conflicting 70-unit reservations against a 100-un
 
 The example runs real MCP transports and the common AMBA backend. Both clients use the same SDK. In proof mode, accepted reservations carry real application proofs. Deployed Zeko state acceptance and other client implementations remain separate validation.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: request reconciliation through MCP.** Add a read-only receipt/status tool so a second client can recover the outcome of an action after a dropped response. Reuse the original action ID; a retry must not create another reservation. Persistence across authority restarts is the separate [sandbox recovery milestone](../../sandbox/README.md#agent-handoff-and-next-local-milestone).
+Our next milestone is to add authorized receipt/status lookup so a client can reconnect after a dropped response and recover the original accepted result. The extension will preserve action identity, reject cross-tenant/domain reads and demonstrate that reconciliation does not consume the budget twice. Persistence across authority restarts is part of our shared recovery work.
 
-1. Extend tool registration in [`../_shared/runtime.mjs`](../_shared/runtime.mjs) and the scenario in [`demo.mjs`](demo.mjs). Keep protected state mutation in [`../../sandbox/server.mjs`](../../sandbox/server.mjs); do not move it into client code.
-2. Test accepted, unknown and rejected action IDs, two authorized clients reading the same accepted receipt, denied cross-tenant/domain lookups and repeated submission after reconciliation. Define read authorization explicitly; do not infer authorization to retry from a transport error.
-3. Keep a later core-backed adapter behind the same tool contract. Identify the deployed state domain, trusted verification key and acceptance policy before allowing it to release an external effect.
-
-**Done when:** an authorized client can reconnect, retrieve the original accepted result, verify its proof in proof mode and demonstrate unchanged quota/version/effect count after retry; an unauthorized reader cannot retrieve it. Keep all existing concurrency and replay checks passing.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project mcp
-npm run ecosystem:proofs -- --project mcp --report .cache/ecosystem/mcp-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

@@ -1,5 +1,7 @@
 # goose: a real agent client with a local model fixture
 
+People choose their agents and models. Our goose integration keeps approved resources and accepted state outside one session, preserving user control across tool interactions.
+
 Upstream: [project source](https://github.com/aaif-goose/goose). Pins: [versions](../versions.json).
 
 ## What runs
@@ -11,11 +13,11 @@ npm run ecosystem:demo -- --project goose
 npm run ecosystem:proofs -- --project goose
 ```
 
-## How goose can benefit from Zeko as an agentic internet protocol
+## How goose benefits from Zeko’s agentic internet protocol
 
-goose is an agent client that can turn a person's task into model/tool interactions. Zeko can keep consequential authority and accepted application state outside one goose session or model provider. A personal agent can change models, restart or hand work to another client while using the same bounded task and shared acceptance rules.
+goose turns a person's task into model and tool interactions. Zeko keeps consequential authority and accepted state outside the session. The working example uses the real goose CLI and MCP extension against a bounded action service.
 
-For example, a user could authorize a limited amount of external review work. goose discovers the relevant MCP tool, asks for a reservation and receives state evidence. The tool service decides whether the mission and remaining quota permit it. The model's request is a proposal to act; it is not itself permission. This makes a verifiable shared-state service useful even when the agent's reasoning and user interface remain entirely within goose.
+A person authorizes bounded review work. goose discovers the MCP tool, requests a reservation and receives state evidence. The service checks the mission and remaining quota before accepting the action. Authority stays with the person and enforcing service; the model proposes the tool call.
 
 | Integration point | goose responsibility | Zeko application responsibility |
 | --- | --- | --- |
@@ -24,7 +26,7 @@ For example, a user could authorize a limited amount of external review work. go
 | Tool dispatch | Invoke the MCP extension and consume its result | Enforce one accepted action and return a receipt |
 | Restart or handoff | Restore or transfer workflow context | Reconcile the existing action instead of spending twice |
 
-The real goose CLI and MCP dispatch run here. The chat provider is a deterministic local script, so the demo establishes the integration path rather than model quality or reliable instruction following. The local broker supplies a preapproved synthetic context; native goose ID-JAG integration is not established. A Zeko deployment would replace the local state authority behind the tool, with Ethereum settlement available only when the workflow's acceptance policy requires it.
+The real goose CLI and MCP dispatch run here. The chat provider is a deterministic local script, so the demo establishes the integration path rather than model quality or reliable instruction following. The local broker supplies a preapproved synthetic context; native goose ID-JAG integration is not established. The core-backed adapter is the next deployment milestone. Ethereum settlement follows the workflow's acceptance policy.
 
 ## Checks and scope
 
@@ -32,25 +34,8 @@ The model fixture is called locally; goose dispatches the real MCP tool; one eff
 
 The test runs the actual goose tool-dispatch loop with no default extensions, no persistent session and an isolated configuration directory. Its model output is scripted, so it does not measure model quality or prove an agent will obey every instruction. Native ID-JAG support in goose is not claimed; the local broker supplies the synthetic approved context.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: a two-session handoff with rejection visible to the agent.** Have a second isolated goose invocation encounter the first session's accepted action and report the prior outcome without another effect.
+Our next milestone is to demonstrate two isolated goose sessions recovering the same task context, with a rejected or previously accepted action explained through tool results. The service will remain responsible for authority enforcement, and the sessions will share one acceptance boundary. This will extend the native tool-dispatch example while retaining the deterministic local provider for reproduction.
 
-1. Extend [`demo.mjs`](demo.mjs) and the scripted provider in [`../_shared/model-fixture.mjs`](../_shared/model-fixture.mjs). Keep `--no-profile`, explicit extension selection and the isolated goose configuration directory.
-2. Add a scripted changed-amount request followed by a safe terminal response. Verify rejection at the service, rather than interpreting natural-language output as proof that the agent was constrained.
-3. Add explicit receipt/status tooling for restart recovery before testing real model variation. A real provider run is a separately authorized profile; it must not be enabled by reading an existing user API key.
-
-**Done when:** both native sessions run against local fixtures, the second obtains an explainable prior/rejected result, exactly one protected effect occurs, and no session/provider choice widens the approved action.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project goose
-npm run ecosystem:proofs -- --project goose --report .cache/ecosystem/goose-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

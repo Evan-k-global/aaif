@@ -1,5 +1,7 @@
 # Local integration-scaffolding validation
 
+We publish the engineering record so developers can inspect and reproduce our open infrastructure. This page preserves an early harness-validation snapshot.
+
 Historical early snapshot. Superseded for current status by [the sandbox evidence](README.md).
 
 Run on 26 October 2026 against the local, uncommitted working tree. This is helper/harness evidence; neither complete integration profile has run against a deployed system.

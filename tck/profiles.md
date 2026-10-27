@@ -1,6 +1,6 @@
-# Draft profile requirements
+# Compatibility profile requirements
 
-Normative words below apply to these local draft profiles, not to all AAIF systems.
+These versioned profiles test human-approved authority, verifiable shared state and privacy at integration boundaries. Their requirements apply to the declared local profiles.
 
 ## Zeko shared state v0.1
 
@@ -15,7 +15,7 @@ Normative words below apply to these local draft profiles, not to all AAIF syste
 | SS-07 | Gate an external effect on the declared acceptance stage; represent interrupted effects as unknown until reconciled. |
 | SS-08 | A second process can verify a redacted receipt against pinned verifier/state identity without the originating web session. |
 
-The quota/reservation circuit is new reference application work, not an existing audited feature of the core. State acceptance must name its checkpoint/order rule. An Ethereum-settled profile must additionally establish destination acceptance; these tests do not infer base-layer finality from a sequencer response. Disabled Ethereum proof verification does not satisfy that profile.
+The quota/reservation circuit is the working reference application for this profile. The core audits have their own component scope. State acceptance must name its checkpoint/order rule. An Ethereum-settled profile must additionally establish destination acceptance; these tests do not infer base-layer finality from a sequencer response. Disabled Ethereum proof verification does not satisfy that profile.
 
 ## ID-JAG/MCP v0.1
 
@@ -29,4 +29,4 @@ The quota/reservation circuit is new reference application work, not an existing
 | IJ-06 | Server-side AMBA mapping is based on verified resource-access context, with separate mission-holder/scope/expiry/revocation checks. |
 | IJ-07 | No raw credentials or identity data appear in public state or exported evidence. |
 
-Primary baseline: MCP Enterprise-Managed Authorization 2026-07-28, pinned in [integration notes](../integrations/id-jag/README.md), and IETF draft-04. The helper implements a selected OIDC initial-assertion flow, not the whole standard or SAML branch. AS/resource cryptographic validation and metadata discovery remain integration work. ID-JAG grant replay rules must be tested according to the selected draft/AS policy; do not conflate them with the application's once-only state-consumption requirement.
+Primary baseline: MCP Enterprise-Managed Authorization 2026-07-28, pinned in [integration notes](../integrations/id-jag/README.md), and IETF draft-04. The helper implements a selected OIDC initial-assertion flow, not the whole standard or SAML branch. The runnable sandbox implements AS/resource cryptographic validation and metadata discovery; commercial-provider validation is a separate profile. ID-JAG grant replay rules must be tested according to the selected draft/AS policy; do not conflate them with the application's once-only state-consumption requirement.

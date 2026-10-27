@@ -1,19 +1,17 @@
 # Contributing
 
-Contributions are welcome from outside Zeko Labs: implementation fixes, test vectors, independent reproductions, interoperability feedback and documentation improvements. Our public-good purpose centers on sovereign AI, privacy and broad participation. See [our purpose](PUBLIC_GOOD.md).
+We publish Zeko to advance AI freedom, sovereignty, privacy and human flourishing. Contributions extend open infrastructure that people control. We accept code, test vectors, independent reproductions and technical feedback through public issues and pull requests.
 
-Updates are prepared in the `Evan-k-global/aaif` fork and proposed through pull requests to `zeko-labs/aaif`. Maintainers review and merge manually.
+## Propose a change
 
-That is the preparation workflow for this campaign. Other contributors can use their own forks and public issues/PRs, subject to the project's published licenses and maintainer review. This does not assign new maintainer or voting rights.
+Open an [issue](https://github.com/zeko-labs/aaif/issues) or submit a pull request from your fork to `zeko-labs/aaif`. Include the problem, affected integration/version, resulting behavior and relevant validation. Maintainers review changes before merging.
 
-## Workflow
+Core protocol and application source remain in their canonical repositories. This repository owns cross-project adapters, compatibility fixtures, examples and evidence. Dependencies are pinned so another developer can reproduce the same integration boundary.
 
-1. Sync the fork with the upstream repository.
-2. Create a branch for the change.
-3. Update the proposal, examples or evidence and check the relevant links and claims.
-4. Open a pull request from the fork to the upstream default branch.
-5. Address review feedback and leave the merge to a Zeko Labs maintainer.
+## Reproduce and validate
 
-Keep canonical core and application source in their existing repositories. Link precise versions and deployment evidence where relevant. Mark proposed integrations and draft specifications clearly.
+The [runbook](ecosystem/RUNBOOK.md) covers setup and local execution. Each [ecosystem folder](ecosystem/README.md) describes its implementation, Zeko integration, measured scope and development roadmap. The [architecture guide](ecosystem/DEVELOPMENT.md) explains shared interfaces and proof/acceptance semantics.
 
-Repository updates do not file an AAIF application, send community messages or agree to contribution terms. Those actions follow their own review and authorization.
+Implementation changes include success and failure cases. Project/profile results and source digests identify the tested code. Local results, deployed-system evidence and planned extensions have distinct labels. Reports exclude credentials, private keys and personal data.
+
+For specification/profile changes, we welcome a public issue or PR describing the affected semantics, versions, positive/negative vectors and migration impact. Adopted governance and maintainer processes will document decision rights as the project develops.

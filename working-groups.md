@@ -1,57 +1,31 @@
-# Focused working-group discussions
+# Working-group relevance
 
-One core proposal supports two initial technical conversations, with an optional third when the topic fits. Each conversation should make one concrete contribution and use selective links.
+Human control, sovereignty and privacy drive our working-group contributions. Zeko supplies verifiable shared-state infrastructure for agent coordination. Three areas make that concrete: shared-state security, identity-to-authority mapping and commerce lifecycle coordination.
 
-| Group | Material | Technical question |
-| --- | --- | --- |
-| Security & Privacy | Core rollup, scoped audit references and a shared-state enforcement scenario | Which guarantees belong to proof validity, state acceptance and the external service's action gate? |
-| Identity & Trust | SantaClawz **and** AMBA | How should discovered agent identity connect to the principal, runtime holder and bounded authority for a consequential action? |
-| Agentic Commerce — optional third | x402-Zeko **and** Magic City | How should payment authorization, work commitments and conditional release refer to the same accepted mission state? |
+## Security & Privacy
 
-Identity venues: `#wg-idt-critical-use-cases`, then a relevant architecture thread if invited. Security venue: `#wg-spaa-threat-modeling` or the main WG channel according to current context. Commerce venue: `#wg-agentic-commerce`. Channel names come from supplied Discord screenshots; live conversations and posting rules must be read before sending.
+A proof-backed resource reservation raises several separate questions: is the transition valid, has the authoritative state accepted it, and what must an external service check before acting? Our core rollup and [local MCP/AMBA scenario](sandbox/README.md) provide concrete material for examining those boundaries.
 
-Describe each pair as one connected story. Reuse existing blog explanations and concrete examples, checking publication links and current implementation before citation. The core proposal is the common context; a focused reference page can provide the paired implementation links.
+The example includes replay, changed inputs, conflicting resource consumption and wrong-context/proof cases. Its local authority and public proof fields are explicit, while core sequencing, data availability, recovery and deployment-specific privacy remain separate concerns. Our [audit references](https://github.com/zeko-labs/zeko/pull/444) describe the core's independent zkSecurity assessments; the new integration has its own [test evidence](evidence/README.md).
 
-The application may briefly describe relevance to other WG concerns. Additional promotion across those groups is not planned.
+We are interested in reusable threat-model and design-pattern work around acceptance before effects, reconciliation after interruptions and privacy across service boundaries.
 
-**Proposal URL:** not yet filed.
+## Identity & Trust
 
-**Posting status:** no messages sent.
+[SantaClawz](https://github.com/zeko-labs/santa_clawz-private_agents) supplies agent discovery and cross-party work examples. [AMBA](https://github.com/zeko-labs/agent-mission-bound-auth) connects a human-approved mission to a principal, runtime holder and bounded actions. Together they make the transition from discovering an agent to authorizing particular work concrete.
 
-**Official proposal author:** zekoxyz. Do not create the issue from Evan-k-global. These are review drafts; no community messages are authorized for sending by this document.
+Our [ID-JAG integration](integrations/id-jag/README.md) demonstrates the two-hop resource-access flow, followed by mission and holder checks at the action boundary. Successful login, reputation or discovery alone does not establish permission for every consequential action.
 
-## Security & Privacy: reference and draft
+Our technical questions concern identity/delegation references across agents, narrowing authority at service boundaries, and the relationship between revocation, domain context and accepted commitments.
 
-Lead with core Zeko and one shared-resource case. Offer the scoped audit index separately from the new integration's test evidence. The action gate, state authority, data availability and operator remain explicit parts of the security analysis.
+## Agentic Commerce
 
-Draft, before filing:
+[x402-Zeko](https://github.com/zeko-labs/x402-zeko) provides machine-payment primitives. [Magic City](https://github.com/zeko-labs/magic-city-agentic-internet) illustrates user-approved agent workflows. Shared state can connect payment authorization, work commitment, delivery evidence and conditional release to the same task context.
 
-> We are preparing a Sandbox proposal for Zeko: rollup infrastructure for verifiable shared state across agent applications. One question we would like to compare with the WG's threat model is what an external service must check before acting on a proof-backed resource reservation.
->
-> We have a runnable MCP/AMBA example with real application proofs and negative cases for replay, changed inputs and conflicting consumption. Its local state authority is labeled separately from a deployed rollup. Would a worked example separating proof validity, accepted state and external enforcement be useful to the threat-modeling workstream?
+An interrupted request is a useful example: work may have occurred even though the caller received no final response. Retry, release and refund decisions then depend on the evidence and accepted state. Standard x402 behavior, custom lifecycle extensions, payment settlement and delivery acceptance have distinct roles.
 
-After filing, replace the opening with an accurate reference to the zekoxyz-authored proposal. Use one focused artifact link and the proposal link; do not paste the whole portfolio.
+## Broader connections
 
-## Identity & Trust: SantaClawz and AMBA
+The [ten-project ecosystem suite](ecosystem/README.md) also touches workflow integration, observability, reliability and governance through explicit action/receipt contracts and reproducible failure cases. Taxonomy & Landscape is relevant to describing these roles consistently across working groups. zkTLS external-data evidence is a supporting primitive, demonstrated by the prediction-market implementation and a partner-motivated verification PoC.
 
-[SantaClawz](https://github.com/zeko-labs/santa_clawz-private_agents) makes discovered agent identity and cross-party work concrete. [AMBA](https://github.com/zeko-labs/agent-mission-bound-auth) supplies the complementary mission, principal/holder and action-time authority model. The [ID-JAG integration](integrations/id-jag/README.md) exercises the identity-to-resource-access boundary; resource access alone does not authorize every mission action.
-
-Draft:
-
-> We are looking at the handoff from discovering an agent to authorizing a specific piece of work. SantaClawz supplies the discovery/work context; AMBA binds a human-approved mission to a holder and bounded actions.
->
-> Our reference sandbox now connects existing AMBA OAuth, ID-JAG exchanges and an MCP tool, with tests for identity/context mismatches and action-time restrictions. We would value feedback on which identity and delegation references should survive this handoff without treating reputation or successful login as authority to act.
-
-Link this focused reference and the filed proposal rather than posting separate announcements for SantaClawz and AMBA.
-
-## Agentic Commerce: optional third conversation
-
-[x402-Zeko](https://github.com/zeko-labs/x402-zeko) supplies payment primitives; [Magic City](https://github.com/zeko-labs/magic-city-agentic-internet) illustrates user-approved agent execution. Discuss a shared lifecycle, not marketplace promotion. Standard x402 behavior and custom reservation/conditional-release extensions need separate labels.
-
-Draft:
-
-> We are mapping how payment authorization, work delivery and conditional release should refer to the same approved task. x402-Zeko supplies payment primitives, while Magic City illustrates the user-approval and execution flow.
->
-> A useful boundary case is an interrupted request: a service may have acted even though the caller has no final response. We would like to compare the evidence needed for retry, release or refund with the WG's commerce lifecycle, keeping payment settlement distinct from proof of delivery.
-
-Use only if it fits an active technical discussion. It is not a third mandatory launch announcement.
+Our [application](application.md) and [Sandbox thesis](proposal.md) provide the common contribution context. We welcome focused technical feedback through [issues](https://github.com/zeko-labs/aaif/issues).
