@@ -25,6 +25,7 @@ Read our [public-good purpose and sovereignty principles](PUBLIC_GOOD.md). Zeko 
 - [Compatibility backlog](compatibility.md)
 - [All ten AAIF project demos and integration guides](ecosystem/README.md)
 - [Local ecosystem suite runbook](ecosystem/RUNBOOK.md)
+- [Agent handoff and ecosystem development contract](ecosystem/DEVELOPMENT.md)
 - [Local validation evidence](evidence/2026-10-26-local-validation.md)
 - [Current sandbox evidence](evidence/README.md)
 - [Current core candidate and passing CI](evidence/core-candidate-2026-10-26.md)

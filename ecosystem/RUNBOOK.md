@@ -52,3 +52,7 @@ Proof mode checks each accepted receipt against the real o1js proof backend. The
 The JSON report contains component-specific evidence levels, concrete check outcomes, accepted/effect counts, remaining quota and proof status, plus a combined source digest and source-file list. It deliberately excludes JWTs, TLS keys, temporary capabilities and model-provider transcripts.
 
 The report can establish that selected local paths compose with this shared application boundary. It does not certify every upstream feature, all identity-provider configurations, arbitrary worker execution, production readiness or deployed settlement. A recorded core acceptance adapter and separate Ethereum profile are the next steps toward those stronger claims.
+
+## Extend an example
+
+Read the [agent instructions](AGENTS.md), [development contract](DEVELOPMENT.md) and the selected project's “Continue this integration” section. The [next-step index](README.md#continue-the-work-with-any-agent) maps every folder to a bounded local milestone. Keep report scope explicit: a single-project report must not replace the full ten-project evidence file.

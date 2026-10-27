@@ -2,6 +2,7 @@
 
 ## 26 October 2026
 
+- Expanded every ecosystem guide with a project-named Zeko benefit section, concrete workflow/role mapping and an agent-ready next milestone with source entry points, run commands and acceptance criteria. Added scoped agent instructions, a shared development contract and a ten-project next-step index. The handoff covers receipt semantics, trusted-key verification, ownership, troubleshooting and the path from local acceptance to a core-backed adapter.
 - Expanded ecosystem/ to one folder for each of the ten hosted projects, with executable demos or instruction-format companions, pinned setup, local-only model/service fixtures and a technical runbook.
 - Passed all ten examples in real-proof mode (62 scenario checks), plus the 30 compatibility cases and 21 unit/integration tests. Native goose, agentgateway and Agent Router/Envoy, the A2A SDK, Open Responses schema, actual OpenSandbox Docker execution, OpenEnv types and Agent Skills validation are individually labeled in the evidence.
 - Upgraded OpenSandbox from an SDK transport fixture to the real SDK/server/execd lifecycle on local OrbStack. Pinned all three images by digest, checked worker limits and isolation settings, demonstrated a blocked outbound connection to a synthetic local canary, and verified worker/sidecar cleanup. A host-verified input/image/result commitment is accepted once; replay and changed results are rejected.

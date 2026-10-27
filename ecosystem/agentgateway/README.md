@@ -11,16 +11,46 @@ npm run ecosystem:demo -- --project agentgateway
 npm run ecosystem:proofs -- --project agentgateway
 ```
 
-## How this can use and benefit from Zeko
+## How agentgateway can benefit from Zeko as an agentic internet protocol
 
-Different routed clients can consume one common application budget with a backend acceptance gate. A route change does not create an independent quota or turn routing success into mission authority.
+agentgateway sits on the request path between agents, tools and services. Zeko can give the services behind those routes a common application-state boundary, so quotas and commitments remain consistent when requests arrive through different routes or gateway instances. Routing, access policy and accepted shared state can then have explicit, complementary responsibilities.
 
-The local example uses the same action contract intended for a Zeko deployment adapter. Proof mode generates and checks a real o1js application proof; the state authority remains local.
+Imagine two departments using different gateway endpoints to access the same pool of agent services. A per-route counter could create two apparent budgets. A common Zeko-backed application can instead apply the same reservation rules regardless of the ingress route. The current native gateway example shows that routing preserves the backend's approved action: the initial request succeeds, changed units fail and replay cannot dispatch again.
+
+| Integration point | agentgateway responsibility | Zeko application responsibility |
+| --- | --- | --- |
+| Ingress and routing | Expose and route the MCP service | Identify the application state domain behind the service |
+| Identity policy | Authenticate/authorize according to gateway configuration | Verify the downstream mission and exact action context |
+| Admission | Apply gateway-level traffic/resource policy | Enforce shared state-dependent admission before the protected effect |
+| Observability | Correlate routed requests and responses | Return an accepted-state receipt that can be correlated without exposing credentials |
+
+A successful proxy response is not proof of accepted state. Conversely, a valid proof is not proof that gateway identity policy was configured correctly. The gateway does not generate the application proof in this demo; the backend does. The current gateway configuration tests HTTP routing, while enterprise policy and identity-context propagation remain additional work. Keeping that boundary explicit allows gateway operators to adopt shared-state tools without making every routed service depend on a rollup.
 
 ## Checks and scope
 
 Routed MCP discovery/call succeeds; changed action and replay fail; exactly one effect is dispatched. The backend verifies a real proof when proof mode is selected.
 
 This tests the HTTP routing path and backend enforcement. The gateway does not generate the proof, and its own enterprise identity policies are not configured or certified here. The AMBA/ID-JAG backend and synthetic broker have separate roles.
+
+## Continue this integration
+
+**Next runnable milestone: two independent gateway routes, one state authority.** Route competing clients through separate local gateway processes and verify they cannot allocate separate copies of the same budget.
+
+1. Extend native process/config orchestration in [`demo.mjs`](demo.mjs); use ephemeral ports and [`../_shared/process.mjs`](../_shared/process.mjs) for isolated environments and cleanup.
+2. Submit competing reservations through both routes, then retry an accepted action through the other route. Test changed units and a synthetic wrong-tenant context at the appropriate enforcement layer.
+3. Treat authenticated identity propagation as a separate profile. Specify which gateway assertions the service may trust, how they bind to the resource audience, and which AMBA checks still run at the action boundary.
+
+**Done when:** exactly one conflicting reservation is accepted across both routes, failover cannot duplicate an effect, and closing both gateway processes leaves the authority's accepted state unchanged. Record gateway configuration and upstream version with the evidence.
+
+Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
+
+```sh
+npm run ecosystem:demo -- --project agentgateway
+npm run ecosystem:proofs -- --project agentgateway --report .cache/ecosystem/agentgateway-next.json
+```
+
+The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
+
+Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
 
 See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).

@@ -47,6 +47,18 @@ These labels let reviewers reproduce the intended integration boundary while see
 - Reuse the client/discovery interfaces with a commercial ID-JAG-capable IdP and resource AS.
 - Replace local state acceptance with a pinned Zeko application and core sequencer, including DA/recovery behavior.
 - Add an Ethereum-verified state-acceptance profile using the sovereign-rollup runbook's real-verification configuration.
-- Exercise another AAIF client/gateway or independently implemented client; both current clients use the official MCP SDK.
+- Reuse the [ecosystem examples](../ecosystem/README.md) for actual native goose/gateway and A2A integration, then obtain outside reproduction or an independently implemented MCP client; the two clients in this sandbox use the same official MCP SDK.
 
 Local sandbox work is complete without those accounts or funded deployments. Production validation and broader compatibility remain distinct follow-on work.
+
+## Agent handoff and next local milestone
+
+Read the [shared development contract](../ecosystem/DEVELOPMENT.md) for source ownership, approval/receipt semantics, proof trust and the core-adapter path. Start with [`demo.mjs`](demo.mjs), the writer in [`server.mjs`](server.mjs), AMBA integration in [`amba-gate.mjs`](amba-gate.mjs), the circuit in [`proof.mjs`](proof.mjs) and the independent verifier in [`verify-receipt.mjs`](verify-receipt.mjs).
+
+**Next runnable milestone: durable local acceptance and restart reconciliation.** Introduce an explicitly local persistence adapter that recovers accepted action IDs, quota, versions and pending effect outcomes. This would strengthen recovery evidence without requiring a network deployment; it must remain labeled a local authority.
+
+1. Define crash points around state acceptance and effect dispatch before changing storage. Distinguish accepted work, rejected work and an unknown external outcome.
+2. Add restart tests in [`sandbox.test.mjs`](sandbox.test.mjs) and applicable cases in the shared-state profile. Recover the original action rather than automatically submitting it under a new ID.
+3. Preserve proof/AMBA checks and separate-process verification. Update the state adapter/evidence labels before claiming persistence, recovery or deployed-core acceptance.
+
+**Done when:** restart preserves accepted state, a previously accepted action cannot consume quota again, unresolved effects require reconciliation and wrong-domain/wrong-key proofs still fail. Run `npm run test:sandbox`, `npm run tck:proofs` and `npm run sandbox:evidence`; inspect the redacted reports and update this handoff. A real core sequencer/DA integration remains the separate deployment milestone described above.
