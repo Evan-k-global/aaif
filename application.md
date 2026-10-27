@@ -26,11 +26,11 @@ Sandbox
 
 ## Alignment with AAIF Mission
 
-Zeko advances AI freedom, sovereignty, privacy and human flourishing through open infrastructure. People retain control of their systems and delegated authority. Developers share verifiable application state across independent agents, services and organizations.
+Zeko advances AI freedom, sovereignty, privacy and human flourishing through a common, composable protocol for scaling private, sovereign enterprise agents on the open internet. People and organizations retain control over their infrastructure, data, application rules and delegated authority as their agents work across services and organizational boundaries.
 
-We publish the code, reference integrations and compatibility work under open-source licenses. Operators choose their models and agent runtimes, run their own infrastructure and define the rules for consequential actions. Common interfaces reduce bespoke integration while preserving independent operation.
+The internet protocol suite predates autonomous AI agents and was not designed to govern their shared resources, delegated authority or commitments. Zeko supplies verifiable shared state for that coordination, with reusable interfaces that reduce bespoke pairwise integrations as agent networks grow. Developers compose this layer with existing identity, messaging, tool and execution protocols, while operators choose their models, runtimes and deployment infrastructure.
 
-Our AAIF contribution brings working rollup technology, a ten-project interoperability suite and reproducible evidence. The stewardship roadmap opens shared semantics, test profiles and deployment interfaces to contributors beyond Zeko Labs.
+Our AAIF contribution makes that interoperability concrete through working rollup technology, a ten-project ecosystem suite and reproducible local evidence. We publish the code, reference integrations and compatibility work under open-source licenses so developers can inspect, use and extend the protocol. The stewardship roadmap opens shared semantics, test profiles and deployment interfaces to contributors beyond Zeko Labs, supporting a common foundation for independent agent systems.
 
 ## Relation to Existing AAIF Projects
 
