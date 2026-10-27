@@ -70,7 +70,7 @@ Core implementation: [`src/app/zeko` on `compatible`](https://github.com/zeko-la
 
 ## License
 
-Apache-2.0 for Zeko-authored and repository-maintained code, subject to identified upstream and third-party notices. See the [core licensing statement](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md) and [protocol license](https://github.com/zeko-labs/zeko/blob/compatible/src/app/zeko/LICENSE.md). The AAIF integration code is also Apache-2.0.
+Apache-2.0 for Zeko-authored and repository-maintained code. See the [core licensing statement](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md) and [protocol license](https://github.com/zeko-labs/zeko/blob/compatible/src/app/zeko/LICENSE.md). The AAIF integration code is also Apache-2.0.
 
 ## Governance Model
 
