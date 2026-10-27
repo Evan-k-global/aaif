@@ -46,7 +46,7 @@ Our [local reference examples](ecosystem/README.md) demonstrate these connection
 
 ## Example Use Cases and Evidence of Adoption
 
-Intended users include enterprises operating agent fleets and developers coordinating work across organizations. Example uses are shared resource reservations, agent spending limits, work commitments and conditional payments.
+Initial users are enterprises operating agent fleets, developers of cross-organization agent services, and applications where multiple parties must coordinate resources, commitments or payments under shared rules using internet rails.
 
 Zeko Labs' applications illustrate these uses:
 
