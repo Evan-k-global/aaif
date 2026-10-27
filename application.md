@@ -12,13 +12,13 @@ Zeko
 
 ## Project Description
 
-Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. We built it so people and organizations control their AI infrastructure, application rules and delegated authority.
+Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. We built it to advance AI freedom, sovereignty, privacy and human flourishing by giving people and organizations control over their AI infrastructure, application rules and delegated authority. This shared foundation lets independent agents coordinate resource reservations, budgets, work commitments and conditional payments across applications and organizations.
 
-Applications define proof-authorized state transitions. Sequencing and recursive proof aggregation let participants verify computation without re-executing every operation. Shared state records resource reservations, authority consumed, budgets, work commitments and conditional payments.
+Developers define the rules for application state changes, and cryptographic proofs establish that each accepted transition satisfies those rules. Sequencing and recursive proof aggregation let participants verify the specified computation without re-executing every operation. For privacy, applications define what their proofs establish, which information they disclose and who has access; zero-knowledge proofs verify statements without revealing private proof inputs. Security combines these verifiable application rules with permissions that bound agent authority. Core Zeko components have undergone two independent zkSecurity assessments, documented in the [core audit index and reports](https://github.com/zeko-labs/zeko/pull/444).
 
-Enterprises and agent swarms run sovereign rollups with their own keys, configuration and policies. Ethereum is the primary blockchain compatibility, settlement and bridging layer. Zeko originated in Mina, deployed on Mina mainnet and expanded to Ethereum testnet. The [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) provides the operator-owned deployment stack.
+Enterprises and agent swarms run sovereign rollups with their own keys, configuration and policies, choosing the hosting, identity and confidential-computing integrations their applications need. Ethereum is our primary blockchain compatibility, settlement and bridging layer, with optional settlement connecting independently operated rollups to shared public infrastructure. Zeko originated in Mina and deployed on Mina mainnet before expanding to Ethereum testnet; the [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) provides the stack for operators to launch their own Ethereum-connected rollup.
 
-We propose core Zeko and its agreed deployment/integration interfaces for AAIF Sandbox. This repository contains working compatibility profiles and examples across the AAIF ecosystem. Supporting applications remain separately maintained.
+Our proposed AAIF Sandbox contribution is core Zeko and its agreed deployment and integration interfaces. This repository demonstrates how existing AAIF projects connect to that shared-state foundation through working compatibility profiles and reproducible local examples. Separately maintained applications illustrate identity, bounded authority, commerce and external-data verification on top of the protocol.
 
 ## Preferred Lifecycle Stage (if known)
 
