@@ -1,6 +1,6 @@
 # Zeko: Open Infrastructure for Sovereign AI
 
-**Zeko is a public good for AI freedom, sovereignty and privacy.** We built open-source rollup infrastructure for verifiable shared state across agent applications. People and organizations control their infrastructure, application rules and delegated authority. Our mission is to democratize AI and advance human flourishing.
+**Zeko is a public good for AI freedom, sovereignty and privacy.** Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. People and organizations control their infrastructure, application rules and delegated authority. Our mission is to democratize AI and advance human flourishing.
 
 AI agents work across applications, businesses and the open internet. Coordinating that work requires shared rules for permissions, resources, payments and accepted results. Zeko gives developers a common foundation for those rules: application state that independent participants verify with cryptographic proofs. Personal agents, enterprises and agent swarms retain their choice of models, services and infrastructure. For the AI industry, Zeko is an open coordination layer that connects independent systems and keeps control with the people who use them.
 

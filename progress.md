@@ -4,7 +4,7 @@ We deliver open infrastructure for AI freedom, sovereignty and privacy. This rec
 
 ## 26 October 2026
 
-We published a review package for Zeko's proposed AAIF Sandbox contribution: core rollup infrastructure for verifiable shared state across agent applications.
+We published a review package for Zeko's proposed AAIF Sandbox contribution: an open-source agentic rollup protocol for verifiable shared state across agent applications.
 
 - Built an HTTPS identity/MCP reference integration using canonical AMBA OAuth, ID-JAG exchanges, signed holder-bound actions and real o1js application proofs.
 - Recorded 17 identity-profile and 13 shared-state cases, plus 21 unit/integration tests. Cases cover concurrency, replay, changed inputs, incorrect context, invalid proofs and independent receipt verification.

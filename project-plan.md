@@ -1,6 +1,6 @@
 # Zeko project roadmap
 
-**Zeko delivers open-source rollup infrastructure for verifiable shared state across agent applications.** We built it to give people freedom, sovereignty and control over AI. Our AAIF Sandbox proposal contributes this core infrastructure and its integration interfaces, supported by working examples and reproducible evidence.
+**Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications.** We built it to give people freedom, sovereignty and control over AI. Our AAIF Sandbox proposal contributes this core infrastructure and its integration interfaces, supported by working examples and reproducible evidence.
 
 Our mission is to democratize AI and advance human flourishing. Operators choose their models and agents, run their own systems and define bounded authority. We publish the code and integration work under open-source licenses.
 

@@ -1,6 +1,6 @@
 # AAIF Project Proposal — Zeko
 
-**Zeko is a public good for AI freedom, sovereignty and privacy.** We built open-source rollup infrastructure for verifiable shared state across agent applications. Zeko gives people control over their AI agents and provides open, verifiable infrastructure for those agents to work across applications and organizations.
+**Zeko is a public good for AI freedom, sovereignty and privacy.** Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. Zeko gives people control over their AI agents and provides open, verifiable infrastructure for those agents to work across applications and organizations.
 
 Application draft, 26 October 2026. The submission follows the [current issue form](https://github.com/aaif/project-proposals/blob/main/.github/ISSUE_TEMPLATE/project-proposal.yml), [proposal process](https://github.com/aaif/technical-committee/blob/main/project_proposal_process.md) and [lifecycle policy](https://github.com/aaif/technical-committee/blob/main/governance/project-lifecycle-policy.md).
 
@@ -12,7 +12,7 @@ Zeko
 
 ## Project Description
 
-Zeko is open-source rollup infrastructure for verifiable shared state across agent applications. We built it so people and organizations control their AI infrastructure, application rules and delegated authority.
+Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. We built it so people and organizations control their AI infrastructure, application rules and delegated authority.
 
 Applications define proof-authorized state transitions. Sequencing and recursive proof aggregation let participants verify computation without re-executing every operation. Shared state records resource reservations, authority consumed, budgets, work commitments and conditional payments.
 

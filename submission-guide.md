@@ -1,6 +1,6 @@
 # Zeko AAIF proposal
 
-Zeko is a public good for AI freedom, sovereignty and privacy. We propose its working rollup infrastructure for AAIF Sandbox: verifiable shared state that preserves human control across agent applications.
+Zeko is a public good for AI freedom, sovereignty and privacy. We propose its open-source agentic rollup protocol for AAIF Sandbox: verifiable shared state that preserves human control across agent applications.
 
 **Status: draft for review; no official proposal issue has been filed.**
 

@@ -1,6 +1,6 @@
 # Zeko: verifiable shared state across agent applications
 
-**Zeko is a public good for AI freedom, sovereignty and privacy.** We built rollup infrastructure that gives independent agent applications verifiable shared state. Our AAIF contribution advances open interoperability, human control and human flourishing.
+**Zeko is a public good for AI freedom, sovereignty and privacy.** We built an open-source agentic rollup protocol that gives independent agent applications verifiable shared state. Our AAIF contribution advances open interoperability, human control and human flourishing.
 
 Sandbox application draft, 26 October 2026. [Full application](application.md) · [Evidence](evidence/README.md) · [Roadmap](project-plan.md).
 
@@ -8,7 +8,7 @@ Sandbox application draft, 26 October 2026. [Full application](application.md) �
 
 Agents increasingly act across organizations and services. Connectivity alone does not tell participants which authority remains, which resources are committed, or whether an accepted state change followed their shared rules. A signature or log can record an assertion without establishing that the underlying computation was valid.
 
-Zeko provides open-source rollup infrastructure for this shared state. Developers define application rules and proof-authorized transitions; sequencing and recursive proof aggregation let participants verify specified computation and accepted state. Applications include resource reservations, bounded budgets, work commitments and conditional payments. External services must enforce the required acceptance conditions before acting.
+Zeko is an open-source agentic rollup protocol for this shared state. Developers define application rules and proof-authorized transitions; sequencing and recursive proof aggregation let participants verify specified computation and accepted state. Applications include resource reservations, bounded budgets, work commitments and conditional payments. External services must enforce the required acceptance conditions before acting.
 
 The proposed contribution is core Zeko infrastructure with agreed deployment and integration interfaces. The AAIF support repository supplies compatibility profiles, reference integrations and reproducible evidence. Existing applications illustrate uses; they are not automatically included in the contribution. Neutral stewardship gives outside implementers a role in shared semantics, deployment profiles and alternative integrations. Our governance roadmap defines the formal participation process.
 
