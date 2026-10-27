@@ -139,7 +139,7 @@ Zeko Labs maintains the project through [zekoxyz](https://github.com/zekoxyz) an
 
 ## Links to Social Media Accounts
 
-[Zeko Labs on X](https://twitter.com/ZekoLabs), linked from the [core repository](https://github.com/zeko-labs/zeko).
+[X](https://x.com/ZekoLabs) · [Discord](https://discord.gg/vSDxqAchUY) · [Telegram](https://t.me/zekoprotocol) · [Medium](https://medium.com/zekolabs)
 
 ## Trademark and accounts
 
