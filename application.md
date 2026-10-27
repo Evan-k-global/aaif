@@ -52,7 +52,7 @@ Zeko Labs' applications illustrate these uses:
 
 - [SantaClawz](https://github.com/zeko-labs/santa_clawz-private_agents) and [AMBA](https://github.com/zeko-labs/agent-mission-bound-auth): identity, discovery, delegated work and mission-bounded authority.
 - [x402-Zeko](https://github.com/zeko-labs/x402-zeko) and [Magic City](https://github.com/zeko-labs/magic-city-agentic-internet): machine payments, conditional release and user-approved workflows.
-- [zkTLS external-data evidence](https://github.com/zeko-labs/developer_demos/tree/main/perfect-weather_prediction_market): demonstrated in the prediction-market application. Standalone extraction remains development work.
+- [zkTLS as an external-data evidence primitive in the prediction-market demo](https://github.com/zeko-labs/developer_demos/tree/main/perfect-weather_prediction_market).
 
 These are first-party applications and demos, rather than evidence of independent production adoption. The [local integration results](evidence/README.md) provide reproducible examples, including rejection of replayed requests and conflicting reservations.
 
