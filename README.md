@@ -86,7 +86,7 @@ The [published evidence](evidence/README.md) records 21 unit/integration tests, 
 
 ## Deploy a sovereign rollup
 
-The [Ethereum Sepolia deployment guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) launches an operator-owned stack with its own keys, genesis, contracts and bridge/explorer tooling. The guide distinguishes its default mock Ethereum verifier from real-verification configuration. [Ethereum architecture](https://ethereum.docs.zeko.io/overview) covers settlement and bridging; [Phala hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) adds an optional confidential-computing deployment path.
+The [Ethereum Sepolia deployment guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) launches an operator-owned stack with its own keys, genesis, contracts and bridge/explorer tooling. The guide distinguishes its default mock Ethereum verifier from real-verification configuration. [Phala hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) adds an optional confidential-computing deployment path.
 
 The [core audit index](https://github.com/zeko-labs/zeko/pull/444) links zkSecurity's assessments and component scope. The [core candidate record](evidence/core-candidate-2026-10-26.md) identifies the selected revision and passing upstream build.
 

@@ -51,7 +51,7 @@ The next common backend milestone connects the same application contract to acce
 
 That adapter will distinguish submission, authoritative acceptance, rejection and unknown/reconciling outcomes. Independent reads will use the deployment's actual state/data-availability path. Competing submissions, stale state, process restarts and interrupted responses are central recovery cases.
 
-Ethereum is our principal blockchain compatibility, settlement and bridging focus. The [sovereign-rollup operator guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) and [Ethereum architecture](https://ethereum.docs.zeko.io/overview) describe deployment options. Ethereum verification/settlement will have a separately recorded profile with its exact verifier configuration. Sovereign application acceptance need not require settlement for every tool call.
+Ethereum is our principal blockchain compatibility, settlement and bridging focus. The [sovereign-rollup operator guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) describes deployment options. Ethereum verification/settlement will have a separately recorded profile with its exact verifier configuration. Sovereign application acceptance need not require settlement for every tool call.
 
 ## Reproduction and evidence
 

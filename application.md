@@ -129,7 +129,7 @@ Security contact: contact@zeko.io.
 
 https://zeko.io
 
-Documentation: https://docs.zeko.io and https://ethereum.docs.zeko.io/overview
+Documentation: https://docs.zeko.io
 
 ## Documented Governance Practices (if any)
 
