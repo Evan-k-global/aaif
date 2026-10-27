@@ -16,15 +16,15 @@ Sovereignty is a design objective expressed through concrete controls. Each depl
 
 The infrastructure should be useful across organizations, agent frameworks, model providers and commercial interests. Shared interfaces should be reviewable, implementation choices visible, and outside contributions welcome. Independent use of the open-source code does not depend on AAIF membership or buying a Zeko-hosted service. Software is available under its licenses; operating infrastructure has its own costs.
 
-Zeko Labs currently originates and maintains this work. Public-interest intent and permissive licensing do not themselves establish independent multi-stakeholder governance. The [plan](project-plan.md) identifies the governance and contributor-growth work needed to make neutral stewardship durable. Current decision rights should be documented as they exist, with proposed changes clearly labeled.
+Zeko Labs currently originates and maintains this work. Public-interest intent and permissive licensing do not themselves establish independent multi-stakeholder governance. The [plan](project-plan.md) identifies the governance and contributor-growth work needed to make neutral stewardship durable. We are formalizing current decision rights and the path to broader participation.
 
 ## A record of useful work
 
 This repository serves both AAIF reviewers and anyone evaluating Zeko's public contribution. It should make the work understandable and reproducible without requiring a private conversation with the team.
 
-We will maintain a dated [progress record](progress.md), versioned compatibility profiles, runnable examples, exact dependency pins and [reproducible evidence](evidence/README.md). Material changes should link the technical question, implementation, validation and remaining limitation. Public issues and PRs should preserve substantive feedback and the response to it.
+We will maintain a dated [progress record](progress.md), versioned compatibility profiles, runnable examples, exact dependency pins and [reproducible evidence](evidence/README.md). Our public issues and PRs connect technical questions to implementations, validation and feedback.
 
-Record when work was performed and when it was published accurately. Local results remain local evidence until published; proposed work remains proposed. Preserve useful failure reports and the reasoning behind changes. Timeliness and care should be visible in that record, rather than asserted through slogans or inferred from test counts.
+We record completed work, measured results, remaining limitations and development plans separately. The record includes useful failure cases and technical responses so others can evaluate and reproduce the work.
 
 ## Participation beyond this proposal
 

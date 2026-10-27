@@ -32,25 +32,8 @@ The first 70-unit action succeeds; resetting preserves remaining quota 30; the s
 
 This is an in-process custom environment using official types, not an RL training run, hosted dataset or containerized OpenEnv server. Reward describes only this coordination scenario and says nothing about general model quality.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: two environment instances sharing one resource domain.** Demonstrate that resets and concurrent steps across separate local instances preserve the same authority.
+We plan to run two environment instances against one resource domain and test concurrency, resets and stale observations. Independent trials will use explicitly separate domains. This will make persistent shared scarcity and trial isolation observable without treating a scenario reward as a claim about general model quality. A local server/client profile is a further milestone.
 
-1. Refactor the classes in [`demo.py`](demo.py) into an importable module without changing their official interface, then orchestrate two instances from [`demo.mjs`](demo.mjs).
-2. Test concurrent overspend, reset-after-acceptance, stale observations and a new independently initialized trial domain. Add receipt references to observations if needed; avoid putting JWTs or holder keys into observations or rewards.
-3. Add a separate local server/client profile only after verifying the pinned OpenEnv transport interfaces. Keep training and any model/provider integration outside this deterministic reproduction unless explicitly authorized.
-
-**Done when:** one shared budget is enforced across both instances, an episode reset cannot replenish it, isolated trial domains do not interfere, and reward/observation expectations state exactly which coordination behavior they measure.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project openenv
-npm run ecosystem:proofs -- --project openenv --report .cache/ecosystem/openenv-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

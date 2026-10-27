@@ -14,10 +14,10 @@ Read our [public-good purpose and sovereignty principles](PUBLIC_GOOD.md). Zeko 
 
 - [Public-good purpose, sovereignty and neutral stewardship](PUBLIC_GOOD.md)
 - [AAIF proposal and supporting work](submission-guide.md)
-- [Full project plan and strategy](project-plan.md)
+- [Project roadmap](project-plan.md)
 - [Application matching the official issue form](application.md)
 - [Core proposal draft](proposal.md)
-- [Focused working-group discussions](working-groups.md)
+- [Working-group relevance](working-groups.md)
 - [Progress](progress.md)
 - [AAIF engineering work and delivery sequence](aaif-work.md)
 - [Technology compatibility kit](tck/README.md)
@@ -25,7 +25,7 @@ Read our [public-good purpose and sovereignty principles](PUBLIC_GOOD.md). Zeko 
 - [Compatibility backlog](compatibility.md)
 - [All ten AAIF project demos and integration guides](ecosystem/README.md)
 - [Local ecosystem suite runbook](ecosystem/RUNBOOK.md)
-- [Agent handoff and ecosystem development contract](ecosystem/DEVELOPMENT.md)
+- [Integration architecture](ecosystem/DEVELOPMENT.md)
 - [Local validation evidence](evidence/2026-10-26-local-validation.md)
 - [Current sandbox evidence](evidence/README.md)
 - [Current core candidate and passing CI](evidence/core-candidate-2026-10-26.md)
@@ -56,7 +56,6 @@ The prediction market demonstrates the zkTLS feature; extraction of a reusable a
 
 The local sandbox reuses AMBA's OAuth implementation, performs ID-JAG exchanges over HTTPS, and serves an actual MCP tool using the official SDK. It includes 17 identity-profile cases and 13 shared-state cases with real o1js application proofs. The ecosystem suite adds ten project-specific examples, all passing in real-proof mode, with native clients/gateways, official SDKs and explicit fixture or instruction-format boundaries. Core-rollup acceptance, commercial-provider validation and Ethereum settlement remain distinct deployment work. This is reproducible application-support evidence, not an AAIF certification.
 
-The official AAIF submission must be filed manually by **zekoxyz** after owner review. **Evan-k-global** is the engineering fork/PR identity only. This agent has been instructed not to create the submission.
 
 ```sh
 npm ci --ignore-scripts

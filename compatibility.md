@@ -18,4 +18,4 @@ All ten currently listed AAIF projects have a dedicated [ecosystem folder](ecosy
 
 The proof-backed suite passes all ten examples. State acceptance remains a local single-writer model, with no deployed core rollup/DA or Ethereum settlement. [Evidence](evidence/README.md) records versions and source digests; [the runbook](ecosystem/RUNBOOK.md) describes isolation and reproduction.
 
-These are proposed compatibility profiles and reference examples, not an AAIF certification. Refresh the hosted-project roster before filing and test each additional deployment boundary explicitly.
+These are proposed compatibility profiles and reference examples, not an AAIF certification. We track compatibility against the hosted-project roster and validate each additional deployment boundary separately.

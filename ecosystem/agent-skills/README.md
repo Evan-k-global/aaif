@@ -32,25 +32,8 @@ Reference validation and metadata/prompt generation pass; the packaged script co
 
 Agent Skills is an instruction/package format with reference validation code. The example validates and executes a companion script; it does not certify behavior of all skill-consuming agents. All capability material is generated for the local fixture and sent through stdin.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: receipt verification and a safe rejected-action workflow in the packaged skill.** Make the companion expose accepted, rejected and unknown outcomes in a stable machine-readable form.
+We plan to add trusted-key receipt verification and stable machine-readable accepted, rejected and unknown outcomes to the packaged script. The package will be exercised from an isolated working directory with malformed input, changed amounts and missing approval. A consuming-agent example will provide separate evidence beyond format validation and script execution.
 
-1. Update [`skills/zeko-state-actions/SKILL.md`](skills/zeko-state-actions/SKILL.md) and [`skills/zeko-state-actions/scripts/reserve.mjs`](skills/zeko-state-actions/scripts/reserve.mjs) together. Keep secret/capability input on stdin, never in committed examples or command-line arguments.
-2. Extend [`demo.mjs`](demo.mjs) and [`validate.py`](validate.py) to cover changed amounts, malformed input, missing approval and rejection handling. Add proof verification against a trusted key supplied by the caller, not a key accepted from the receipt itself.
-3. Verify the package from a fresh isolated working directory, then add one explicitly configured consuming-agent fixture as a separate test. If the package becomes generally useful, move reusable behavior to its canonical owning repository and keep cross-project cases here.
-
-**Done when:** reference validation still passes, the packaged script runs without relying on this developer's machine paths, invalid inputs cannot dispatch an action, and the agent-facing instructions accurately describe rejection and reconciliation.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project agent-skills
-npm run ecosystem:proofs -- --project agent-skills --report .cache/ecosystem/agent-skills-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

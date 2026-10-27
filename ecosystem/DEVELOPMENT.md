@@ -1,109 +1,66 @@
-# Continue an AAIF ecosystem integration
+# Integration architecture
 
-This is the shared engineering handoff for the ten [project examples](README.md#project-by-project-coverage). Each project's README describes its value, working implementation, next runnable milestone and acceptance criteria. The examples are useful integration code and evidence; they do not establish a deployed Zeko backend for every upstream feature.
+We built the [AAIF ecosystem examples](README.md) around one shared application boundary: an approved action changes a resource state, and the caller receives evidence of the accepted transition. Each project keeps its own role in discovery, transport, execution, routing or instructions. Zeko provides the proposed verifiable shared-state layer behind those interfaces.
 
-## First reproduction
+## Components
 
-Work from the repository root, with the native platform and prerequisites in the [runbook](RUNBOOK.md). Use Node.js 24 and Python 3.12+. Prepare dependencies explicitly:
+| Component | Implementation | Role |
+| --- | --- | --- |
+| Project adapters | Each project's `demo.mjs`, with Python or packaged scripts where appropriate | Exercise the actual native component, SDK or format |
+| Local broker | [`_shared/runtime.mjs`](_shared/runtime.mjs) | Bind synthetic approvals to exact actions and expose the MCP/Python/script interfaces |
+| Process isolation | [`_shared/process.mjs`](_shared/process.mjs), [`_shared/network.mjs`](_shared/network.mjs) | Isolated configuration, local transport, bounded execution and cleanup |
+| Identity and mission checks | [`../sandbox/amba-gate.mjs`](../sandbox/amba-gate.mjs), [`../integrations/id-jag/README.md`](../integrations/id-jag/README.md) | Canonical AMBA OAuth and holder checks, plus ID-JAG resource access |
+| State authority | [`../sandbox/server.mjs`](../sandbox/server.mjs) | Serialize reservations, check quota/replay and record accepted transitions |
+| Application proof | [`../sandbox/proof.mjs`](../sandbox/proof.mjs) | Prove reservation arithmetic/version advancement and bind public commitments |
+| Independent verification | [`../sandbox/verify-receipt.mjs`](../sandbox/verify-receipt.mjs) | Check the proof and expected statement under a trusted verification key |
+| Compatibility profiles | [`../tck/README.md`](../tck/README.md) | Test the declared identity and shared-state boundaries |
+
+The broker is test orchestration. The current authority is a local single-writer application model; it is not a deployed core sequencer or data-availability network. Each project runs against a fresh state domain and synthetic client contexts.
+
+## Action and receipt contract
+
+The local integration seam is deliberately small. It is our reference interface, rather than a proposed change to every upstream AAIF protocol.
+
+| Operation | Behavior |
+| --- | --- |
+| `runtime.approve(actionId, units, { actor })` | Bind exact units and an action ID to an existing synthetic client's signed AMBA context |
+| `runtime.reserve({ actionId, units })` | Check the approval and invoke the protected MCP/AMBA service |
+| MCP `reserve_resource` | Expose the action through the official MCP SDK |
+| `POST /action` | Bridge local Python and packaged scripts using an ephemeral fixture bearer |
+| `GET /state` | Observe remaining quota, accepted count and version in the local fixture |
+
+Accepted actions return `{ ok: true, receipt }`. The receipt contains the domain, action commitment, version, remaining quota, outcome and evidence level. Proof mode also supplies the proof and public statement. Rejected actions return `ok: false` with the enforcement boundary that rejected them.
+
+The receipt's `actionCommitment` binds mission, action ID and boundary-event context; it is not the raw action ID. OpenSandbox additionally commits the job input, worker image and verified output through its approved action reference. A versioned canonical encoding is part of the cross-language adapter roadmap.
+
+## Authorization, proof and acceptance
+
+Our service checks current access and AMBA mission/holder constraints before accepting a protected action. The small circuit separately proves positive reservation units, quota subtraction and version advancement, with public domain/action commitments. Authorization is enforced by the service rather than proved inside that circuit.
+
+Verification uses the expected statement and a trusted key supplied independently of the receipt. Proof validity does not by itself select a canonical history, establish data availability or confirm Ethereum finality. These are separate deployment properties.
+
+Stable action references support replay prevention and recovery. An unknown external outcome requires reconciliation before another dispatch. The local protected-effect counter demonstrates this boundary; durable external execution needs its own dispatch and recovery design.
+
+The current reservation fields are public. Private application state, hardware confidentiality and correct execution of arbitrary worker code require additional statements and threat models. Our examples identify the exact evidence they provide.
+
+## Core Zeko and Ethereum integration
+
+The next common backend milestone connects the same application contract to accepted state in [core Zeko](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko). We plan to preserve the client interfaces while recording the deployment identity, state domain, expected verification key and required acceptance stage.
+
+That adapter will distinguish submission, authoritative acceptance, rejection and unknown/reconciling outcomes. Independent reads will use the deployment's actual state/data-availability path. Competing submissions, stale state, process restarts and interrupted responses are central recovery cases.
+
+Ethereum is our principal blockchain compatibility, settlement and bridging focus. The [sovereign-rollup operator guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) and [Ethereum architecture](https://ethereum.docs.zeko.io/overview) describe deployment options. Ethereum verification/settlement will have a separately recorded profile with its exact verifier configuration. Sovereign application acceptance need not require settlement for every tool call.
+
+## Reproduction and evidence
+
+The [runbook](RUNBOOK.md) covers Node.js 24, Python 3.12+, the tested macOS arm64 platform and local Docker for OpenSandbox. Dependencies, native binaries, schemas and OCI images have exact [version pins](versions.json), [checksums](binaries.json) and [image references](opensandbox/images.json).
 
 ```sh
 npm ci --ignore-scripts
 npm run ecosystem:setup -- --docker
-npm run ecosystem:demo -- --project mcp
-npm run ecosystem:proofs -- --project mcp --report .cache/ecosystem/mcp-baseline.json
+npm run ecosystem:proofs -- --report evidence/ecosystem-run-local.json
 ```
 
-Replace `mcp` with the target folder ID. The setup's `--docker` step is needed for OpenSandbox and the full suite; setup without it prepares the other examples. No provider account, wallet or cloud service is needed. Each demo receives a fresh authority and synthetic client contexts; the suite does not share one budget across all ten projects.
+Reports identify each component's evidence level, named checks, accepted/effect counts, remaining quota, proof status and combined source digest. Current scenarios accept one action and leave 30 of 100 resource units. The [evidence index](../evidence/README.md) records the published runs.
 
-Read the selected JSON result: `passed`, the named `checks`, `accepted`, `rejected`, `effects`, `remaining`, `proofVerified`, `level` and the explicit deployment flags. Current cases accept one action, dispatch one synthetic protected effect and leave 30 of 100 units. Proof mode must actually verify the proof. Do not interpret a process exit, printed success message or API schema validation alone as that evidence.
-
-## Files and ownership
-
-| File or directory | Responsibility | Change it when |
-| --- | --- | --- |
-| Each project's `demo.mjs` | Native/SDK/format adapter, scenario orchestration and observable checks | Extending that project's integration |
-| Project Python or skill scripts | Upstream typed environment, actual worker lifecycle or packaged tool client | Extending that executable surface |
-| [`_shared/runtime.mjs`](_shared/runtime.mjs) | Loopback broker, fixture approvals, official MCP interface and runtime summary | Several projects need the same application boundary |
-| [`_shared/process.mjs`](_shared/process.mjs) | Minimal environment, local process/network policy, ports, timeouts and cleanup | A shared process-lifecycle requirement changes |
-| [`_shared/network.mjs`](_shared/network.mjs) | Node fetch/socket/redirect guard | A local transport needs an explicitly reviewed change; do not broadly allow external traffic |
-| [`_shared/model-fixture.mjs`](_shared/model-fixture.mjs) | Deterministic chat/tool-call fixture | A native client needs another local model interaction |
-| [`../sandbox/server.mjs`](../sandbox/server.mjs) | Synthetic identity/resource AS, authoritative local reservation writer and protected effect counter | Changing state acceptance or its failure behavior |
-| [`../sandbox/amba-gate.mjs`](../sandbox/amba-gate.mjs) | Canonical AMBA integration and synthetic mission/holder orchestration | Changing identity-to-action test policy |
-| [`../sandbox/proof.mjs`](../sandbox/proof.mjs) | Reservation circuit, trusted-key verification and expected public statement | Changing the statement being proved |
-| [`../tck/adapters/shared-state-sandbox.mjs`](../tck/adapters/shared-state-sandbox.mjs) | Shared-state profile adapter and independent-process verification | Changing the compatibility profile implementation |
-| [`versions.json`](versions.json), [`binaries.json`](binaries.json), [`requirements.lock`](requirements.lock), [`opensandbox/images.json`](opensandbox/images.json) | Exact upstream/dependency/artifact pins | Changing a dependency or runtime boundary |
-| [`run.mjs`](run.mjs) | Project selection, proof-mode execution, report and source digest | Adding a scenario entry point or evidence field |
-
-Keep core protocol, settlement, AMBA and application implementation changes in their canonical repositories. Import pinned versions here and test the integration. Do not silently fork their logic into a demo.
-
-## Shared application contract
-
-The small contract below is an integration seam implemented by this repository. It is not an AAIF standard, an upstream extension all projects implement, or a production Zeko RPC API.
-
-| Operation | Actual behavior | Required invariant |
-| --- | --- | --- |
-| `runtime.approve(actionId, units, { actor })` | Test orchestration binds an exact action and units to one existing synthetic client's signed AMBA context; returns `{ actionId, units }` | Unique action ID; no caller-selected widening after approval |
-| `runtime.reserve({ actionId, units })` | Checks the fixture approval, then calls the protected MCP/AMBA service | Unknown/changed approval cannot mutate state or dispatch an effect |
-| MCP `reserve_resource` | Official SDK tool taking the same two fields | Tool transport does not replace authorization/state checks |
-| `POST /action` | Loopback Python/script bridge, requiring an ephemeral fixture bearer | Never expose this trusted fixture as a public approval service |
-| `GET /state` | Local fixture observation of remaining quota, accepted count and version | Observation is not a mutation capability or a production disclosure policy |
-| Receipt | Domain, action commitment, version, remaining quota, outcome and evidence level; proof mode also supplies the proof and statement | Correlate with the expected action/domain and verify under a trusted key |
-
-A successful result has `{ ok: true, receipt }`. A rejected result has `ok: false` and a rejection boundary such as `synthetic-approval-binding`, `mission-gate`, `shared-state` or `proof-verifier`. Preserve distinct rejection/unknown outcomes instead of normalizing them all to transport success or “try again.” An HTTP request can succeed while its application action is rejected.
-
-The accepted receipt's `actionCommitment` is a digest of mission, action ID and boundary-event context; it is not the raw action ID. See the writer and AMBA digest helper for the actual serialization. Cross-language applications need a versioned canonical encoding before claiming interoperable commitments. The OpenSandbox adapter additionally constructs its own job/input/image/output commitment, then includes that in the approved action ID.
-
-The writer serializes local reservations, checks replay/quota, verifies the required proof, consumes mission authority and records a synthetic protected effect. This is a local implementation of the application rules. A real external effect needs durable dispatch/reconciliation and an explicit required acceptance level; the existing effect counter is not universal exactly-once execution.
-
-## Proofs, trust and privacy
-
-[`../sandbox/proof.mjs`](../sandbox/proof.mjs) proves positive reservation units, quota subtraction and version advancement, with public domain/action commitments. AMBA authorization is checked separately by the service; it is not proved inside this circuit. The caller must supply the expected statement and an independently trusted verification key. Do not trust a key merely because it arrived beside a proof.
-
-Use [`../sandbox/verify-receipt.mjs`](../sandbox/verify-receipt.mjs) and the shared-state adapter as the existing independent-process verification pattern. A valid proof still needs a policy for which state history/domain the service accepts. It does not establish data availability, canonical rollup history, Ethereum finality, private reservations or correct arbitrary worker execution.
-
-Keep JWTs, holder material, approval capabilities, raw sensitive inputs and provider credentials out of reports and committed examples. The present fixtures use public reservation statements; privacy extensions need their own statement, data-flow and disclosure tests. A hash commitment is not an automatic confidentiality guarantee for guessable inputs.
-
-## Path from the local model to core Zeko
-
-The next common backend milestone is an explicitly versioned adapter for accepted state in the canonical [Zeko core](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko). Ethereum is the principal blockchain integration focus: use the [sovereign-rollup operator guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) and [Ethereum architecture documentation](https://ethereum.docs.zeko.io/overview) as deployment references. The current ten-project suite does not launch that stack.
-
-A proposed adapter should keep the clients' action/result semantics while making these boundaries explicit:
-
-1. **Submission and identity:** bind the application action to the correct deployment, principal/mission and exact inputs. Obtain operator configuration explicitly; do not reuse a developer's existing keys.
-2. **Acceptance:** expose submitted, accepted, rejected and unknown/reconciling outcomes. A valid local proof or successful submission is not canonical core acceptance.
-3. **Independent reading:** retrieve the accepted state/receipt from the deployment's actual read/DA path and verify the expected proof, version and domain. Test competing submissions and stale state.
-4. **Effects and recovery:** require the configured acceptance level before releasing consequential work. Persist the action reference and reconcile disconnects/restarts before retrying.
-5. **Optional Ethereum profile:** record the exact verifier/settlement configuration and state what was actually verified. Tutorial mock-verifier results must not be labeled real Ethereum proof verification. Workflows that need only sovereign application acceptance should not be forced to settle each tool call.
-
-A local, deterministic deployment/replay fixture can develop this adapter boundary without a funded network. A live operator deployment, real provider integration or funded transaction is a separate authorized milestone. The acceptance tests should identify that boundary rather than quietly replacing local fixtures with real services.
-
-## Verification and evidence
-
-For documentation-only work, check local links, commands, version/status claims and section completeness; do not add implementation-mirroring tests. The evidence source inventory includes `AGENTS.md` and `SKILL.md` inputs. If those files or executable/pinned sources change, regenerate the relevant report so its source list/digest remains current.
-
-For an implementation change:
-
-1. Run the target project's non-proof and real-proof commands from its README. Add meaningful success/failure cases for the new behavior. Keep the existing named checks passing.
-2. Run `npm run test:sandbox` when shared/runtime enforcement changes. If the ID-JAG or shared-state profile implementation changes, run its relevant TCK profile; `npm run sandbox:evidence` refreshes both recorded compatibility profiles.
-3. Run the full suite when shared adapters, dependencies, proof logic or report inputs affect several projects. To refresh the published suite evidence, use:
-
-```sh
-npm run ecosystem:proofs -- --report evidence/ecosystem-run-2026-10-26.json
-```
-
-Use a new report filename when the date changes; update the [evidence index](../evidence/README.md) and links deliberately. A single-project run belongs in a separate report and must never overwrite an all-ten report. Review generated output for secrets, exact component levels, passed checks and a matching source digest. Update counts/claims only after the relevant run passes.
-
-Before handoff, record the changed files, tested version/profile, exact command/result, remaining assumptions and next bounded milestone. Publish through the fork and leave merging manual. The official AAIF proposal remains a separate manual filing by zekoxyz.
-
-## Troubleshooting without widening scope
-
-| Symptom | Check | Preserve |
-| --- | --- | --- |
-| Node/runtime or native startup error | Node 24, macOS arm64 reference platform, pinned setup logs and executable paths | Do not download a new runtime dependency during the offline demo |
-| Python import or validator failure | `.cache/ecosystem/python`, `AAIF_SETUP_PYTHON`/`AAIF_DEMO_PYTHON`, exact lock and `pip check` | Do not fall back to unrelated global packages |
-| Docker socket/image failure | Running OrbStack/local daemon, local Unix endpoint and `setup -- --docker` | Do not use a remote daemon, mount host secrets or weaken worker isolation |
-| Agent Router startup failure | Port 1975 free, pinned Envoy and short runtime directory | Do not terminate an unrelated process using that port |
-| Local TLS error | Launch through `sandbox/run.mjs`/npm scripts so the generated local CA is configured | Do not disable TLS verification globally |
-| Rejected state action | Exact action ID/units, mission status, domain, holder and remaining quota | Do not grant broader authority to make a test green |
-| Timed-out or unknown outcome | Existing action/receipt state and child cleanup | Do not dispatch again under a new action ID |
-| Proof failure | Expected public statement, trusted verification key and proof-mode dependencies | Do not silently skip verification or substitute a fixture proof |
+Our [development roadmap](README.md#development-roadmap) covers receipt lookup, task lifecycle, multi-client recovery, route failover, result verification and core-backed acceptance. Contributions and independent reproductions are welcome through the [public contribution process](../CONTRIBUTING.md).

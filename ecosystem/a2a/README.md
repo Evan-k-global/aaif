@@ -32,25 +32,8 @@ Two wire messages reach the executor; only one commitment is accepted; the repea
 
 This is a native v1 SDK client/server exchange with a synthetic agent, not a language-model worker. It exercises a narrow message/action scenario rather than the whole long-running task, cancellation or push-notification lifecycle.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: a task-to-commitment lifecycle.** Replace the single message-action example with a small local task that reserves once, produces a deterministic artifact and reports a terminal result.
+Our next A2A example will follow a task from reservation through deterministic delivery to a terminal result. It will map task/context IDs to application commitments and cover duplicate delivery, changed scope and cancellation. A cancelled task will report the status of any already accepted work rather than silently erasing it. Authenticated peer-to-mission mapping is a further integration milestone.
 
-1. Extend the executor and `InMemoryTaskStore` wiring in [`demo.mjs`](demo.mjs). Define a mapping from A2A task/context IDs to the application action ID and input/result commitments.
-2. Add duplicate delivery, changed-input and cancel-before-acceptance cases. Define cancel-after-acceptance separately: cancelling transport/task work must not silently erase an accepted state transition.
-3. Add a synthetic authenticated peer fixture and explicit principal-to-AMBA policy mapping before claiming delegated cross-operator authority. Use the shared boundary rather than bypassing it inside the executor.
-
-**Done when:** task status and the accepted receipt remain correlated, duplicates do not dispatch work twice, changed scope fails without new approval, and cancellation reports what happened to already accepted work. Describe the in-memory task store's restart limitation until persistence is implemented.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project a2a
-npm run ecosystem:proofs -- --project a2a --report .cache/ecosystem/a2a-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

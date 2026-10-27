@@ -32,25 +32,8 @@ Routed MCP discovery/call succeeds; changed action and replay fail; exactly one 
 
 This tests the HTTP routing path and backend enforcement. The gateway does not generate the proof, and its own enterprise identity policies are not configured or certified here. The AMBA/ID-JAG backend and synthetic broker have separate roles.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: two independent gateway routes, one state authority.** Route competing clients through separate local gateway processes and verify they cannot allocate separate copies of the same budget.
+We plan to route competing requests through two independent local gateway instances backed by one state authority. The example will test shared quota, cross-route retry and explicit identity-context mapping. Success will mean that route changes preserve the same accepted action and cannot create a second copy of the budget.
 
-1. Extend native process/config orchestration in [`demo.mjs`](demo.mjs); use ephemeral ports and [`../_shared/process.mjs`](../_shared/process.mjs) for isolated environments and cleanup.
-2. Submit competing reservations through both routes, then retry an accepted action through the other route. Test changed units and a synthetic wrong-tenant context at the appropriate enforcement layer.
-3. Treat authenticated identity propagation as a separate profile. Specify which gateway assertions the service may trust, how they bind to the resource audience, and which AMBA checks still run at the action boundary.
-
-**Done when:** exactly one conflicting reservation is accepted across both routes, failover cannot duplicate an effect, and closing both gateway processes leaves the authority's accepted state unchanged. Record gateway configuration and upstream version with the evidence.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project agentgateway
-npm run ecosystem:proofs -- --project agentgateway --report .cache/ecosystem/agentgateway-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

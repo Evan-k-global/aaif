@@ -40,25 +40,8 @@ The SDK must delete the actual worker and egress sidecar. The coordinator cleans
 
 No funded transaction, deployed Zeko core, Ethereum settlement, TEE confidentiality or production sandbox-hardening certification is claimed.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: admission before dispatch plus an explicit result lifecycle.** Separate `reserve`, `execute`, `accept` and a defined failure/release outcome, while keeping all work on the local Docker daemon.
+We plan to add admission before worker creation and an explicit reserve/execute/accept lifecycle. A versioned job record will connect input and image commitments to execution attempts, result acceptance and defined failure/release rules. The example will test worker failure, timeout, duplicate delivery and reconciliation while retaining local Docker isolation, deny-by-default egress and automatic cleanup.
 
-1. Extend [`demo.mjs`](demo.mjs) and [`demo.py`](demo.py). Make the first state acceptance a prerequisite to creating the job worker; otherwise a rejected job could still consume execution resources.
-2. Define a versioned job record with input/image commitment, reservation ID, execution attempt and output commitment. Add worker failure, timeout, duplicate delivery, changed output and lost-response reconciliation cases. Keep ordinary failure distinct from an unknown execution outcome.
-3. Preserve immutable [`images.json`](images.json), deny-by-default `dns+nft` egress, the local canary, resource limits, loopback ports and run-owned cleanup. Never pass the Docker socket or approval/provider credentials into the worker.
-
-**Done when:** rejected admission creates no job worker, a duplicate delivery produces no second accepted result or charge, failure/release rules are explicit and checked, and every case cleans up its worker/sidecar/canary. Do not describe a new release transition as implemented until it exists in the state model and tests.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project opensandbox
-npm run ecosystem:proofs -- --project opensandbox --report .cache/ecosystem/opensandbox-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

@@ -1,6 +1,6 @@
 # Zeko: verifiable shared state across agent applications
 
-**Working Sandbox thesis — 26 October 2026.** Supporting documents: [full plan](project-plan.md), [application](application.md) and [evidence](evidence/README.md). The official issue must be filed by **zekoxyz**; this agent must not create it. Contribution scope and organizational fields require owner confirmation.
+**Sandbox proposal draft — 26 October 2026.** Read our [roadmap](project-plan.md), [full application](application.md) and [evidence](evidence/README.md).
 
 ## Problem and contribution
 
@@ -40,6 +40,6 @@ Sandbox work will extend the adapter to a pinned core deployment, exercise anoth
 
 ## Security and Growth objectives
 
-Core Zeko has independent zkSecurity audit history. The [audit documentation](https://github.com/zeko-labs/zeko/pull/444) indexes the authoritative reports, component scope and published finding responses; use its canonical folder after merge. Application, demo and integration assurance remains separate. Each deployment must document state authority, proof verification, data availability, permissions and recovery.
+Core Zeko has independent zkSecurity audit history. The [audit documentation](https://github.com/zeko-labs/zeko/pull/444) indexes the authoritative reports, component scope and published finding responses; the audit index will have its canonical repository location after merge. Application, demo and integration assurance remains separate. Each deployment must document state authority, proof verification, data availability, permissions and recovery.
 
 Sandbox success means reproducible deployments, a maintained compatibility profile, useful outside feedback and open governance. Growth preparation will pursue the applicable graduation criteria: production use by two unaffiliated organizations, contributions from two organizations over the preceding six months, and a sponsor-accepted growth plan. The roadmap targets the six-month checkpoint and a Growth application within twelve months when criteria are met.

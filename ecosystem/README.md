@@ -15,24 +15,22 @@ npm run ecosystem:proofs -- --report evidence/ecosystem-run-local.json
 
 For one project, add `-- --project mcp` to the demo or proof command. See the [runbook](RUNBOOK.md) for setup, isolation, evidence and limitations.
 
-## Continue the work with any agent
+## Development roadmap
 
-Start with the [agent contributor instructions](AGENTS.md) and [shared development handoff](DEVELOPMENT.md). Then read the target folder's README: every project has a named Zeko benefit section, an integration-role table, exact entry points, a next runnable milestone and acceptance criteria. Commands run from the repository root; the handoff describes the shared API, receipt/proof semantics, ownership, troubleshooting and evidence refresh.
+We are extending these examples with recovery, cross-client coordination and stronger receipt verification. The next milestones build on the working local suite; core-rollup acceptance and optional Ethereum verification remain separate deployment work.
 
 | Project | Next local milestone | Completion evidence |
 | --- | --- | --- |
-| [MCP](mcp/README.md#continue-this-integration) | Receipt/status lookup and reconnect reconciliation | Another client recovers an accepted result without another effect |
-| [A2A](a2a/README.md#continue-this-integration) | Task-to-commitment lifecycle | Delivery, changed scope and cancellation stay correlated with state |
-| [goose](goose/README.md#continue-this-integration) | Two-session handoff and visible rejection | Restart/provider-session changes do not widen authority or repeat work |
-| [agentgateway](agentgateway/README.md#continue-this-integration) | Two gateway routes sharing one authority | Competing routes consume one budget; failover cannot duplicate an effect |
-| [Agent Router](agent-router/README.md#continue-this-integration) | Controlled route failover and reconciliation | Preserved action identity and one accepted effect after a lost response |
-| [Open Responses](open-responses/README.md#continue-this-integration) | Multi-call bindings and independent proof checking | Swapped, altered and unaccepted receipts fail |
-| [OpenSandbox](opensandbox/README.md#continue-this-integration) | Admission before execution and explicit result lifecycle | Rejected work creates no worker; duplicate delivery cannot charge twice |
-| [OpenEnv](openenv/README.md#continue-this-integration) | Multiple environment instances and explicit trial domains | Shared scarcity survives resets; independent trials remain isolated |
-| [Agent Skills](agent-skills/README.md#continue-this-integration) | Packaged receipt verification and rejected-action handling | Portable script, reference validation and safe machine-readable outcomes |
-| [AGENTS.md](agents-md/README.md#continue-this-integration) | Reproducible coding-agent maintenance exercise | Actual implementation behavior is checked separately from document presence |
-
-These are next tasks, not features already implemented. Select one bounded milestone, preserve the working example and publish the tested result with an updated handoff. Deployment through the canonical core adapter and optional Ethereum verification is a separate, shared [backend milestone](DEVELOPMENT.md#path-from-the-local-model-to-core-zeko).
+| [MCP](mcp/README.md#development-roadmap) | Receipt/status lookup and reconnect reconciliation | Another client recovers an accepted result without another effect |
+| [A2A](a2a/README.md#development-roadmap) | Task-to-commitment lifecycle | Delivery, changed scope and cancellation stay correlated with state |
+| [goose](goose/README.md#development-roadmap) | Two-session handoff and visible rejection | Restart/provider-session changes do not widen authority or repeat work |
+| [agentgateway](agentgateway/README.md#development-roadmap) | Two gateway routes sharing one authority | Competing routes consume one budget; failover cannot duplicate an effect |
+| [Agent Router](agent-router/README.md#development-roadmap) | Controlled route failover and reconciliation | Preserved action identity and one accepted effect after a lost response |
+| [Open Responses](open-responses/README.md#development-roadmap) | Multi-call bindings and independent proof checking | Swapped, altered and unaccepted receipts fail |
+| [OpenSandbox](opensandbox/README.md#development-roadmap) | Admission before execution and explicit result lifecycle | Rejected work creates no worker; duplicate delivery cannot charge twice |
+| [OpenEnv](openenv/README.md#development-roadmap) | Multiple environment instances and explicit trial domains | Shared scarcity survives resets; independent trials remain isolated |
+| [Agent Skills](agent-skills/README.md#development-roadmap) | Packaged receipt verification and rejected-action handling | Portable script, reference validation and safe machine-readable outcomes |
+| [AGENTS.md](agents-md/README.md#development-roadmap) | Reproducible coding-agent maintenance exercise | Actual implementation behavior is checked separately from document presence |
 
 ## Project-by-project coverage
 
@@ -76,4 +74,4 @@ The examples demonstrate a practical integration seam: different agent interface
 
 The next deployment milestone is a pinned adapter that replaces local state acceptance with a core Zeko application/sequencer/DA path. Ethereum verification/settlement is a separately tested profile. The local suite makes that boundary explicit while giving implementers useful code and fixtures now.
 
-Sources and pins: [component versions](versions.json), [binary checksums](binaries.json), [Python lock](requirements.lock), [current evidence](../evidence/README.md), [compatibility matrix](../compatibility.md). This folder does not expand the focused working-group outreach campaign.
+Sources and pins: [component versions](versions.json), [binary checksums](binaries.json), [Python lock](requirements.lock), [current evidence](../evidence/README.md), [compatibility matrix](../compatibility.md).

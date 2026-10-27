@@ -32,25 +32,8 @@ Local inference routing and MCP tool discovery succeed; an approved action is ac
 
 Envoy is prepared and checksum-pinned during setup; runtime pins its version and cannot download a new one. The demo reserves local port 1975 and cleans up the child processes. It tests one standalone route, not a Kubernetes installation or all gateway identity policies.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: route failover without duplicate state effects.** Add a second local route/backend configuration that shares the same application authority, then exercise a request whose first response is lost.
+Our next example will exercise controlled route failover after a lost response. Model and MCP routing will preserve the original action and state domain while the client reconciles the outcome before retrying. We will test changed approvals and unknown outcomes alongside failover, using the existing pinned Envoy runtime.
 
-1. Extend [`demo.mjs`](demo.mjs) and, if needed, the synthetic provider fixture. Keep the pinned Envoy binary/version; do not permit runtime version discovery or downloads.
-2. Preserve the exact action ID across a controlled local backend switch. Reconcile the first outcome before retrying a consequential action; a routing timeout must not mint a new action ID.
-3. Keep route identity/tenant mapping explicit. Test a changed resource domain and a changed approval alongside failover. Do not equate a router tool-name prefix with an authorization boundary.
-
-**Done when:** model and MCP routes still work, failover/retry leaves exactly one accepted state effect, and missing/unknown acceptance is reported rather than silently treated as success. Port 1975 must be free; close the router/Envoy children and remove their short temporary runtime directory.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project agent-router
-npm run ecosystem:proofs -- --project agent-router --report .cache/ecosystem/agent-router-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

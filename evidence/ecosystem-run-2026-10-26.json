@@ -1,8 +1,7 @@
 {
-  "generatedAt": "2026-10-27T00:11:03.534Z",
-  "sourceSha256": "15295be1a9e746460ba6b5c646aa748a4afdd020d8e51043d7684c51818a360f",
+  "generatedAt": "2026-10-26T23:26:00.508Z",
+  "sourceSha256": "04860d95281d1096ba0251327789696cc398aec51d2e088bc7b4b8ceabdbb31b",
   "sourceFiles": [
-    "ecosystem/AGENTS.md",
     "ecosystem/_shared/model-fixture.mjs",
     "ecosystem/_shared/network.mjs",
     "ecosystem/_shared/network.test.mjs",

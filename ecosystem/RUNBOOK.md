@@ -53,6 +53,6 @@ The JSON report contains component-specific evidence levels, concrete check outc
 
 The report can establish that selected local paths compose with this shared application boundary. It does not certify every upstream feature, all identity-provider configurations, arbitrary worker execution, production readiness or deployed settlement. A recorded core acceptance adapter and separate Ethereum profile are the next steps toward those stronger claims.
 
-## Extend an example
+## Architecture and development
 
-Read the [agent instructions](AGENTS.md), [development contract](DEVELOPMENT.md) and the selected project's “Continue this integration” section. The [next-step index](README.md#continue-the-work-with-any-agent) maps every folder to a bounded local milestone. Keep report scope explicit: a single-project report must not replace the full ten-project evidence file.
+Our [integration architecture](DEVELOPMENT.md) describes the shared runtime, state and proof boundary, and the [development roadmap](README.md#development-roadmap) lists the next milestone for each project. Each folder links its implementation and measured evidence.

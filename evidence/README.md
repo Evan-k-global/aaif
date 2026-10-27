@@ -11,7 +11,7 @@ The ecosystem results distinguish native components, official SDK clients/types,
 Source digests recorded in the reports:
 
 - Compatibility profiles: `9680ac8469e8bd3265a79161e4e516ba688a13f13995fa3b70a7f9add90544d8`.
-- Ecosystem examples: `15295be1a9e746460ba6b5c646aa748a4afdd020d8e51043d7684c51818a360f`.
+- Ecosystem examples: `04860d95281d1096ba0251327789696cc398aec51d2e088bc7b4b8ceabdbb31b`.
 
 The reports include exact source-file lists, environment, case results and scope. They do not export temporary credentials. The core candidate and its independent upstream build are recorded [separately](core-candidate-2026-10-26.md).
 

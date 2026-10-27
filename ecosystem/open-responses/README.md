@@ -30,27 +30,10 @@ Call correlation and shared-state acceptance are distinct checks: valid JSON is 
 
 Selected request/response payloads validate; the accepted receipt digest is correlated; a changed call ID is rejected; repeating the state action cannot dispatch again.
 
-Open Responses is an API specification. This is a schema-validated local implementation of a selected function-tool subset, not a hosted model or full reference compliance suite. The user’s “open resources” reference is interpreted as Open Responses.
+Open Responses is an API specification. This is a schema-validated local implementation of a selected function-tool subset, not a hosted model or full reference compliance suite.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: multiple calls with independent receipt verification.** Replace hard-coded `resp_local`/`call_local` values with a bounded local call registry and explicit call-to-action bindings.
+We plan to extend the example to multiple function calls with explicit response/call/action bindings and independent receipt verification. Tests will cover swapped outputs, changed evidence, unaccepted receipts and repeated call IDs. Streaming and broader API coverage will have separate profiles so the evidence identifies the exact supported subset.
 
-1. Extend [`demo.mjs`](demo.mjs). Track response ID, call ID, tool name, normalized arguments and expected action commitment; validate against the pinned archived schema rather than a fetched runtime schema.
-2. Test two calls, swapped outputs, a structurally valid but unaccepted receipt, an altered receipt and a repeated call ID. Add separate-process proof checking using the trusted-key pattern in [`../../sandbox/verify-receipt.mjs`](../../sandbox/verify-receipt.mjs).
-3. Keep streaming and broader API coverage as later, versioned profiles. Do not advertise full compliance based on this non-streaming function-tool subset.
-
-**Done when:** each output is bound to exactly its own call/action, swapping or changing evidence fails, an independent verifier rejects wrong-key/wrong-statement proofs, and no invalid output creates another state effect.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project open-responses
-npm run ecosystem:proofs -- --project open-responses --report .cache/ecosystem/open-responses-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).

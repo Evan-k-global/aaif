@@ -1,54 +1,16 @@
-# Progress
+# Engineering progress
 
 ## 26 October 2026
 
-- Expanded every ecosystem guide with a project-named Zeko benefit section, concrete workflow/role mapping and an agent-ready next milestone with source entry points, run commands and acceptance criteria. Added scoped agent instructions, a shared development contract and a ten-project next-step index. The handoff covers receipt semantics, trusted-key verification, ownership, troubleshooting and the path from local acceptance to a core-backed adapter.
-- Expanded ecosystem/ to one folder for each of the ten hosted projects, with executable demos or instruction-format companions, pinned setup, local-only model/service fixtures and a technical runbook.
-- Passed all ten examples in real-proof mode (62 scenario checks), plus the 30 compatibility cases and 21 unit/integration tests. Native goose, agentgateway and Agent Router/Envoy, the A2A SDK, Open Responses schema, actual OpenSandbox Docker execution, OpenEnv types and Agent Skills validation are individually labeled in the evidence.
-- Upgraded OpenSandbox from an SDK transport fixture to the real SDK/server/execd lifecycle on local OrbStack. Pinned all three images by digest, checked worker limits and isolation settings, demonstrated a blocked outbound connection to a synthetic local canary, and verified worker/sidecar cleanup. A host-verified input/image/result commitment is accepted once; replay and changed results are rejected.
-- Host APIs bind to loopback; local Docker components use a deny-by-default egress policy. No production credentials, real model service, remote container deployment, core rollup or Ethereum settlement was used.
+We published a review package for Zeko's proposed AAIF Sandbox contribution: core rollup infrastructure for verifiable shared state across agent applications.
 
-- Added the ecosystem folder: individual connection guides for MCP, goose, agentgateway, A2A and OpenSandbox, plus a supporting map covering the remaining hosted projects. Each separates proposed value from tested integration evidence.
+- Built an HTTPS identity/MCP reference integration using canonical AMBA OAuth, ID-JAG exchanges, signed holder-bound actions and real o1js application proofs.
+- Recorded 17 identity-profile and 13 shared-state cases, plus 21 unit/integration tests. Cases cover concurrency, replay, changed inputs, incorrect context, invalid proofs and independent receipt verification.
+- Added dedicated examples for all ten hosted AAIF projects. The real-proof suite passes 62 checks, with native, SDK, schema and instruction-format evidence identified separately.
+- Ran actual OpenSandbox SDK/server/execd Docker execution with pinned images, worker limits, deny-by-default egress, a synthetic local canary, result-commitment checks and cleanup.
+- Published project-specific Zeko integration explanations, reproduction commands, measured scope and development roadmaps, plus the shared architecture and compatibility matrix.
+- Recorded the core candidate [`28223900e4`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed) and its [passing core CI](https://github.com/zeko-labs/zeko/actions/runs/40358110682), separately from local integration evidence.
 
-- User authorized publishing the full package through the fork and a PR into zeko-labs/aaif for GitHub review, superseding the earlier pre-review publication hold. Manual merge and zekoxyz-only official filing remain separate.
+Our [evidence index](evidence/README.md) contains source-digested results and exact scope. These local runs use synthetic identity/model fixtures and a local application authority; they do not represent a deployed core rollup or Ethereum settlement run.
 
-- Recorded owner-supplied core repository, maintainers, application contact, financial support, contributing entity and signatory details in the local application.
-- Pinned the latest checked `compatible` head, `28223900e4`, and linked its passing core CI. Audit documentation PR #444 remains open; refresh the candidate after merge.
-- Added a maintainer roster and instructions for members to make their own GitHub organization membership public. No membership settings were changed.
-
-- User supplied the Evan-k-global/aaif fork and placed publication on hold pending review of the proposal submission. That earlier hold was superseded by the later authorization to publish for GitHub review.
-
-- Established the repository's enduring public-good purpose: AI freedom, sovereignty and privacy, with open-source work offered for others to use and build upon.
-- Added the public-good statement and aligned the README, thesis, application, strategy and contributor guidance. Sovereignty covers operator/key/policy choice and bounded agent authority; current governance and sandbox privacy limits remain explicit.
-- Added a public-record practice: dated artifacts, versions, reproducible evidence and substantive feedback. These updates are included in the GitHub review package.
-
-- Prepared the full project plan/strategy, a field-by-field core application matching the current issue form, and manual filing instructions.
-- Recorded the user's explicit instruction: no submission by this agent; official issue must be authored by zekoxyz. Evan-k-global remains only the engineering fork/PR identity.
-- Rechecked the official process, lifecycle and form. The proposal is an issue, while our supporting documents are reviewed through our own repository PR workflow.
-
-- Prepared the local Zeko AAIF reference workspace and initial proposal documents for the user-created GitHub repository.
-- Drafted the core Sandbox thesis around verifiable shared state across agent applications.
-- Added canonical core, independent Ethereum deployment, settlement, bridge and audit references.
-- Included optional Phala TEE hosting as a modular sovereign-deployment example.
-- Prepared technical discussion notes for Security & Privacy, Identity & Trust, and Agentic Commerce.
-- Documented the complementary examples: SantaClawz + AMBA for identity and authority; x402-Zeko + Magic City for commerce.
-- Positioned zkTLS as a reusable feature to extract, with the prediction market as its working demo use case.
-
-Added the first AAIF-specific engineering artifacts:
-
-- Two-hop ID-JAG client helper pinned to the selected IETF/MCP profile.
-- TCK runner and draft shared-state/ID-JAG profiles, with 27 scenario definitions.
-- 14 passing helper/harness tests and a [local evidence record](evidence/2026-10-26-local-validation.md).
-- [Delivery sequence](aaif-work.md) and [compatibility backlog](compatibility.md).
-
-Subsequently completed the local sandbox integration:
-
-- Reused canonical AMBA OAuth/PKCE/JWKS, identity attestation, capability, holder-proof and stateful-enforcement code as a pinned dependency.
-- Added local HTTPS IdP/resource-AS roles with signed JWTs, metadata discovery and real MCP SDK clients/server.
-- Implemented a real o1js reservation proof and independent-process verifier.
-- Passed all 17 selected ID-JAG/MCP and 13 shared-state cases, plus 19 unit/integration tests.
-- Added a dependency lock, local certificate launcher, CI workflow, source-digested evidence and scope documentation.
-
-Next: review the package on GitHub, finalize governance and asset-scope preparation, and select any commercial-provider or deployed core/Ethereum validation needed beyond the working sandbox. Those deployment paths are not claimed by the local result. No AAIF proposal issue has been filed.
-
-Future updates will link to concrete code, test results, deployment records and public technical feedback.
+The [application](application.md) is a review draft. Our next engineering priorities are independent reproduction, recovery/reconciliation and a core-backed acceptance adapter. See the [roadmap](project-plan.md).

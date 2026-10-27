@@ -1,6 +1,6 @@
 # Core Zeko candidate — 26 October 2026
 
-The user requested the latest core-rollup version for the proposal. This record pins the latest `compatible` branch head checked on this date; it is a commit candidate, not a newly created release.
+We selected the latest `compatible` branch head checked on this date as the core proposal candidate. The record identifies the commit and its upstream build evidence.
 
 | Item | Verified record |
 | --- | --- |
@@ -15,5 +15,3 @@ The user requested the latest core-rollup version for the proposal. This record 
 | Audit documentation | [PR #444](https://github.com/zeko-labs/zeko/pull/444), open and unmerged at this check; target is the core repository's `audits/` documentation |
 
 The branch head and CI were read through the public GitHub API. The candidate is separate from the local integration sandbox's pinned dependencies and source digest. This record does not say that the sandbox ran against a deployed core sequencer, or that this CI run verified an Ethereum settlement deployment.
-
-After the audit documentation merges, refresh the branch head and build evidence before finalizing the submission. Keep the canonical audit folder as the security reference when available. No repository push, PR creation or AAIF filing is performed by recording this candidate.

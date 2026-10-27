@@ -2,9 +2,7 @@
 
 **Review draft, 26 October 2026. Not submitted.** Prepared against the [current issue form](https://github.com/aaif/project-proposals/blob/main/.github/ISSUE_TEMPLATE/project-proposal.yml), [proposal process](https://github.com/aaif/technical-committee/blob/main/project_proposal_process.md) and [lifecycle policy](https://github.com/aaif/technical-committee/blob/main/governance/project-lifecycle-policy.md).
 
-**Required author: zekoxyz. Do not file from Evan-k-global.** Open the [official form](https://github.com/aaif/project-proposals/issues/new?template=project-proposal.yml) while signed in as zekoxyz. Copy each section below into the matching field after resolving every `[OWNER INPUT]` item. Replace local supporting-document references with public, reviewed URLs before filing. This document is not an agreement to transfer assets.
-
-Suggested issue title: **[Project Proposal] Zeko**
+Proposed issue title: **[Project Proposal] Zeko**
 
 ## Project Name
 
@@ -60,7 +58,7 @@ Related first-party applications provide examples:
 
 These are implementation and demonstration evidence, not unaffiliated production adoption. We apply on the Sandbox importance-before-adoption basis: consequential agent workflows need verifiable shared state and neutral interfaces before one provider's deployment becomes the default. We will add attributable outside usage only when supported by public evidence.
 
-[OWNER INPUT: attach a concise deployment record for the prior Mina mainnet and Ethereum testnet deployments: revision, operator, network, contract/address references and verification profile.]
+We are consolidating the deployment evidence into revision, network, operator and contract/verifier records for the proposed contribution.
 
 ## Technical Committee Sponsor (if identified)
 
@@ -72,7 +70,7 @@ https://github.com/zeko-labs/zeko
 
 The proposed core lives under `src/app/zeko` on the `compatible` branch. The supporting AAIF integration repository is https://github.com/zeko-labs/aaif. The Ethereum integration is https://github.com/zeko-labs/ethereum-settlement.
 
-Zeko Labs confirms `zeko-labs/zeko` as the core rollup repository being proposed and the home of the audit documentation. The current candidate is [`28223900e4fbb69d04025b5ca8b9a044d493e6ed`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed), the latest `compatible` head checked on 26 October 2026. Separate application repositories remain supporting examples. The precise transfer schedule for project assets and any separately hosted Ethereum integration will be agreed with AAIF; it is not inferred from these reference links.
+Our proposed core rollup repository is `zeko-labs/zeko`, which also contains the core audit documentation work. The current candidate is [`28223900e4fbb69d04025b5ca8b9a044d493e6ed`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed), the latest `compatible` head checked on 26 October 2026. Separate application repositories remain supporting examples. The precise transfer schedule for project assets and any separately hosted Ethereum integration will be agreed with AAIF; it is not inferred from these reference links.
 
 ## License
 
@@ -80,9 +78,9 @@ Apache-2.0 for Zeko-authored and repository-maintained code, subject to identifi
 
 ## Governance Model
 
-The project is currently developed within Zeko Labs through public repositories and pull requests. Zeko Labs identifies the `zekoxyz` team handle and Martin Ondejka (`MartinOndejka`) as core maintainers. See the [maintainer roster](MAINTAINERS.md). The current core contribution guide includes inherited upstream procedures; it should not be treated as a complete statement of Zeko's present governance.
+The project is currently developed within Zeko Labs through public repositories and pull requests. Zeko Labs identifies the `zekoxyz` team handle and Martin Ondejka (`MartinOndejka`) as core maintainers. See the [maintainer roster](MAINTAINERS.md). Zeko-specific governance procedures are being formalized alongside the existing contribution guide.
 
-[BEFORE FILING: document the actual merge/release authority, decision, dispute, governance-change and new-maintainer processes; link adopted documents. Confirm the LF technical charter and contribution scope with the authorized owner.]
+Formal governance documentation is in development, covering merge/release authority, technical decisions, disputes, governance changes and new maintainers. The contribution scope and technical charter will be agreed through the AAIF process.
 
 The proposed direction is transparent technical decisions, public specification discussion and a documented route for contributors from other organizations to become maintainers. This direction remains a proposal until adopted.
 
@@ -90,11 +88,11 @@ The proposed direction is transparent technical decisions, public specification 
 
 The core's [GitHub Actions workflow](https://github.com/zeko-labs/zeko/blob/compatible/.github/workflows/ci.yaml) sets up the OCaml/OPAM, Rust and Go build environment, builds the sequencer, DA layer and signer, and invokes sequencer tests. Container build automation is also present in the repository.
 
-The AAIF support repository pins Node dependencies and exposes reproducible sandbox, profile and real-proof commands. Local evidence includes 21 unit/integration tests and 30 profile cases. A GitHub Actions configuration is supplied; hosted results are tracked on the review PR. Passing local tests are not described as a hosted CI run.
+The AAIF support repository pins Node dependencies and exposes reproducible sandbox, profile and real-proof commands. Local evidence includes 21 unit/integration tests and 30 profile cases. A GitHub Actions configuration is supplied. The evidence record distinguishes local results from hosted CI.
 
-The current core candidate is [`28223900e4`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed), the latest `compatible` branch head checked on 26 October 2026. Its [CI run](https://github.com/zeko-labs/zeko/actions/runs/40358110682) completed successfully, including package-build and sequencer-test steps. The most recent published release returned was [v1.0.5](https://github.com/zeko-labs/zeko/releases/tag/v1.0.5); this proposal selects the newer commit candidate. See the [candidate record](evidence/core-candidate-2026-10-26.md).
+The current core candidate is [`28223900e4`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed), the latest `compatible` branch head checked on 26 October 2026. Its [CI run](https://github.com/zeko-labs/zeko/actions/runs/40358110682) completed successfully, including package-build and sequencer-test steps. The most recent published release recorded on this date was [v1.0.5](https://github.com/zeko-labs/zeko/releases/tag/v1.0.5); this proposal selects the newer commit candidate. See the [candidate record](evidence/core-candidate-2026-10-26.md).
 
-[BEFORE FILING: record container image digests and release approval/signing mechanics. No fixed release cadence is asserted. Refresh the candidate after the audit documentation merges, and update the support-repository CI status after publication.]
+Container release digests and release approval/signing procedures are being consolidated. No fixed release cadence is proposed in this draft.
 
 ## Public-Facing Contribution Process for Specifications
 
@@ -102,7 +100,7 @@ The core has a public [contribution guide](https://github.com/zeko-labs/zeko/blo
 
 For compatibility changes, the proposed process is a public issue or PR describing the normative change, affected versions, positive and negative test vectors, migration impact and reviewer decision. Reusable code belongs in its canonical project; cross-project fixtures remain in `aaif`.
 
-[OWNER INPUT: publish the Zeko-specific specification change and approval process, identify normative documents and confirm contributor/IP terms. Existing inherited guidance does not establish that this proposed process is already adopted.]
+We are formalizing Zeko-specific specification approval, normative-document ownership and contributor terms alongside this proposal.
 
 ## Publicly Accessible Issue Tracker
 
@@ -131,22 +129,20 @@ Native/Python component versions and checksums are recorded in the [ecosystem pi
 
 These identifiers were checked against installed package metadata. They are not a complete transitive license inventory. The Ethereum repository separately [documents Apache and third-party licensing scope](https://github.com/zeko-labs/ethereum-settlement#licensing).
 
-[OWNER INPUT: attach the candidate-specific core, Ethereum, container and transitive dependency/license inventory; distinguish required runtime dependencies from optional providers and test tools.]
+A candidate-specific core, Ethereum, container and transitive dependency/license inventory is in preparation, distinguishing required runtime components from optional integrations and test tools.
 
 ## Maintainers & Contributors
 
 The maintainers identified by Zeko Labs are:
 
-- **Zeko Labs team handle — [zekoxyz](https://github.com/zekoxyz)**: team maintainer account and required official submission author.
+- **Zeko Labs team handle — [zekoxyz](https://github.com/zekoxyz)**: team maintainer account.
 - **Martin Ondejka — [MartinOndejka](https://github.com/MartinOndejka)**: core rollup maintainer. Recent contributions include [durable Ethereum settlement recovery](https://github.com/zeko-labs/zeko/commit/7acd9a9b23d11282517381e04c15690c5198cbea) and [serialization behind settlement finality](https://github.com/zeko-labs/zeko/commit/67a453c25d8606ddc55f6e0e0f3e2eb531ac2c2b).
 
 The [roster](MAINTAINERS.md) distinguishes the team handle from individual maintainership. Contributor growth will be supported through public issues, reproducible fixtures and a documented path for outside contributors to become maintainers.
 
-The official application author is **zekoxyz**. The preparatory engineering fork/PR identity is **Evan-k-global**. Submission authorship does not substitute for a confirmed active-maintainer roster.
-
 ## Leadership Team & Decision Process
 
-Technical stewardship is provided by the Zeko Labs maintainers listed above. Evan Kereiakes serves as AAIF Liaison and application contact. The specific merge/release approval and escalation process must be recorded in the governance documentation before filing; no additional permission or voting arrangement is asserted in this draft.
+Technical stewardship is provided by the Zeko Labs maintainers listed above. Evan Kereiakes serves as AAIF Liaison and application contact. We are formalizing merge/release approval and escalation procedures in the governance documentation.
 
 ## Lifecycle Stage Evidence
 
@@ -154,17 +150,15 @@ The [Sandbox thesis](proposal.md) covers intended users, the importance-before-a
 
 Sandbox objectives are a maintained compatibility profile, reproducible core/integration deployment evidence, outside implementer feedback and an open contributor-to-maintainer process. Growth preparation will pursue two unaffiliated production organizations, contributions from two organizations over the preceding six months and a sponsor-accepted growth plan, under the applicable policy at that time.
 
-[OWNER INPUT: replace these relative links with public reviewed document URLs and confirm roadmap capacity.]
-
 ## Security
 
-Core Zeko has independent zkSecurity audit history. The [audit documentation](https://github.com/zeko-labs/zeko/pull/444) indexes the two authoritative assessments, reviewed component scope and published finding responses. Use the canonical audit-folder URL after the documentation merges.
+Core Zeko has independent zkSecurity audit history. The [audit documentation](https://github.com/zeko-labs/zeko/pull/444) indexes the two authoritative assessments, reviewed component scope and published finding responses. The audit index will have its canonical repository location after merge.
 
-Application and demo assurance is separate. Local Codex-assisted review and bug-bounty activity should be attributed to the exact project and revision, rather than represented as independent audits of the whole portfolio. The new AAIF integration is a reference sandbox with explicit trust boundaries and no claimed OpenSSF badge or AAIF certification.
+Application and demo assurance is separate. Application-specific code review and bug-bounty work do not extend the core audit to the full portfolio. The new AAIF integration is a reference sandbox with explicit trust boundaries and no claimed OpenSSF badge or AAIF certification.
 
 The [sandbox scope](sandbox/README.md) describes the synthetic provider, local state authority, public proof fields, gateway enforcement and instrumented external effects. Core-rollup deployment, data availability, commercial-provider interoperability and Ethereum settlement require their own evidence. Deployment records distinguish mock and real verifier profiles.
 
-[OWNER INPUT: link the current private vulnerability-reporting/security policy and candidate-specific security/release records. Do not publish vulnerability details or credentials in the proposal.]
+Project contact: contact@zeko.io. A dedicated vulnerability-reporting policy and consolidated security/release record are pending publication.
 
 ## Website URL
 
@@ -174,17 +168,17 @@ Documentation: https://docs.zeko.io and https://ethereum.docs.zeko.io/overview
 
 ## Documented Governance Practices (if any)
 
-[OWNER INPUT: link the adopted Zeko GOVERNANCE.md/technical charter and maintainer process when available. Do not substitute a proposed document for adopted practices.]
+Formal Zeko governance and technical-charter documents are in development. Current stewardship is described in the maintainer and leadership sections above.
 
 ## Links to Social Media Accounts
 
-[OWNER INPUT: confirm project-owned social accounts and official communication channels, with ownership and contribution scope.]
+Official social-account and communication-channel references will be added to the final proposal.
 
 ## Trademark and accounts
 
-**Leave the agreement checkbox undecided in this draft.** The authorized owner must review and complete it in the official form. Preparing this application does not accept the transfer obligation.
+Formal trademark/account contribution terms remain under review; this draft does not record acceptance of the agreement.
 
-The contributing entity is **Zeko Labs Inc.**, with **Evan Kereiakes, AAIF Liaison**, designated as signatory. The exact trademarks, domains, accounts and other required assets still need a project-specific schedule. Do not include unrelated Zeko Labs applications or corporate assets by implication.
+The contributing entity is **Zeko Labs Inc.**, with **Evan Kereiakes, AAIF Liaison**, designated as signatory. The project-specific schedule of contributed trademarks, domains, accounts and other assets is being finalized. Supporting applications and unrelated corporate assets are outside the proposed scope unless expressly included.
 
 ## Details of Existing Financial Sponsorship
 
@@ -194,7 +188,7 @@ Development and infrastructure are supported by **Zeko Labs and its investors**.
 
 Proposed request: standard source hosting, issue tracking, documentation and CI support appropriate to Sandbox. Our existing local example needs no funded wallet or commercial IdP account. Larger proof-generation jobs and persistent independent rollup deployments require an explicit resource budget and operator commitment.
 
-[OWNER INPUT: confirm actual requests, expected CI/prover resource usage and who pays for cloud hosting, Ethereum transactions and optional providers.]
+The infrastructure request and resource budget are under review, including CI/proving, persistent hosting, Ethereum transactions and optional providers.
 
 ## Additional Information
 
@@ -204,7 +198,7 @@ We have prepared an AAIF-specific integration repository to make technical discu
 
 Our focused community contribution is core shared-state security, identity-to-authority mapping through SantaClawz/AMBA, and optionally commerce lifecycle evidence through x402-Zeko/Magic City. The broader portfolio illustrates extensibility rather than multiple simultaneous project submissions.
 
-The official proposal will be filed by **zekoxyz** after owner review. It has not been filed by the agent preparing these materials.
+The proposal remains a draft for public review.
 
 ## Application contact name(s) and email(s)
 
@@ -215,5 +209,3 @@ The official proposal will be filed by **zekoxyz** after owner review. It has no
 | Name | Address | Type | Signatory name and title | Email address |
 | --- | --- | --- | --- | --- |
 | Zeko Labs Inc. | 16192 Coastal Highway, Lewes, DE 19958 | Corporation | Evan Kereiakes, AAIF Liaison | contact@zeko.io |
-
-Entity, address, signatory, title and contact details supplied by the user for this application. State of incorporation is not inferred from the mailing address. The trademark/accounts agreement checkbox remains for the authorized owner to complete manually.

@@ -32,25 +32,8 @@ The model fixture is called locally; goose dispatches the real MCP tool; one eff
 
 The test runs the actual goose tool-dispatch loop with no default extensions, no persistent session and an isolated configuration directory. Its model output is scripted, so it does not measure model quality or prove an agent will obey every instruction. Native ID-JAG support in goose is not claimed; the local broker supplies the synthetic approved context.
 
-## Continue this integration
+## Development roadmap
 
-**Next runnable milestone: a two-session handoff with rejection visible to the agent.** Have a second isolated goose invocation encounter the first session's accepted action and report the prior outcome without another effect.
+We plan to demonstrate two isolated goose sessions recovering the same task context, with a rejected or previously accepted action explained through tool results. The service will remain responsible for authority enforcement, and the sessions will share one acceptance boundary. This will extend the native tool-dispatch example while retaining the deterministic local provider for reproduction.
 
-1. Extend [`demo.mjs`](demo.mjs) and the scripted provider in [`../_shared/model-fixture.mjs`](../_shared/model-fixture.mjs). Keep `--no-profile`, explicit extension selection and the isolated goose configuration directory.
-2. Add a scripted changed-amount request followed by a safe terminal response. Verify rejection at the service, rather than interpreting natural-language output as proof that the agent was constrained.
-3. Add explicit receipt/status tooling for restart recovery before testing real model variation. A real provider run is a separately authorized profile; it must not be enabled by reading an existing user API key.
-
-**Done when:** both native sessions run against local fixtures, the second obtains an explainable prior/rejected result, exactly one protected effect occurs, and no session/provider choice widens the approved action.
-
-Run these from the repository root after following the [setup instructions](../RUNBOOK.md#prerequisites-and-setup):
-
-```sh
-npm run ecosystem:demo -- --project goose
-npm run ecosystem:proofs -- --project goose --report .cache/ecosystem/goose-next.json
-```
-
-The report must have `passed: true`; proof-mode results must have `proofVerified: true`. The current accepted-action count is one and remaining quota is 30. If a new scenario changes those expectations, define and check the new invariant explicitly. Run the [handoff verification steps](../DEVELOPMENT.md#verification-and-evidence) appropriate to the files changed before publishing new claims.
-
-Read the [ecosystem agent instructions](../AGENTS.md) and [development contract](../DEVELOPMENT.md) before implementation. They document ownership, the shared API, receipt semantics, troubleshooting and the separate path to a core-backed adapter.
-
-See the [suite runbook](../RUNBOOK.md), [shared boundary](../README.md#one-shared-application-boundary) and [evidence](../../evidence/README.md).
+The implementation is in [`demo.mjs`](demo.mjs). Our [integration architecture](../DEVELOPMENT.md) describes the shared service, receipt contract and path to a core-backed deployment. Reproduction commands and prerequisites are in the [runbook](../RUNBOOK.md); measured results are in the [evidence record](../../evidence/README.md).
