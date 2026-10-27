@@ -133,7 +133,7 @@ Documentation: https://docs.zeko.io
 
 ## Documented Governance Practices (if any)
 
-See the [maintainer roster](MAINTAINERS.md) and [contribution guide](CONTRIBUTING.md) for current maintainership and the AAIF repository's review process.
+Zeko Labs maintains the project through [zekoxyz](https://github.com/zekoxyz) and [Martin Ondejka](https://github.com/MartinOndejka). Contributions are submitted through public issues and pull requests for maintainer review; see the [contribution guide](CONTRIBUTING.md).
 
 ## Links to Social Media Accounts
 
