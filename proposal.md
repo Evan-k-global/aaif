@@ -24,7 +24,7 @@ These examples establish development contexts, not unaffiliated production adopt
 
 ## Deployment and Ethereum focus
 
-Enterprises and agent-swarm operators can run sovereign rollups with operator-controlled keys, configuration and application policy. The [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) supplies a container-based deployment reference. Ethereum is the primary blockchain compatibility, settlement and bridging focus. Zeko originated in Mina and inherited its cryptography and ZK smart contracts. It deployed on Mina mainnet before expanding to Ethereum testnet.
+Enterprises and agent-swarm operators can run sovereign rollups with operator-controlled keys, configuration and application policy. The [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) supplies a container-based deployment reference. Ethereum is the primary blockchain compatibility, settlement and bridging focus. Zeko originated in Mina and inherited its cryptography and ZK smart contracts. It deployed on Mina mainnet and expanded native settlement options by developing a separate Ethereum settlement architecture with o1Labs and SP1, and deploying Zeko on Ethereum testnet.
 
 Application-state validity, rollup acceptance, external settlement and asset bridging are distinct stages. The Sepolia tutorial is Ethereum-connected and distinguishes a default mock Ethereum verifier from real verification configuration. Deployment records must identify the profile used. New destination adapters require their own validation; architectural extensibility is not universal platform compatibility.
 
