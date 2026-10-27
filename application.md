@@ -66,7 +66,7 @@ Not identified.
 
 https://github.com/zeko-labs/zeko
 
-Core implementation: [`src/app/zeko` on `compatible`](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko). The Ethereum integration is maintained in [ethereum-settlement](https://github.com/zeko-labs/ethereum-settlement), and supporting AAIF examples are in [aaif](https://github.com/zeko-labs/aaif).
+Core implementation: [`src/app/zeko` on `compatible`](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko). The Ethereum settlement integration is maintained in [ethereum-settlement](https://github.com/zeko-labs/ethereum-settlement), and supporting AAIF examples are in [aaif](https://github.com/zeko-labs/aaif).
 
 ## License
 
