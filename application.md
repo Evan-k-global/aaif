@@ -37,7 +37,7 @@ Zeko gives applications built with AAIF projects shared, verifiable state for re
 - **agentgateway and Agent Router:** Independently operated services share verifiable resource accounting, so requests arriving through different gateways compete against the same available budget.
 - **Open Responses:** Tool results carry receipts linked to accepted application-state changes, giving clients evidence of the recorded action alongside the response.
 - **OpenSandbox:** Job inputs, runtime images and submitted results are bound into shared commitments, making accepted work traceable outside temporary containers.
-- **OpenEnv:** Shared resource limits persist outside an episode, allowing evaluations to test competition and overspending across environment resets.
+- **OpenEnv:** A shared budget persists across episode resets, so evaluations can exercise competition and overspending.
 - **AGENTS.md and Agent Skills:** Reusable instructions and scripts invoke actions whose permissions are enforced by application code, giving different agents consistent operational rules.
 
 Our [local reference examples](https://github.com/zeko-labs/aaif/blob/main/ecosystem/README.md) demonstrate these connections. The MCP example combines a local ID-JAG exchange, AMBA's OAuth and mission checks, and an application proof of the reservation calculation. The [technology compatibility kit](https://github.com/zeko-labs/aaif/blob/main/tck/README.md) tests the selected identity and state profiles. These examples use local identity and state services; the [compatibility matrix](https://github.com/zeko-labs/aaif/blob/main/compatibility.md) records their tested scope and the remaining core-deployment integration.
@@ -50,9 +50,8 @@ Zeko Labs' applications illustrate these uses:
 
 - [SantaClawz](https://github.com/zeko-labs/santa_clawz-private_agents) and [AMBA](https://github.com/zeko-labs/agent-mission-bound-auth): identity, discovery, delegated work and mission-bounded authority.
 - [x402-Zeko](https://github.com/zeko-labs/x402-zeko) and [Magic City](https://github.com/zeko-labs/magic-city-agentic-internet): machine payments, conditional release and user-approved workflows.
-- [zkTLS as an external-data evidence primitive in the prediction-market demo](https://github.com/zeko-labs/developer_demos/tree/main/perfect-weather_prediction_market).
 
-The [developer demos](https://github.com/zeko-labs/developer_demos) also include agent execution escrow, a verifiable AI runtime, private order books and programmable asset flows. The [public Zeko agent skill](https://github.com/zeko-labs/zeko-skills) packages practical bridging, endpoint and development guidance.
+The [developer demos](https://github.com/zeko-labs/developer_demos) also include agent execution escrow, a verifiable AI runtime, private order books, programmable asset flows and [zkTLS external-data evidence in the prediction market](https://github.com/zeko-labs/developer_demos/tree/main/perfect-weather_prediction_market). The [public Zeko agent skill](https://github.com/zeko-labs/zeko-skills) packages practical bridging, endpoint and development guidance.
 
 These are first-party applications and demos, rather than evidence of independent production adoption. The [local integration results](https://github.com/zeko-labs/aaif/blob/main/evidence/README.md) provide reproducible examples, including rejection of replayed requests and conflicting reservations.
 
@@ -94,9 +93,9 @@ https://github.com/zeko-labs/zeko/issues
 
 ## External Project Dependencies
 
-Zeko is a fork of the Mina codebase. Its [LICENSING.md](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md) applies Apache-2.0 to Zeko-authored and repository-maintained code while preserving upstream and third-party notices. Cryptographic components include Pickles/Kimchi and o1js (Apache-2.0), and Snarky (MIT). The Ethereum settlement integration uses SP1 (MIT/Apache-2.0) and OpenZeppelin contracts (MIT), with component scope described in its [licensing documentation](https://github.com/zeko-labs/ethereum-settlement#licensing). Exact dependencies are recorded in the core [OPAM export](https://github.com/zeko-labs/zeko/blob/compatible/opam.export), [submodules](https://github.com/zeko-labs/zeko/blob/compatible/.gitmodules) and Ethereum [Cargo workspace](https://github.com/zeko-labs/ethereum-settlement/blob/main/Cargo.toml).
+Zeko is a fork of the Mina codebase (Apache-2.0). Its [LICENSING.md](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md) applies Apache-2.0 to Zeko-authored and repository-maintained code while upstream and third-party notices remain applicable. Cryptographic components include Pickles/Kimchi and o1js (Apache-2.0), and Snarky (MIT). The Ethereum settlement integration uses SP1 (MIT/Apache-2.0) and OpenZeppelin contracts (MIT), with component scope described in its [licensing documentation](https://github.com/zeko-labs/ethereum-settlement#licensing). Exact dependencies are recorded in the core [OPAM export](https://github.com/zeko-labs/zeko/blob/compatible/opam.export), [submodules](https://github.com/zeko-labs/zeko/blob/compatible/.gitmodules) and Ethereum [Cargo workspace](https://github.com/zeko-labs/ethereum-settlement/blob/main/Cargo.toml).
 
-Dependencies for the supporting local examples are listed separately in the [reference integration dependencies](https://github.com/zeko-labs/aaif/blob/main/ecosystem/DEPENDENCIES.md).
+Dependencies for the reference integrations are listed separately in the [reference integration dependency record](https://github.com/zeko-labs/aaif/blob/main/ecosystem/DEPENDENCIES.md).
 
 ## Maintainers & Contributors
 
