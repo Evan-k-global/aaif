@@ -95,6 +95,8 @@ The [runbook](ecosystem/RUNBOOK.md) covers prerequisites, local networking, clea
 
 The [published evidence](evidence/README.md) records 21 unit/integration tests, 30 compatibility cases and 62 checks across ten proof-backed reference integrations for AAIF projects. Reports identify source digests, component versions and acceptance scope.
 
+The compatibility profiles are not an AAIF certification. AAIF Sandbox status is not an endorsement.
+
 ## Deploy a sovereign rollup
 
 The [Ethereum Sepolia deployment guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) launches an operator-owned stack with its own keys, genesis, contracts and bridge/explorer tooling. The guide distinguishes its default mock Ethereum verifier from real-verification configuration. [Phala hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) adds an optional confidential-computing deployment path.
@@ -112,5 +114,3 @@ The prediction market demonstrates zkTLS; extracting a reusable adapter is the n
 ## Contribute
 
 Submit fixes, test vectors and independent reproductions through the [contribution process](CONTRIBUTING.md). The [project roadmap](project-plan.md) covers recovery, core-backed acceptance and stewardship. [Maintainers, contributors and contact](MAINTAINERS.md) identify the people responsible for the work. Our [public-good commitment](PUBLIC_GOOD.md) and [working-group relevance](working-groups.md) explain the mission and technical contribution.
-
-The compatibility profiles are not an AAIF certification. AAIF Sandbox status is not an endorsement.
