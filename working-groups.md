@@ -6,7 +6,7 @@ Human control, sovereignty and privacy drive our working-group contributions. Ze
 
 A proof-backed resource reservation raises several separate questions: is the transition valid, has the authoritative state accepted it, and what must an external service check before acting? Our core rollup and [local MCP/AMBA scenario](sandbox/README.md) provide concrete material for examining those boundaries.
 
-The example includes replay, changed inputs, conflicting resource consumption and wrong-context/proof cases. Its local authority and public proof fields are explicit, while core sequencing, data availability, recovery and deployment-specific privacy remain separate concerns. Our [audit references](https://github.com/zeko-labs/zeko/pull/444) describe the core's independent zkSecurity assessments; the new integration has its own [test evidence](evidence/README.md).
+The example includes replay, changed inputs, conflicting resource consumption and wrong-context/proof cases. Its local authority and public proof fields are explicit, while core sequencing, data availability, recovery and deployment-specific privacy remain separate concerns. Our [audit references](https://github.com/zeko-labs/zeko/tree/compatible/audits) describe the core's independent zkSecurity assessments; the new integration has its own [test evidence](evidence/README.md).
 
 We are interested in reusable threat-model and design-pattern work around acceptance before effects, reconciliation after interruptions and privacy across service boundaries.
 

@@ -88,7 +88,7 @@ The [published evidence](evidence/README.md) records 21 unit/integration tests, 
 
 The [Ethereum Sepolia deployment guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) launches an operator-owned stack with its own keys, genesis, contracts and bridge/explorer tooling. The guide distinguishes its default mock Ethereum verifier from real-verification configuration. [Phala hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) adds an optional confidential-computing deployment path.
 
-The [core audit index](https://github.com/zeko-labs/zeko/pull/444) links zkSecurity's assessments and component scope. The [core candidate record](evidence/core-candidate-2026-10-26.md) identifies the selected revision and passing upstream build.
+The [core audit index](https://github.com/zeko-labs/zeko/tree/compatible/audits) links zkSecurity's assessments and component scope. The [core candidate record](evidence/core-candidate-2026-11-03.md) identifies the selected revision and passing upstream build.
 
 ## Application and primitive references
 
@@ -106,4 +106,4 @@ Submit fixes, test vectors and independent reproductions through the [contributi
 
 ## AAIF proposal
 
-We propose core Zeko for the AAIF Sandbox stage. Review the [full application](application.md) and [short thesis](proposal.md). The application remains a draft. Our [public-good commitment](PUBLIC_GOOD.md) and [working-group relevance](working-groups.md) explain the mission and ecosystem contribution.
+We propose core Zeko for the AAIF Sandbox stage. Review the [full application](application.md) and [short thesis](proposal.md). The application contains all current form answers, reviewed on 3 November 2026. AAIF Sandbox status is not an endorsement. Our [public-good commitment](PUBLIC_GOOD.md) and [working-group relevance](working-groups.md) explain the mission and ecosystem contribution.

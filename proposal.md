@@ -1,47 +1,37 @@
 # Zeko: verifiable shared state across agent applications
 
-**Zeko is a public good for AI freedom, sovereignty and privacy.** We built an open-source agentic rollup protocol that gives independent agent applications verifiable shared state. Our AAIF contribution advances open interoperability, human control and human flourishing.
+**Zeko is a public good for AI freedom, sovereignty and privacy.** We built an open-source agentic rollup protocol that lets independently operated agents share verifiable application state while people retain control of their infrastructure and delegated authority.
 
-Sandbox application draft, 26 October 2026. [Full application](application.md) · [Evidence](evidence/README.md) · [Roadmap](project-plan.md).
+Sandbox thesis, reviewed 3 November 2026. [Application](application.md) · [Core candidate](evidence/core-candidate-2026-11-03.md) · [Evidence](evidence/README.md).
 
-## Problem and contribution
+## Contribution
 
-Agents increasingly act across organizations and services. Connectivity alone does not tell participants which authority remains, which resources are committed, or whether an accepted state change followed their shared rules. A signature or log can record an assertion without establishing that the underlying computation was valid.
+Agents coordinate resources, budgets, work and payments across applications and organizations. They need a common way to determine which actions are authorized and which state changes have been accepted. Zeko supplies that shared-state layer. Developers define application rules and permissions; cryptographic proofs verify specified state transitions, and recursive aggregation makes those transitions independently checkable without re-executing every operation.
 
-Zeko is an open-source agentic rollup protocol for this shared state. Developers define application rules and proof-authorized transitions; sequencing and recursive proof aggregation let participants verify specified computation and accepted state. Zeko provides instant transaction confirmation at the rollup level, so concurrent agents coordinate against newly accepted state without waiting for Ethereum settlement. Applications include resource reservations, bounded budgets, work commitments and conditional payments. External services must enforce the required acceptance conditions before acting.
+Zeko provides instant transaction confirmation at the rollup level, so concurrent agents coordinate against newly accepted state without waiting for Ethereum settlement. Confirmation, proof verification and external settlement remain distinct stages. Applications choose their disclosure rules and private proof inputs.
 
-The proposed contribution is core Zeko infrastructure with agreed deployment and integration interfaces. The AAIF support repository supplies compatibility profiles, reference integrations and reproducible evidence. Existing applications illustrate uses; they are not automatically included in the contribution. Neutral stewardship gives outside implementers a role in shared semantics, deployment profiles and alternative integrations. Our governance roadmap defines the formal participation process.
+Enterprises and agent swarms operate sovereign rollups with their own keys, configuration and policies. They choose their models, agent runtimes, identity systems and hosting. Ethereum is our principal blockchain compatibility, settlement and bridging focus. Zeko originated in Mina, inherited its cryptography and ZK smart contracts, deployed on Mina mainnet and expanded to Ethereum testnet through a separate settlement architecture with o1Labs and SP1. The [Sepolia operator guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) documents independent deployment; [Phala confidential hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) is an optional infrastructure example.
+
+The proposed contribution is [core Zeko](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko), with its [Ethereum settlement integration](https://github.com/zeko-labs/ethereum-settlement). The code is Apache-2.0 for Zeko-authored components. Supporting applications remain separately maintained. The [audit index](https://github.com/zeko-labs/zeko/tree/compatible/audits) links two separate zkSecurity assessments of core components and their published finding responses.
 
 ## Intended users and importance before adoption
 
-We publish Zeko and its integration work so anyone can operate, inspect and extend the infrastructure. Sovereign operation, bounded delegation and provider choice put human control into the application architecture.
+Initial users are enterprises operating agent fleets, developers of cross-organization agent services, and applications where multiple parties must coordinate resources, commitments or payments under shared rules using internet rails.
 
-Zeko serves enterprises operating agent fleets, cross-organization agent services, and applications coordinating consequential resources. They need independently verifiable state while preserving choice of operator, agent runtime and model provider.
+First-party implementations make the uses concrete: [SantaClawz](https://github.com/zeko-labs/santa_clawz-private_agents) and [AMBA](https://github.com/zeko-labs/agent-mission-bound-auth) connect identity, delegated work and bounded authority; [x402-Zeko](https://github.com/zeko-labs/x402-zeko) and [Magic City](https://github.com/zeko-labs/magic-city-agentic-internet) explore payments and approved workflows. [zkTLS external-data evidence](https://github.com/zeko-labs/developer_demos/tree/main/perfect-weather_prediction_market) is demonstrated in the prediction market. These implementations are supporting evidence, not a claim of independent production adoption.
 
-First-party examples make this concrete: SantaClawz and AMBA connect agent identity to delegated work and bounded authority; x402-Zeko and Magic City explore payments and user-approved workflows. zkTLS external-data evidence is another primitive, demonstrated by the prediction market and a partner-motivated verification PoC. Reusable extraction and verifier hardening remain work. The [reference catalog](README.md#application-and-primitive-references) links their implementations.
+The importance-before-adoption case is practical: shared resources and commitments need independently verifiable rules as agents begin working across organizational boundaries. A common protocol reduces bespoke integration while preserving operator choice. AAIF offers a place to develop that interoperability with the projects agents already use.
 
-These examples establish development contexts, not unaffiliated production adoption. The importance-before-adoption case is that independent agents need common, reviewable state and acceptance semantics before provider-specific conventions become entrenched. Human agency is expressed through bounded delegation, revocation, understandable consent, independent operation and provider choice.
+## Working implementation and ecosystem fit
 
-## Deployment and Ethereum focus
+MCP and A2A carry tool and agent interactions; goose invokes tools; gateways route requests; Open Responses carries tool outputs; execution environments and instruction formats retain their existing roles. Zeko adds shared application state behind those interfaces.
 
-Enterprises and agent-swarm operators can run sovereign rollups with operator-controlled keys, configuration and application policy. The [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) supplies a container-based deployment reference. Ethereum is the primary blockchain compatibility, settlement and bridging focus. Zeko originated in Mina and inherited its cryptography and ZK smart contracts. It deployed on Mina mainnet and expanded native settlement options by developing a separate Ethereum settlement architecture with o1Labs and SP1, and deploying Zeko on Ethereum testnet.
+Our [local integration](sandbox/README.md) combines AMBA OAuth and mission enforcement, an ID-JAG exchange, the official MCP SDK and real o1js reservation proofs. On 3 November, 21 unit/integration tests and all 30 identity/shared-state profile cases passed. The [ten-project examples](ecosystem/README.md) also have recorded local results. Their identity and state services are local fixtures; deployed core acceptance and Ethereum settlement are separate integration work.
 
-Application-state validity, rollup acceptance, external settlement and asset bridging are distinct stages. The Sepolia tutorial is Ethereum-connected and distinguishes a default mock Ethereum verifier from real verification configuration. Deployment records must identify the profile used. New destination adapters require their own validation; architectural extensibility is not universal platform compatibility.
+## Sandbox objectives and Growth graduation
 
-[Phala confidential hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) is an optional modular infrastructure example. Hardware attestation and cryptographic proofs address complementary trust questions. Rollups serve workflows that require independently verifiable shared state.
+Sandbox priorities are connecting the reference profile to a core deployment, obtaining independent reproduction and growing contributions beyond Zeko Labs. We welcome outside code, test vectors and deployment feedback through public pull requests.
 
-## Working implementation and Sandbox program
+Growth would be justified by production use at two unaffiliated organizations, commits from at least two organizations over the preceding six months, a documented committer-acceptance process and a sponsor-accepted growth plan under the [lifecycle policy](https://github.com/aaif/technical-committee/blob/main/governance/project-lifecycle-policy.md).
 
-Zeko complements existing agent interfaces: MCP retains its tool role, A2A its task role, and identity systems their authority-establishment role. A versioned compatibility profile can reduce bespoke integration where semantics align.
-
-The [local reference sandbox](sandbox/README.md) reuses canonical AMBA OAuth, signed capabilities, holder checks and stateful enforcement. HTTPS ID-JAG exchanges establish resource access; the official MCP SDK exposes a reservation tool; real o1js proofs bind reservation arithmetic and version advancement to public domain/action commitments. Two client registrations exercise contention, and a separate process verifies receipt proofs.
-
-Current results are 17 ID-JAG/MCP profile cases and 13 shared-state cases passing, plus 21 unit/integration tests. The source-digested evidence records exact versions and scope. Identity and state authority are explicit local sandbox implementations; both original clients use the same SDK. AMBA enforcement is separate from the small proof circuit. Commercial providers, deployed core sequencing/DA and Ethereum settlement are separate validation targets. The evidence applies to these versioned local profiles.
-
-Sandbox work will extend the adapter to a pinned core deployment, exercise another AAIF client/gateway, publish versioned fixtures and collect outside reproduction. The [ecosystem suite](ecosystem/README.md) now adds ten local project examples, all passing with real application proofs and 62 scenario checks. This includes actual OpenSandbox Docker execution, result-commitment recording, egress denial and cleanup. Native client/gateway and official SDK/runtime evidence is distinguished from protocol fixtures and instruction artifacts. The [compatibility matrix](compatibility.md) records the remaining deployment boundaries. Contributors will have a public path from fixes and test vectors to maintainership.
-
-## Security and Growth objectives
-
-zkSecurity independently audited core Zeko components in two assessments. The [core audit documentation](https://github.com/zeko-labs/zeko/pull/444) links the reports, reviewed scope and finding responses. Supporting applications and demos are outside the scope of these core audits.
-
-Sandbox success means reproducible deployments, a maintained compatibility profile, useful outside feedback and open governance. Growth preparation will pursue the applicable graduation criteria: production use by two unaffiliated organizations, contributions from two organizations over the preceding six months, and a sponsor-accepted growth plan. The roadmap targets the six-month checkpoint and a Growth application within twelve months when criteria are met.
+Zeko Labs maintains the project through zekoxyz and Martin Ondejka. Evan Kereiakes is the AAIF Liaison and application contact at contact@zeko.io. Zeko Labs agrees to transfer project trademarks and accounts under the contribution agreement and adopt the Linux Foundation technical charter. Our purpose is open infrastructure for privacy, sovereignty, interoperability and human flourishing.
