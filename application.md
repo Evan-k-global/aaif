@@ -26,11 +26,7 @@ Sandbox
 
 ## Alignment with AAIF Mission
 
-Zeko advances AI freedom, sovereignty, privacy and human flourishing through a common, composable protocol for scaling private, sovereign enterprise agents on the open internet. People and organizations retain control over their infrastructure, data, application rules and delegated authority as their agents work across services and organizational boundaries.
-
-The internet protocol suite predates autonomous AI agents and was not designed to govern their shared resources, delegated authority or commitments. Zeko supplies verifiable shared state for that coordination, with reusable interfaces that reduce bespoke pairwise integrations as agent networks grow. Developers compose this layer with existing identity, messaging, tool and execution protocols, while operators choose their models, runtimes and deployment infrastructure.
-
-We publish the protocol and reference integrations under open-source licenses so developers can inspect, use and extend them. Our proposed contribution gives the AAIF community a working protocol to build on, with local examples showing how it fits alongside existing projects.
+Zeko advances AI freedom, sovereignty, privacy and human flourishing by giving independently operated agent applications a common, composable state layer. The internet protocol suite predates autonomous agents; Zeko adds verifiable rules for their shared resources, delegated authority and commitments. People and organizations keep control of their data, models and infrastructure while their agents work across existing identity, messaging and tool protocols on the open internet.
 
 ## Relation to Existing AAIF Projects
 
@@ -82,11 +78,9 @@ Zeko Labs agrees to adopt the Linux Foundation technical charter as part of AAIF
 
 ## CI/CD & Release Workflow
 
-The core's [GitHub Actions workflow](https://github.com/zeko-labs/zeko/blob/compatible/.github/workflows/ci.yaml) builds the sequencer, data-availability layer and signer, and runs sequencer tests. Container build automation is also included.
+The core's [GitHub Actions workflow](https://github.com/zeko-labs/zeko/blob/compatible/.github/workflows/ci.yaml) builds the sequencer, data-availability layer and signer, and runs sequencer tests on pushes. Releases are tagged on GitHub, with no fixed published cadence. The current tagged release is [v1.0.5](https://github.com/zeko-labs/zeko/releases/tag/v1.0.5), dated 22 June 2026.
 
-The selected core commit is [`49fb253de86ce9188bcd289a8d5bb09e04164084`](https://github.com/zeko-labs/zeko/commit/49fb253de86ce9188bcd289a8d5bb09e04164084), the current `compatible` head checked on 3 November 2026. Its [CI run](https://github.com/zeko-labs/zeko/actions/runs/40560236657) completed successfully. Releases are published as GitHub tags; the latest published release is [v1.0.5](https://github.com/zeko-labs/zeko/releases/tag/v1.0.5), dated 22 June 2026. See the [candidate record](https://github.com/zeko-labs/aaif/blob/main/evidence/core-candidate-2026-11-03.md).
-
-The supporting AAIF examples have pinned dependencies, reproducible commands and separately recorded [local test results](https://github.com/zeko-labs/aaif/blob/main/evidence/README.md).
+For this contribution, we pin the newer `compatible` source commit [`49fb253de86ce9188bcd289a8d5bb09e04164084`](https://github.com/zeko-labs/zeko/commit/49fb253de86ce9188bcd289a8d5bb09e04164084), whose [CI run passed](https://github.com/zeko-labs/zeko/actions/runs/40560236657). It includes the Ethereum settlement, ERC-20 bridge and recovery changes added since v1.0.5, plus Apache-2.0 licensing and the audit documentation. The [release comparison](https://github.com/zeko-labs/zeko/compare/v1.0.5...49fb253de86ce9188bcd289a8d5bb09e04164084) records those changes. The AAIF examples have separate [local test results](https://github.com/zeko-labs/aaif/blob/main/evidence/README.md).
 
 ## Public-Facing Contribution Process for Specifications
 
@@ -100,7 +94,7 @@ https://github.com/zeko-labs/zeko/issues
 
 ## External Project Dependencies
 
-Principal dependencies are Mina and the Pickles/Kimchi proof systems (Apache-2.0), Snarky (MIT), and o1js (Apache-2.0). The Ethereum settlement integration uses SP1 (MIT/Apache-2.0) and OpenZeppelin contracts (MIT); its [licensing documentation](https://github.com/zeko-labs/ethereum-settlement#licensing) identifies Apache-2.0 and MIT components. Exact dependency definitions are in the core [OPAM export](https://github.com/zeko-labs/zeko/blob/compatible/opam.export), [submodules](https://github.com/zeko-labs/zeko/blob/compatible/.gitmodules) and Ethereum [Cargo workspace](https://github.com/zeko-labs/ethereum-settlement/blob/main/Cargo.toml).
+Zeko is a fork of the Mina codebase. Its [LICENSING.md](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md) applies Apache-2.0 to Zeko-authored and repository-maintained code while preserving upstream and third-party notices. Cryptographic components include Pickles/Kimchi and o1js (Apache-2.0), and Snarky (MIT). The Ethereum settlement integration uses SP1 (MIT/Apache-2.0) and OpenZeppelin contracts (MIT), with component scope described in its [licensing documentation](https://github.com/zeko-labs/ethereum-settlement#licensing). Exact dependencies are recorded in the core [OPAM export](https://github.com/zeko-labs/zeko/blob/compatible/opam.export), [submodules](https://github.com/zeko-labs/zeko/blob/compatible/.gitmodules) and Ethereum [Cargo workspace](https://github.com/zeko-labs/ethereum-settlement/blob/main/Cargo.toml).
 
 Dependencies for the supporting local examples are listed separately in the [ecosystem dependency record](https://github.com/zeko-labs/aaif/blob/main/ecosystem/DEPENDENCIES.md).
 

@@ -13,6 +13,12 @@ The application selects the latest `compatible` head checked on this date.
 | Audit documentation | [Canonical `audits/` folder](https://github.com/zeko-labs/zeko/tree/compatible/audits); PR #444 merged on 27 October 2026 |
 | Core licensing | [LICENSING.md](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md) and [protocol license](https://github.com/zeko-labs/zeko/blob/compatible/src/app/zeko/LICENSE.md) |
 
+## Why this source revision
+
+v1.0.5 is the current published release. This application selects newer `compatible` source because it includes Ethereum settlement, ERC-20 bridging and recovery changes relevant to the proposed contribution, as well as the Apache-2.0 licensing statement and audit index.
+
+The [comparison from v1.0.5](https://github.com/zeko-labs/zeko/compare/v1.0.5...49fb253de86ce9188bcd289a8d5bb09e04164084) contains 12 commits. The final commit, `49fb253`, adds audit documentation; the full difference from the release also contains functional changes. The selected source commit is not a new tagged release.
+
 ## Audit sources
 
 - [2025 authoritative circuits and bridge-rule report](https://reports.zksecurity.xyz/reports/zeko/).
