@@ -85,7 +85,7 @@ npm run ecosystem:proofs -- --report .cache/ecosystem/full-suite.json
 
 The [runbook](ecosystem/RUNBOOK.md) covers prerequisites, local networking, cleanup and report interpretation.
 
-## Verify the guarantees
+## Run the compatibility checks
 
 | Command | Checks |
 | --- | --- |
