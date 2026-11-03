@@ -18,7 +18,7 @@ Developers define application rules and permissions, and cryptographic proofs ve
 
 Enterprises and agent swarms run sovereign rollups with their own keys, configuration and policies, choosing the hosting, identity and confidential-computing integrations their applications need. Ethereum is our primary blockchain compatibility, settlement and bridging layer. Zeko originated in Mina and inherited its cryptography and ZK smart contracts. It deployed on Mina mainnet and expanded native settlement options by developing a separate Ethereum settlement architecture with o1Labs and SP1, and deploying Zeko on Ethereum testnet. The [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) provides the stack for operators to launch their own Ethereum-connected rollup. Its default demo profile uses a mock Ethereum verifier; the guide separately documents real SP1 verification configuration. [Phala confidential hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) is one optional deployment example.
 
-Our proposed AAIF Sandbox contribution is [core Zeko](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko), with its [Ethereum settlement integration](https://github.com/zeko-labs/ethereum-settlement). The [AAIF integration repository](https://github.com/zeko-labs/aaif) provides local compatibility examples. Supporting applications remain in their own repositories.
+Our proposed AAIF Sandbox contribution is [core Zeko](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko), with its [Ethereum settlement integration](https://github.com/zeko-labs/ethereum-settlement). The [AAIF integration repository](https://github.com/zeko-labs/aaif) provides local reference integrations. Supporting applications remain in their own repositories.
 
 ## Preferred Lifecycle Stage (if known)
 
@@ -40,7 +40,7 @@ Zeko gives applications built with AAIF projects shared, verifiable state for re
 - **OpenEnv:** A shared budget persists across episode resets, so evaluations can exercise competition and overspending.
 - **AGENTS.md and Agent Skills:** Reusable instructions and scripts invoke actions whose permissions are enforced by application code, giving different agents consistent operational rules.
 
-Our [local reference examples](https://github.com/zeko-labs/aaif/blob/main/ecosystem/README.md) demonstrate these connections. The MCP example combines a local ID-JAG exchange, AMBA's OAuth and mission checks, and an application proof of the reservation calculation. The [technology compatibility kit](https://github.com/zeko-labs/aaif/blob/main/tck/README.md) tests the selected identity and state profiles. These examples use local identity and state services; the [compatibility matrix](https://github.com/zeko-labs/aaif/blob/main/compatibility.md) records their tested scope and the remaining core-deployment integration.
+Our [local reference integrations](https://github.com/zeko-labs/aaif/blob/main/ecosystem/README.md) demonstrate these connections. The MCP reference integration combines a local ID-JAG exchange, AMBA's OAuth and mission checks, and an application proof of the reservation calculation. The [technology compatibility kit](https://github.com/zeko-labs/aaif/blob/main/tck/README.md) tests the selected identity and state profiles. These reference integrations use local identity and state services; the [compatibility matrix](https://github.com/zeko-labs/aaif/blob/main/compatibility.md) records their tested scope and the remaining core-deployment integration.
 
 ## Example Use Cases and Evidence of Adoption
 
@@ -53,7 +53,7 @@ Zeko Labs' applications illustrate these uses:
 
 The [developer demos](https://github.com/zeko-labs/developer_demos) also include agent execution escrow, a verifiable AI runtime, private order books, programmable asset flows and [zkTLS external-data evidence in the prediction market](https://github.com/zeko-labs/developer_demos/tree/main/perfect-weather_prediction_market). The [public Zeko agent skill](https://github.com/zeko-labs/zeko-skills) packages practical bridging, endpoint and development guidance.
 
-These are first-party applications and demos, rather than evidence of independent production adoption. The [local integration results](https://github.com/zeko-labs/aaif/blob/main/evidence/README.md) provide reproducible examples, including rejection of replayed requests and conflicting reservations.
+These are first-party applications and demos, rather than evidence of independent production adoption. The [local integration results](https://github.com/zeko-labs/aaif/blob/main/evidence/README.md) document reproducible reference integrations, including rejection of replayed requests and conflicting reservations.
 
 Our Sandbox case is that agents working across organizations need shared state they can independently verify. Zeko provides that foundation while letting each operator retain control of its infrastructure and application rules.
 
@@ -79,7 +79,7 @@ Zeko Labs agrees to adopt the Linux Foundation technical charter as part of AAIF
 
 The core's [GitHub Actions workflow](https://github.com/zeko-labs/zeko/blob/compatible/.github/workflows/ci.yaml) builds the sequencer, data-availability layer and signer, and runs sequencer tests on pushes. Releases are tagged on GitHub, with no fixed published cadence. The current tagged release is [v1.0.5](https://github.com/zeko-labs/zeko/releases/tag/v1.0.5), dated 22 June 2026.
 
-For this contribution, we pin the newer `compatible` source commit [`49fb253de86ce9188bcd289a8d5bb09e04164084`](https://github.com/zeko-labs/zeko/commit/49fb253de86ce9188bcd289a8d5bb09e04164084), whose [CI run passed](https://github.com/zeko-labs/zeko/actions/runs/40560236657). It includes the Ethereum settlement, ERC-20 bridge and recovery changes added since v1.0.5, plus Apache-2.0 licensing and the audit documentation. The [release comparison](https://github.com/zeko-labs/zeko/compare/v1.0.5...49fb253de86ce9188bcd289a8d5bb09e04164084) records those changes. The AAIF examples have separate [local test results](https://github.com/zeko-labs/aaif/blob/main/evidence/README.md).
+For this contribution, we pin the newer `compatible` source commit [`49fb253de86ce9188bcd289a8d5bb09e04164084`](https://github.com/zeko-labs/zeko/commit/49fb253de86ce9188bcd289a8d5bb09e04164084), whose [CI run passed](https://github.com/zeko-labs/zeko/actions/runs/40560236657). It includes the Ethereum settlement, ERC-20 bridge and recovery changes added since v1.0.5, plus Apache-2.0 licensing and the audit documentation. The [release comparison](https://github.com/zeko-labs/zeko/compare/v1.0.5...49fb253de86ce9188bcd289a8d5bb09e04164084) records those changes. The AAIF reference integrations have separate [local test results](https://github.com/zeko-labs/aaif/blob/main/evidence/README.md).
 
 ## Public-Facing Contribution Process for Specifications
 

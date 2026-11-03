@@ -85,7 +85,7 @@ npm run ecosystem:proofs -- --report .cache/ecosystem/full-suite.json
 
 The [runbook](ecosystem/RUNBOOK.md) covers prerequisites, local networking, cleanup and report interpretation.
 
-## Verify the guarantees
+## Run the compatibility checks
 
 | Command | Checks |
 | --- | --- |
@@ -94,6 +94,8 @@ The [runbook](ecosystem/RUNBOOK.md) covers prerequisites, local networking, clea
 | `npm run tck:proofs` | Invalid proofs, wrong keys/domains, concurrency, replay and independent verification |
 
 The [published evidence](evidence/README.md) records 21 unit/integration tests, 30 compatibility cases and 62 checks across ten proof-backed reference integrations for AAIF projects. Reports identify source digests, component versions and acceptance scope.
+
+The compatibility profiles are not an AAIF certification. AAIF Sandbox status is not an endorsement.
 
 ## Deploy a sovereign rollup
 
@@ -112,5 +114,3 @@ The prediction market demonstrates zkTLS; extracting a reusable adapter is the n
 ## Contribute
 
 Submit fixes, test vectors and independent reproductions through the [contribution process](CONTRIBUTING.md). The [project roadmap](project-plan.md) covers recovery, core-backed acceptance and stewardship. [Maintainers, contributors and contact](MAINTAINERS.md) identify the people responsible for the work. Our [public-good commitment](PUBLIC_GOOD.md) and [working-group relevance](working-groups.md) explain the mission and technical contribution.
-
-The compatibility profiles are not an AAIF certification. AAIF Sandbox status is not an endorsement.
