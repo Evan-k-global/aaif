@@ -2,6 +2,13 @@
 
 We deliver open infrastructure for AI freedom, sovereignty and privacy. This record documents completed engineering work and measured results.
 
+## 3 November 2026
+
+- Rechecked all 27 fields against the current official form, process and Sandbox policy.
+- Updated the selected core commit to `49fb253de86ce9188bcd289a8d5bb09e04164084`, with successful upstream CI and canonical audit-folder links.
+- Reran all 21 unit/integration tests and 30 identity/shared-state profile cases successfully; [fresh evidence](evidence/submission-validation-2026-11-03.md) records the result.
+- Refreshed the short Sandbox thesis and made application links absolute for issue-form copying.
+
 ## 26 October 2026
 
 We published a review package for Zeko's proposed AAIF Sandbox contribution: an open-source agentic rollup protocol for verifiable shared state across agent applications.
