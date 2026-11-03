@@ -1,6 +1,6 @@
-# Run the AAIF ecosystem examples locally
+# Run the Zeko reference integrations for AAIF projects
 
-Open participation requires reproducible software. These commands run our AAIF ecosystem examples with local fixtures and synthetic credentials, giving developers direct access to the code and verification results.
+Open participation requires reproducible software. These commands run Zeko's reference integrations for AAIF projects with local fixtures and synthetic credentials, giving developers direct access to the code and verification results.
 
 ## Prerequisites and setup
 

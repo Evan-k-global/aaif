@@ -1,6 +1,6 @@
 # Runnable AAIF integration sandbox
 
-We built this working integration to connect human-approved authority with verifiable application state. It runs AMBA OAuth, ID-JAG, an MCP tool and real proofs locally, with synthetic credentials. Open reproduction gives developers direct access to the implementation and its evidence.
+This integration connects human-approved authority with verifiable application state through AMBA OAuth, ID-JAG, an MCP tool and real o1js proofs. The [compatibility matrix](../compatibility.md) defines its tested scope.
 
 ## Run
 
@@ -32,25 +32,17 @@ The proof run compiles a small real o1js circuit and verifies its proofs. The fi
 
 Canonical AMBA dependency: `4b5bb5c6915c7ee17e716ab2320e50d985dfc0d5`, Apache-2.0. MCP SDK: 1.26.0. jose: 6.1.3. o1js: 2.13.0. See the lockfile and upstream license notices.
 
-## Evidence boundaries
+## Verification contract
 
-The identity provider automatically signs in a synthetic user for testing. It is a local protocol fixture, not an Okta/Auth0/Entra production tenant. The resource-AS and MCP roles use distinct issuer identities and keys but run within the same local test process.
+The resource-AS and MCP roles use distinct issuer identities and keys within one test process. The circuit proves reservation arithmetic and version advancement and binds public domain/action commitments. AMBA authorization is checked separately by the gateway. Reservation fields are public.
 
-The state authority is a local serialized application model. It is not a Zeko core sequencer, live sovereign rollup, deployed zkApp, durable replicated database or Ethereum settlement deployment. The proof circuit proves reservation arithmetic and version advancement and binds public domain/action commitments. AMBA authorization is checked separately by the gateway, not proved inside this small circuit. The circuit's fields are public; this example does not demonstrate private reservation amounts.
-
-External effects are a sandbox counter; an unknown-outcome case injects an interrupted response and prevents automatic re-dispatch. It does not prove remote merchant fulfillment or distributed atomicity. Proof validity alone does not select canonical state; the local single-writer authority supplies that rule here.
-
-These labels let reviewers reproduce the intended integration boundary while seeing exactly which properties require a real rollup/operator deployment later. TCK success applies to these selected profiles and test cases, not all AAIF protocols or an AAIF certification.
+Accepted actions increment a protected-effect counter. An unknown-outcome case injects an interrupted response and prevents automatic re-dispatch. The state service serializes acceptance; the proof establishes the transition statement. The [architecture guide](../ecosystem/DEVELOPMENT.md) describes this contract in detail.
 
 ## Remaining extensions
 
 - Reuse the client/discovery interfaces with a commercial ID-JAG-capable IdP and resource AS.
 - Replace local state acceptance with a pinned Zeko application and core sequencer, including DA/recovery behavior.
 - Add an Ethereum-verified state-acceptance profile using the sovereign-rollup runbook's real-verification configuration.
-- Reuse the [ecosystem examples](../ecosystem/README.md) for actual native goose/gateway and A2A integration, then obtain outside reproduction or an independently implemented MCP client; the two clients in this sandbox use the same official MCP SDK.
+- Reuse the [reference integrations](../ecosystem/README.md) for actual native goose/gateway and A2A integration, then obtain outside reproduction or an independently implemented MCP client; the two clients in this sandbox use the same official MCP SDK.
 
-Local sandbox work is complete without those accounts or funded deployments. Production validation and broader compatibility remain distinct follow-on work.
-
-## Development roadmap
-
-Our next recovery milestone is durable local acceptance across restarts, with recorded action IDs, quota, versions and pending-effect outcomes. We will test crash points around acceptance and dispatch, preserving unknown outcomes for reconciliation. This remains a local authority profile; core sequencer/DA acceptance is the following deployment boundary. The [integration architecture](../ecosystem/DEVELOPMENT.md) describes the shared contract.
+The [project roadmap](../project-plan.md#engineering-milestones) covers recovery, core-backed acceptance and broader identity interoperability.

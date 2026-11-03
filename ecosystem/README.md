@@ -1,6 +1,6 @@
-# AAIF ecosystem: local demos with verifiable shared state
+# Zeko reference integrations for AAIF projects
 
-**Open interoperability and human control drive these integrations.** We built ten project examples connecting the [AAIF suite](https://aaif.io/projects) to bounded authority and verifiable shared state. They record resource consumption and accepted commitments across clients, services and execution environments.
+**Open interoperability and human control drive these integrations.** We built ten Zeko reference integrations connecting the [AAIF suite](https://aaif.io/projects) to bounded authority and verifiable shared state. They record resource consumption and accepted commitments across clients, services and execution environments.
 
 The suite runs locally without a hosted model, commercial identity provider, wallet, funded transaction, deployed rollup or remote container cluster. Setup downloads pinned open-source dependencies. Host APIs bind to loopback; OpenSandbox uses a local Docker worker with deny-by-default egress and a synthetic local canary. The full native reference run is supported on **macOS arm64, Node.js 24, Python 3.12+ and a running local Docker daemon** (tested with OrbStack).
 

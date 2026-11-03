@@ -10,7 +10,7 @@ Core protocol and application source remain in their canonical repositories. Thi
 
 ## Reproduce and validate
 
-The [runbook](ecosystem/RUNBOOK.md) covers setup and local execution. Each [ecosystem folder](ecosystem/README.md) describes its implementation, Zeko integration, measured scope and development roadmap. The [architecture guide](ecosystem/DEVELOPMENT.md) explains shared interfaces and proof/acceptance semantics.
+The [runbook](ecosystem/RUNBOOK.md) covers setup and local execution. Each [reference integration guide](ecosystem/README.md) describes its implementation, Zeko integration, measured scope and development roadmap. The [architecture guide](ecosystem/DEVELOPMENT.md) explains shared interfaces and proof/acceptance semantics.
 
 Implementation changes include success and failure cases. Project/profile results and source digests identify the tested code. Local results, deployed-system evidence and planned extensions have distinct labels. Reports exclude credentials, private keys and personal data.
 

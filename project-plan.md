@@ -20,11 +20,11 @@ The formal contribution schedule will identify the included code and assets. Sup
 
 ## Working implementation
 
-Our reference scenario connects existing enterprise identity to a bounded task: ID-JAG establishes resource access, AMBA constrains the action, an MCP tool requests a reservation and a real application proof verifies the transition statement. Competing requests, changed inputs, wrong contexts and replay are rejected at the corresponding boundary.
+Our reference scenario connects enterprise identity to a bounded task: [ID-JAG](integrations/id-jag/README.md) establishes resource access, AMBA constrains the action, an MCP tool requests a reservation and a real application proof verifies the transition statement. The runnable path uses AMBA's OAuth and holder checks, signed grants, HTTPS discovery and the official MCP SDK. Competing requests, changed inputs, wrong contexts and replay are rejected at the corresponding boundary.
 
-The current local evidence records **21 unit/integration tests, 30 compatibility cases and ten ecosystem demos with 62 checks**. Native goose, agentgateway and Agent Router/Envoy, official MCP/A2A SDKs, actual OpenSandbox Docker execution, OpenEnv types, Open Responses schemas and instruction-format examples have individually documented evidence levels. See the [evidence record](evidence/README.md).
+The current local evidence records **21 unit/integration tests, 30 compatibility cases and ten reference integrations with 62 checks**. Native goose, agentgateway and Agent Router/Envoy, official MCP/A2A SDKs, actual OpenSandbox Docker execution, OpenEnv types, Open Responses schemas and instruction-format examples have individually documented evidence levels. The [TCK](tck/README.md) defines the profiles; the [evidence record](evidence/README.md) records results, including separate-process receipt verification.
 
-The authority in these examples is a local single-writer application model. Core-rollup acceptance, commercial identity providers and Ethereum verification are separately measured deployment milestones.
+The [compatibility matrix](compatibility.md) defines the tested scope and deployment boundaries. The [integration architecture](ecosystem/DEVELOPMENT.md) specifies the shared action/receipt contract.
 
 ## Engineering milestones
 
@@ -46,7 +46,7 @@ Enterprises and agent swarms can operate their own rollups with control over key
 
 Application validity, rollup acceptance, external settlement and bridging are distinct stages. The published tutorial identifies mock and real Ethereum verifier profiles. Optional [Phala confidential hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) illustrates infrastructure modularity; hardware attestation and application proofs address different trust questions.
 
-## Ecosystem collaboration
+## AAIF collaboration
 
 Our closest working-group connections are [Security & Privacy, Identity & Trust and Agentic Commerce](working-groups.md). The core contribution concerns shared state; SantaClawz/AMBA and x402-Zeko/Magic City make identity, delegation, work and commerce examples concrete. zkTLS external-data evidence is a further primitive, demonstrated in the prediction-market implementation, with reusable extraction and verifier hardening on its roadmap.
 
