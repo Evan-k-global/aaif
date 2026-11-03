@@ -10,7 +10,7 @@ Submission package reviewed 3 November 2026:
 | [Sandbox thesis](proposal.md) | Intended users, importance before adoption and Growth criteria |
 | [Core candidate](evidence/core-candidate-2026-11-03.md) | Selected commit, successful CI and canonical audit references |
 | [Local validation](evidence/submission-validation-2026-11-03.md) | Fresh identity and real-proof test results, with deployment scope |
-| [Ecosystem examples](ecosystem/README.md) | Ten project-specific local examples and integration guides |
+| [Reference integrations](ecosystem/README.md) | Ten project-specific local examples and integration guides |
 | [Roadmap](project-plan.md) | Core-backed integration and contributor goals |
 
 ## File the proposal

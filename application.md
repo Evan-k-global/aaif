@@ -96,7 +96,7 @@ https://github.com/zeko-labs/zeko/issues
 
 Zeko is a fork of the Mina codebase. Its [LICENSING.md](https://github.com/zeko-labs/zeko/blob/compatible/LICENSING.md) applies Apache-2.0 to Zeko-authored and repository-maintained code while preserving upstream and third-party notices. Cryptographic components include Pickles/Kimchi and o1js (Apache-2.0), and Snarky (MIT). The Ethereum settlement integration uses SP1 (MIT/Apache-2.0) and OpenZeppelin contracts (MIT), with component scope described in its [licensing documentation](https://github.com/zeko-labs/ethereum-settlement#licensing). Exact dependencies are recorded in the core [OPAM export](https://github.com/zeko-labs/zeko/blob/compatible/opam.export), [submodules](https://github.com/zeko-labs/zeko/blob/compatible/.gitmodules) and Ethereum [Cargo workspace](https://github.com/zeko-labs/ethereum-settlement/blob/main/Cargo.toml).
 
-Dependencies for the supporting local examples are listed separately in the [ecosystem dependency record](https://github.com/zeko-labs/aaif/blob/main/ecosystem/DEPENDENCIES.md).
+Dependencies for the supporting local examples are listed separately in the [reference integration dependencies](https://github.com/zeko-labs/aaif/blob/main/ecosystem/DEPENDENCIES.md).
 
 ## Maintainers & Contributors
 
@@ -105,7 +105,7 @@ The maintainers identified by Zeko Labs are:
 - **Zeko Labs — [zekoxyz](https://github.com/zekoxyz)**: team maintainer account.
 - **Martin Ondejka, Zeko Labs — [MartinOndejka](https://github.com/MartinOndejka)**: core rollup maintainer. Recent contributions include [durable Ethereum settlement recovery](https://github.com/zeko-labs/zeko/commit/7acd9a9b23d11282517381e04c15690c5198cbea) and [serialization behind settlement finality](https://github.com/zeko-labs/zeko/commit/67a453c25d8606ddc55f6e0e0f3e2eb531ac2c2b).
 
-The [roster](https://github.com/zeko-labs/aaif/blob/main/MAINTAINERS.md) lists the maintainers and application contact. Outside contributions are welcome through public issues and pull requests.
+Evan Kereiakes ([Evan-k-global](https://github.com/Evan-k-global)) contributed the AAIF reference integrations, compatibility tests and supporting documentation. The [roster](https://github.com/zeko-labs/aaif/blob/main/MAINTAINERS.md) lists maintainers, repository contributors and the application contact. Outside contributions are welcome through public issues and pull requests.
 
 ## Leadership Team & Decision Process
 

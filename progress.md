@@ -1,25 +1,13 @@
 # Engineering progress
 
-We deliver open infrastructure for AI freedom, sovereignty and privacy. This record documents completed engineering work and measured results.
-
 ## 3 November 2026
 
-- Rechecked all 27 fields against the current official form, process and Sandbox policy.
-- Updated the selected core commit to `49fb253de86ce9188bcd289a8d5bb09e04164084`, with successful upstream CI and canonical audit-folder links.
-- Reran all 21 unit/integration tests and 30 identity/shared-state profile cases successfully; [fresh evidence](evidence/submission-validation-2026-11-03.md) records the result.
-- Refreshed the short Sandbox thesis and made application links absolute for issue-form copying.
+- Rechecked all 27 application fields against the official form and Sandbox policy.
+- Recorded the current core revision, passing upstream CI and canonical audits in the [core candidate record](evidence/core-candidate-2026-11-03.md).
+- Reran 21 unit/integration tests and 30 identity/shared-state cases successfully; see the [validation record](evidence/submission-validation-2026-11-03.md).
 
 ## 26 October 2026
 
-We published a review package for Zeko's proposed AAIF Sandbox contribution: an open-source agentic rollup protocol for verifiable shared state across agent applications.
-
-- Built an HTTPS identity/MCP reference integration using canonical AMBA OAuth, ID-JAG exchanges, signed holder-bound actions and real o1js application proofs.
-- Recorded 17 identity-profile and 13 shared-state cases, plus 21 unit/integration tests. Cases cover concurrency, replay, changed inputs, incorrect context, invalid proofs and independent receipt verification.
-- Added dedicated examples for all ten hosted AAIF projects. The real-proof suite passes 62 checks, with native, SDK, schema and instruction-format evidence identified separately.
-- Ran actual OpenSandbox SDK/server/execd Docker execution with pinned images, worker limits, deny-by-default egress, a synthetic local canary, result-commitment checks and cleanup.
-- Published project-specific Zeko integration explanations, reproduction commands, measured scope and development roadmaps, plus the shared architecture and compatibility matrix.
-- Recorded the core candidate [`28223900e4`](https://github.com/zeko-labs/zeko/commit/28223900e4fbb69d04025b5ca8b9a044d493e6ed) and its [passing core CI](https://github.com/zeko-labs/zeko/actions/runs/40358110682), separately from local integration evidence.
-
-Our [evidence index](evidence/README.md) contains source-digested results and exact scope. These local runs use synthetic identity/model fixtures and a local application authority; they do not represent a deployed core rollup or Ethereum settlement run.
-
-The [application](application.md) is a review draft. Our next engineering priorities are independent reproduction, recovery/reconciliation and a core-backed acceptance adapter. See the [roadmap](project-plan.md).
+- Built the AMBA OAuth, ID-JAG and MCP reference integration with real o1js reservation proofs.
+- Passed 62 checks across ten reference integrations for AAIF projects, including actual OpenSandbox Docker execution and denied egress; see the [evidence index](evidence/README.md).
+- Published project-specific code, reproduction commands and integration guides. Future work is consolidated in the [project roadmap](project-plan.md).

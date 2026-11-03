@@ -6,7 +6,7 @@ Human control, sovereignty and privacy drive our working-group contributions. Ze
 
 A proof-backed resource reservation raises several separate questions: is the transition valid, has the authoritative state accepted it, and what must an external service check before acting? Our core rollup and [local MCP/AMBA scenario](sandbox/README.md) provide concrete material for examining those boundaries.
 
-The example includes replay, changed inputs, conflicting resource consumption and wrong-context/proof cases. Its local authority and public proof fields are explicit, while core sequencing, data availability, recovery and deployment-specific privacy remain separate concerns. Our [audit references](https://github.com/zeko-labs/zeko/tree/compatible/audits) describe the core's independent zkSecurity assessments; the new integration has its own [test evidence](evidence/README.md).
+The example includes replay, changed inputs, conflicting resource consumption and wrong-context/proof cases. The [compatibility matrix](compatibility.md) records the tested scope; public proof fields and the acceptance-before-effects contract provide concrete threat-model inputs. Our [audit references](https://github.com/zeko-labs/zeko/tree/compatible/audits) describe the core's independent zkSecurity assessments; the new integration has its own [test evidence](evidence/README.md).
 
 We are interested in reusable threat-model and design-pattern work around acceptance before effects, reconciliation after interruptions and privacy across service boundaries.
 
@@ -26,6 +26,6 @@ An interrupted request is a useful example: work may have occurred even though t
 
 ## Broader connections
 
-The [ten-project ecosystem suite](ecosystem/README.md) also touches workflow integration, observability, reliability and governance through explicit action/receipt contracts and reproducible failure cases. Taxonomy & Landscape is relevant to describing these roles consistently across working groups. zkTLS external-data evidence is a supporting primitive, demonstrated by the prediction-market implementation and a partner-motivated verification PoC.
+The [Zeko reference integrations for ten AAIF projects](ecosystem/README.md) also touches workflow integration, observability, reliability and governance through explicit action/receipt contracts and reproducible failure cases. Taxonomy & Landscape is relevant to describing these roles consistently across working groups. zkTLS external-data evidence is a supporting primitive, demonstrated by the prediction-market implementation and a partner-motivated verification PoC.
 
 Our [application](application.md) and [Sandbox thesis](proposal.md) provide the common contribution context. We welcome focused technical feedback through [pull requests](https://github.com/zeko-labs/aaif/pulls).

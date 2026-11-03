@@ -1,6 +1,6 @@
 # Local example dependencies
 
-The ecosystem examples share the local MCP/AMBA sandbox and use the dependencies below. This record covers the supporting examples; core Zeko and its Ethereum integration maintain their dependency definitions in their own repositories.
+The reference integrations share the local MCP/AMBA sandbox and use the dependencies below. This record covers the supporting examples; core Zeko and its Ethereum integration maintain their dependency definitions in their own repositories.
 
 ## Node.js dependencies
 
@@ -19,6 +19,6 @@ Direct dependencies are pinned in [package.json](../package.json) and [package-l
 
 ## Native, Python and container components
 
-Component versions and checksums are recorded in the [ecosystem pins](versions.json), [binary manifest](binaries.json), [Python lock](requirements.lock) and [OpenSandbox image pins](opensandbox/images.json).
+Component versions and checksums are recorded in the [integration pins](versions.json), [binary manifest](binaries.json), [Python lock](requirements.lock) and [OpenSandbox image pins](opensandbox/images.json).
 
 Direct license attributions are in [NOTICE](../NOTICE). Dependencies retain their upstream license and notice files. This record is not a complete transitive license inventory.

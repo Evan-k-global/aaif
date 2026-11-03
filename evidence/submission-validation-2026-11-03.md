@@ -10,7 +10,7 @@ The compatibility source digest remains `9680ac8469e8bd3265a79161e4e516ba688a13f
 
 ## Evidence retained from earlier runs
 
-The [ten-project ecosystem report](ecosystem-run-2026-10-26.json) records the 26 October run: ten local examples and 62 checks passed. The full native/Docker ecosystem suite was not rerun for this submission refresh. Its source digest and implementation scope remain recorded in that report.
+The [ten-project reference-integration report](ecosystem-run-2026-10-26.json) records the 26 October run: ten local examples and 62 checks passed. The full native/Docker reference-integration suite was not rerun for this submission refresh. Its source digest and implementation scope remain recorded in that report.
 
 ## Current core
 

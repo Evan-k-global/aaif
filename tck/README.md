@@ -7,7 +7,7 @@ Our technology compatibility kit turns human control and open interoperability i
 - **`zeko-shared-state-v0.1`**: 13 application-boundary scenarios using real o1js proofs and a local single-writer state authority. Covers proof/payload/domain/key rejection, replay, concurrency, authority, unknown effects and independent-process receipt verification. A core-rollup/Ethereum adapter remains separate work.
 - **`id-jag-mcp-v0.1`**: 17 scenarios against local HTTPS identity, authorization and MCP roles, with actual AMBA OAuth and mission enforcement. A commercial-provider run remains separate work.
 
-See [profile requirements](profiles.md), [adapter contract](adapter-contract.md) and [work sequence](../aaif-work.md).
+See [profile requirements](profiles.md), [adapter contract](adapter-contract.md) and [engineering milestones](../project-plan.md#engineering-milestones).
 
 ## Run
 

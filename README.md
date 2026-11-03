@@ -4,7 +4,18 @@
 
 AI agents work across applications, businesses and the open internet. Coordinating that work requires shared rules for permissions, resources, payments and accepted results. Zeko gives developers a common foundation for those rules: application state that independent participants verify with cryptographic proofs. Personal agents, enterprises and agent swarms retain their choice of models, services and infrastructure. For the AI industry, Zeko is an open coordination layer that connects independent systems and keeps control with the people who use them.
 
-We deployed Zeko on Mina mainnet and Ethereum testnet. zkSecurity audited core components. This repository contains working AAIF integrations, compatibility tests and reproducible evidence. The rollup implementation lives in [Zeko core](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko).
+## AAIF Sandbox contribution
+
+We propose core Zeko and its Ethereum settlement integration for AAIF Sandbox. Zeko has deployed on Mina mainnet and Ethereum testnet. Review the [application](application.md) and [short thesis](proposal.md).
+
+This repository provides AAIF compatibility examples, tests and reproducible evidence for Zeko's open-source agentic rollup protocol. The protocol implementation and Ethereum settlement integration remain in their canonical repositories.
+
+- **Core protocol:** [Rollup implementation](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko).
+- **Ethereum:** [Settlement integration](https://github.com/zeko-labs/ethereum-settlement).
+- **Audits:** [Canonical zkSecurity reports and scope](https://github.com/zeko-labs/zeko/tree/compatible/audits).
+- **Revision and CI:** [Selected core candidate and passing build](evidence/core-candidate-2026-11-03.md).
+
+The reference integrations use local identity and state services with real application proofs; deployed core acceptance and Ethereum settlement are separate integration milestones. The [compatibility matrix](compatibility.md) defines tested scope. These profiles are not an AAIF certification; AAIF Sandbox status is not an endorsement.
 
 ## Run an authorized agent action
 
@@ -42,9 +53,9 @@ The request path is **SSO → ID-JAG resource access → MCP tool → AMBA actio
 | Bounded authority | [AMBA integration](sandbox/amba-gate.mjs) | Mission approval, holder binding and action checks |
 | Accepted state | [State service](sandbox/server.mjs) | Serialize reservations, enforce quota and gate effects |
 | Verifiable transition | [Proof program](sandbox/proof.mjs) | Prove reservation arithmetic and bind domain/action commitments |
-| Agent interfaces | [Ecosystem adapters](ecosystem/README.md) | Connect clients, gateways, messages, workers and instruction formats |
+| Agent interfaces | [Reference integrations](ecosystem/README.md) | Connect clients, gateways, messages, workers and instruction formats |
 
-The examples use a local serialized state authority and synthetic identity/model fixtures. Their proofs cover public reservation statements. Connecting this interface to a core Zeko sequencer/DA deployment and Ethereum verification is the next backend milestone. The [architecture guide](ecosystem/DEVELOPMENT.md) explains the action/receipt contract and acceptance stages.
+The [architecture guide](ecosystem/DEVELOPMENT.md) explains the action/receipt contract and acceptance stages.
 
 ## Choose an AAIF integration
 
@@ -82,13 +93,11 @@ The [runbook](ecosystem/RUNBOOK.md) covers prerequisites, local networking, clea
 | `npm run tck:idjag` | Signed grants, tenant/client/resource context and denied access |
 | `npm run tck:proofs` | Invalid proofs, wrong keys/domains, concurrency, replay and independent verification |
 
-The [published evidence](evidence/README.md) records 21 unit/integration tests, 30 compatibility cases and 62 checks across ten proof-backed ecosystem examples. Reports identify source digests, component versions and acceptance scope. The [compatibility matrix](compatibility.md) separates tested interfaces from deployment milestones.
+The [published evidence](evidence/README.md) records 21 unit/integration tests, 30 compatibility cases and 62 checks across ten proof-backed reference integrations for AAIF projects. Reports identify source digests, component versions and acceptance scope.
 
 ## Deploy a sovereign rollup
 
 The [Ethereum Sepolia deployment guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) launches an operator-owned stack with its own keys, genesis, contracts and bridge/explorer tooling. The guide distinguishes its default mock Ethereum verifier from real-verification configuration. [Phala hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) adds an optional confidential-computing deployment path.
-
-The [core audit index](https://github.com/zeko-labs/zeko/tree/compatible/audits) links zkSecurity's assessments and component scope. The [core candidate record](evidence/core-candidate-2026-11-03.md) identifies the selected revision and passing upstream build.
 
 ## Application and primitive references
 
@@ -102,8 +111,4 @@ The prediction market demonstrates zkTLS; extracting a reusable adapter is the n
 
 ## Contribute
 
-Submit fixes, test vectors and independent reproductions through the [contribution process](CONTRIBUTING.md). The [project roadmap](project-plan.md) covers recovery, core-backed acceptance and stewardship. [Maintainers and contact](MAINTAINERS.md) identify the team responsible for the work.
-
-## AAIF proposal
-
-We propose core Zeko for the AAIF Sandbox stage. Review the [full application](application.md) and [short thesis](proposal.md). The application contains all current form answers, reviewed on 3 November 2026. AAIF Sandbox status is not an endorsement. Our [public-good commitment](PUBLIC_GOOD.md) and [working-group relevance](working-groups.md) explain the mission and ecosystem contribution.
+Submit fixes, test vectors and independent reproductions through the [contribution process](CONTRIBUTING.md). The [project roadmap](project-plan.md) covers recovery, core-backed acceptance and stewardship. [Maintainers, contributors and contact](MAINTAINERS.md) identify the people responsible for the work. Our [public-good commitment](PUBLIC_GOOD.md) and [working-group relevance](working-groups.md) explain the mission and technical contribution.
