@@ -14,9 +14,9 @@ Zeko
 
 Zeko is an open-source agentic rollup protocol for verifiable shared state across agent applications. We built it so people, agents and organizations can control their AI infrastructure, application rules and delegated authority while remaining interoperable with other agents and services on the open internet. Zeko provides instant transaction confirmation at the rollup level, so concurrent agents coordinate against newly accepted state without waiting for Ethereum settlement. Applications use that state for resource reservations, budgets, work commitments and conditional payments.
 
-Developers define application rules and permissions, and cryptographic proofs verify the specified state transitions. Sequencing and recursive proof aggregation let participants verify computation without re-executing every operation. Applications choose what information to disclose and who has access; zero-knowledge proofs verify statements without revealing private proof inputs. Core Zeko components have undergone two independent zkSecurity assessments, documented in the [core audit index](https://github.com/zeko-labs/zeko/tree/compatible/audits).
+Developers define application rules and permissions, and cryptographic proofs verify the specified state transitions. Sequencing and recursive proof aggregation let participants verify computation without re-executing every operation. Applications choose what information to disclose and who has access; zero-knowledge proofs verify statements without revealing private proof inputs. Core Zeko components have undergone two separate zkSecurity assessments, documented in the [core audit index](https://github.com/zeko-labs/zeko/tree/compatible/audits).
 
-Enterprises and agent swarms run sovereign rollups with their own keys, configuration and policies, choosing the hosting, identity and confidential-computing integrations their applications need. Ethereum is our primary blockchain compatibility, settlement and bridging layer. Zeko originated in Mina and inherited its cryptography and ZK smart contracts. It deployed on Mina mainnet and expanded native settlement options by developing a separate Ethereum settlement architecture with o1Labs and SP1, and deploying Zeko on Ethereum testnet. The [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) provides the stack for operators to launch their own Ethereum-connected rollup; [Phala confidential hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) is one optional deployment example.
+Enterprises and agent swarms run sovereign rollups with their own keys, configuration and policies, choosing the hosting, identity and confidential-computing integrations their applications need. Ethereum is our primary blockchain compatibility, settlement and bridging layer. Zeko originated in Mina and inherited its cryptography and ZK smart contracts. It deployed on Mina mainnet and expanded native settlement options by developing a separate Ethereum settlement architecture with o1Labs and SP1, and deploying Zeko on Ethereum testnet. The [independent Sepolia guide](https://docs.zeko.io/operators/guides/launch-sepolia-rollup) provides the stack for operators to launch their own Ethereum-connected rollup. Its default demo profile uses a mock Ethereum verifier; the guide separately documents real SP1 verification configuration. [Phala confidential hosting](https://docs.zeko.io/operators/guides/rollup-on-phala) is one optional deployment example.
 
 Our proposed AAIF Sandbox contribution is [core Zeko](https://github.com/zeko-labs/zeko/tree/compatible/src/app/zeko), with its [Ethereum settlement integration](https://github.com/zeko-labs/ethereum-settlement). The [AAIF integration repository](https://github.com/zeko-labs/aaif) provides local compatibility examples. Supporting applications remain in their own repositories.
 
@@ -78,6 +78,8 @@ Apache-2.0
 
 Zeko Labs maintains the project. Core maintainers [zekoxyz](https://github.com/zekoxyz) and [Martin Ondejka](https://github.com/MartinOndejka) review contributions through public pull requests.
 
+Zeko Labs agrees to adopt the Linux Foundation technical charter as part of AAIF admission.
+
 ## CI/CD & Release Workflow
 
 The core's [GitHub Actions workflow](https://github.com/zeko-labs/zeko/blob/compatible/.github/workflows/ci.yaml) builds the sequencer, data-availability layer and signer, and runs sequencer tests. Container build automation is also included.
@@ -123,7 +125,7 @@ Sandbox priorities are a core-backed integration, independent reproduction and c
 
 ## Security
 
-zkSecurity independently audited core Zeko components in two assessments: [circuits and bridge rules in 2025](https://reports.zksecurity.xyz/reports/zeko/), and [circuit changes, sequencer, DA and deployment in 2026](https://reports.zksecurity.xyz/reports/zeko-2/). The [core audit index](https://github.com/zeko-labs/zeko/tree/compatible/audits) links the reviewed scope and finding responses.
+zkSecurity audited core Zeko components in two separate assessments: [circuits and bridge rules in 2025](https://reports.zksecurity.xyz/reports/zeko/), and [circuit changes, sequencer/prover pipeline, DA, deployment and recovery in 2026](https://reports.zksecurity.xyz/reports/zeko-2/). The [core audit index](https://github.com/zeko-labs/zeko/tree/compatible/audits) links the reviewed scope and finding responses.
 
 These audits cover core protocol components. Supporting applications and demos are outside their scope.
 

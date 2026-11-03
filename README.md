@@ -106,4 +106,4 @@ Submit fixes, test vectors and independent reproductions through the [contributi
 
 ## AAIF proposal
 
-We propose core Zeko for the AAIF Sandbox stage. Review the [full application](application.md) and [short thesis](proposal.md). The application contains all current form answers, reviewed on 3 November 2026. Our [public-good commitment](PUBLIC_GOOD.md) and [working-group relevance](working-groups.md) explain the mission and ecosystem contribution.
+We propose core Zeko for the AAIF Sandbox stage. Review the [full application](application.md) and [short thesis](proposal.md). The application contains all current form answers, reviewed on 3 November 2026. AAIF Sandbox status is not an endorsement. Our [public-good commitment](PUBLIC_GOOD.md) and [working-group relevance](working-groups.md) explain the mission and ecosystem contribution.

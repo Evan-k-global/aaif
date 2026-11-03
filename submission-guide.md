@@ -15,7 +15,9 @@ Submission package reviewed 3 November 2026:
 
 ## File the proposal
 
-Open the [official Project Proposal form](https://github.com/aaif/project-proposals/issues/new?template=project-proposal.yml), use the title **[Project Proposal] Zeko**, select **Sandbox**, and copy the application answers into the matching fields. The form includes a required trademark/account-transfer checkbox. The application records Zeko Labs' agreement to that transfer under the contribution agreement.
+Open the [official Project Proposal form](https://github.com/aaif/project-proposals/issues/new?template=project-proposal.yml), use the title **[Project Proposal] Zeko**, select **Sandbox**, and copy the text answers into the matching fields. For “Trademark and accounts,” check the required box; it is not a text field. The application's Governance Model answer records Zeko Labs' commitment to adopt the LF technical charter.
+
+Before filing, publish the refreshed supporting files to `main` and verify the application's links, including the new core-candidate record. The official AAIF issue is separate from this repository's review and publication workflow.
 
 The official record is an issue in `aaif/project-proposals`. Pull requests in this repository update supporting materials.
 
@@ -30,7 +32,7 @@ The [proposal process](https://github.com/aaif/technical-committee/blob/main/pro
 5. Following approval, the submitter has one week to sign the legal documents.
 6. Technical onboarding follows within four weeks of agreement execution.
 
-A TC sponsor does not have to be named in the initial application. The [lifecycle policy](https://github.com/aaif/technical-committee/blob/main/governance/project-lifecycle-policy.md) requires a working implementation, a permissive license, an active maintainer with contributor-growth intent, and a short Sandbox thesis. An importance-before-adoption case is permitted.
+A TC sponsor does not have to be named in the initial application. The [lifecycle policy](https://github.com/aaif/technical-committee/blob/main/governance/project-lifecycle-policy.md) requires a working implementation, a permissive license, an active maintainer with contributor-growth intent, and a short Sandbox thesis. Admission also requires project asset transfer, adoption of the LF technical charter, TC majority approval and Governing Board approval. An importance-before-adoption case is permitted.
 
 ## Technical discussion
 
